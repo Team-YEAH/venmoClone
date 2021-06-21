@@ -4,7 +4,7 @@ export default function StackImg(props){
 
     return(
         <div className="StackContainer">
-            if (orientation === "left")
+            if ({props.orientation} === "left")
             {<>
             <div>
                 <img src={props.imgUrl}/>

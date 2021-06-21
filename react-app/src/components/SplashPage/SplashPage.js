@@ -7,6 +7,6 @@ export default function SplashPage(){
 
 
     return(
-        <StackImg></StackImg>
+        <StackImg />
     )
 }
