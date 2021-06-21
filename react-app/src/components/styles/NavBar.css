@@ -1,0 +1,9 @@
+.navItems{
+    display: grid;
+    grid-template-columns: 85% 4% 7% 4%;
+    list-style-type: none;
+}
+
+.sideButtons{
+    font-size: 20px;
+}
