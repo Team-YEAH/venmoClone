@@ -14,6 +14,14 @@ class User(db.Model, UserMixin):
   profileImage = db.Column(db.String(256))
   balance = db.Column(db.Float(precision=10,decimal_return_scale=2, asdecimal=True), default=0)
 
+  Requester = db.relationship('Friend', backref='request', lazy='dynamic', foreign_keys='Friend.requester')
+  Accepter = db.relationship('Friend', backref='accept', lazy='dynamic', foreign_keys='Friend.accepter')
+  Sender = db.relationship('Transaction', backref='send', lazy='dynamic', foreign_keys='Transaction.sender')
+  Receiver = db.relationship('Transaction', backref='receive', lazy='dynamic', foreign_keys='Transaction.receiver')
+
+  Paymentdetails = db.relationship('PaymentDetail', backref='paymentdetails', lazy='dynamic', foreign_keys='PaymentDetail.user_id')
+  rel_comment = db.relationship('Comment', backref='comment', lazy='dynamic', foreign_keys='Comment.user_id')
+
 
   @property
   def password(self):
