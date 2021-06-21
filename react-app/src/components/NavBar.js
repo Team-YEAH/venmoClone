@@ -28,17 +28,17 @@ const NavBar = () => {
     sideButtons =
     <ul className="navItems">
         <li className="sideButtons">
-          <NavLink to="/" exact={true} activeClassName="active" className="button">
+          <NavLink to="/" exact={true} activeClassName="active" className="button1 button">
             Home
           </NavLink>
         </li>
         <li className="sideButtons">
-          <NavLink to="/login" exact={true} activeClassName="active" className="button">
+          <NavLink to="/login" exact={true} activeClassName="active" className="button2 button">
             Login
           </NavLink>
         </li>
         <li className="sideButtons">
-          <NavLink to="/sign-up" exact={true} activeClassName="active" className="button">
+          <NavLink to="/sign-up" exact={true} activeClassName="active" className="button2 button">
             Sign Up
           </NavLink>
         </li>

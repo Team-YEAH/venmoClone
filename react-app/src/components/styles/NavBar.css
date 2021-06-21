@@ -1,12 +1,27 @@
 .navItems{
     display: grid;
-    grid-template-columns: 85% 4% 7% 4%;
+    grid-template-columns: 85% 5% 7% 4%;
+    grid-template-rows: 10%;
+    /* display: flex; */
     list-style-type: none;
+    width: 100%;
+    /* justify-content: space-around; */
 }
+
+.button1{
+    margin-right: auto;
+}
+
+.button2{
+   margin-left:auto;
+   object-fit: contain;
+}
+
 
 .sideButtons{
     margin-top: 20px;
     font-size: 20px;
+
 }
 
 .navContainer{
@@ -17,7 +32,7 @@
 
 .button{
     background-color: aqua;
-    padding: 10px 20px;
+    padding: 3px 4px;
     border-radius: 25px;
     text-decoration: none;
     box-shadow: 10px 5px 5px teal;

@@ -3,9 +3,9 @@
     grid-template-areas:
     "left right";
     grid-template-columns: 1fr 1fr;
-    height: 800px;
+    height: 10%;
     /* border: 3px solid black; */
-    width: 2000px;
+    width: 85vw;
     margin-top: 50px;
     margin-bottom: 100px;
 }
@@ -29,7 +29,7 @@
 .img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 h1{
