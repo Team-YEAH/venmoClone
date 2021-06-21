@@ -1,0 +1,24 @@
+.navItems{
+    display: grid;
+    grid-template-columns: 85% 4% 7% 4%;
+    list-style-type: none;
+}
+
+.sideButtons{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.navContainer{
+    height: 70px;
+    background-color: whitesmoke;
+    margin-top: -15px;
+}
+
+.button{
+    background-color: aqua;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 10px 5px 5px teal;
+}
