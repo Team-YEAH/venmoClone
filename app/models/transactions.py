@@ -11,4 +11,4 @@ class Transaction(db.Model):
   sender = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
   receiver = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
 
-  rel_comment = db.relationship('Comment', backref='comment', lazy='dynamic', foreign_keys='Transaction.transactions_id')
+  rel_comment = db.relationship('Comment', backref='trans_comm', lazy='dynamic', foreign_keys='Comment.transactions_id')

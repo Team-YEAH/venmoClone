@@ -20,7 +20,7 @@ class User(db.Model, UserMixin):
   Receiver = db.relationship('Transaction', backref='receive', lazy='dynamic', foreign_keys='Transaction.receiver')
 
   Paymentdetails = db.relationship('PaymentDetail', backref='paymentdetails', lazy='dynamic', foreign_keys='PaymentDetail.user_id')
-  rel_comment = db.relationship('Comment', backref='comment', lazy='dynamic', foreign_keys='Comment.user_id')
+  rel_comment = db.relationship('Comment', backref='comm', lazy='dynamic', foreign_keys='Comment.user_id')
 
 
   @property
@@ -28,7 +28,7 @@ class User(db.Model, UserMixin):
     return self.hashed_password
 
 
-  @password.setter
+  @password.setterz
   def password(self, password):
     self.hashed_password = generate_password_hash(password)
 
