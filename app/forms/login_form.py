@@ -7,7 +7,7 @@ from app.models import User
 def user_exists(form, field):
     print("Checking if user exists", field.data)
     authenticate = field.data
-    user = User.query.filter(or_(User.email == authenticate, User.username == authenticate)).first()
+    user = User.query.filter((User.email == authenticate) | (User.username == authenticate)).first()
     if not user:
         raise ValidationError("Email/Username provided not found.")
 
@@ -15,8 +15,8 @@ def user_exists(form, field):
 def password_matches(form, field):
     print("Checking if password matches")
     password = field.data
-    authenticate = form.data['authentication']
-    user = User.query.filter(or_(User.email == authenticate, User.username == authenticate)).first()
+    authenticate = form.data['auth']
+    user = User.query.filter((User.email == authenticate) | (User.username == authenticate)).first()
     if not user:
         raise ValidationError("No such user exists.")
     if not user.check_password(password):
@@ -24,6 +24,6 @@ def password_matches(form, field):
 
 
 class LoginForm(FlaskForm):
-    authentication = StringField('authentication', validators=[DataRequired(), user_exists])
+    auth = StringField('auth', validators=[DataRequired(), user_exists])
     password = StringField('password', validators=[
                            DataRequired(), password_matches])

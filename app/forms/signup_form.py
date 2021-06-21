@@ -9,6 +9,7 @@ def user_exists(form, field):
     username = field.data
     user = User.query.filter(User.username == username).first()
     if user:
+        print('1')
         raise ValidationError("User is already registered.")
 
 def email_exists(form, field):
@@ -16,26 +17,35 @@ def email_exists(form, field):
     email = field.data
     user = User.query.filter(User.email == email).first()
     if user:
+        print('2')
         raise ValidationError("User is already registered.")
 
 def check_user_length(form, field):
+    print("checking now", field.data)
     username = field.data
     if len(username) < 3:
+        print('3')
         raise ValidationError("Username length is too short. Minimum of 3 characters.")
     elif len(username) > 50:
+        print('4')
         raise ValidationError("Username length is too long. Maximum of 50 characters.")
 
 def validate_email(form, field):
+    print("checking email exists", field.data)
     email = field.data
     if not bool(re.search(r"^[\w\.\+\-]+\@[\w]+\.[a-z]{2,3}$", email)):
+        print('5')
         raise ValidationError("Email is not a valid email. Please provide a correct email.")
 
 def check_phonenumber_length(form, field):
+    print("checking phone number length", field.data)
     phonenumber = field.data
-    if len(str(phonenumber)) < 11 or len(str(phonenumber)) > 11:
+    print(phonenumber)
+    if len(phonenumber) != 11 :
         raise ValidationError("Not a valid phone number. Phone number should be 11 digits.")
 
 def validate_profileimage(form, field):
+    print("checking profile image", field.data)
     regex = re.compile(
         r'^(?:http|ftp)s?://' # http:// or https://
         r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
@@ -45,6 +55,7 @@ def validate_profileimage(form, field):
         r'(?:/?|[/?]\S+)$', re.IGNORECASE)
     profileImage = field.data
     if not re.match(regex, profileImage) and profileImage:
+        print('7')
         raise ValidationError("Not a valid URL.")
 
 

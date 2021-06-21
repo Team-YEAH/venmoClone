@@ -7,19 +7,19 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
   const [errors, setErrors] = useState([]);
-  const [email, setEmail] = useState("");
+  const [auth, setAuth] = useState("");
   const [password, setPassword] = useState("");
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
+    const data = await dispatch(login(auth, password));
     if (data.errors) {
       setErrors(data.errors);
     }
   };
 
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
+  const updateAuth = (e) => {
+    setAuth(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -38,13 +38,13 @@ const LoginForm = () => {
         ))}
       </div>
       <div>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="auth">Email/Username</label>
         <input
-          name="email"
+          name="auth"
           type="text"
-          placeholder="Email"
-          value={email}
-          onChange={updateEmail}
+          placeholder="Email/Username"
+          value={auth}
+          onChange={updateAuth}
         />
       </div>
       <div>

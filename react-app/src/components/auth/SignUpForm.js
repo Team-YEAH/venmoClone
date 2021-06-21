@@ -9,12 +9,15 @@ const SignUpForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [full_name, setFullName] = useState("");
+  const [phonenumber, setPhoneNumber] = useState("");
+  const [profileImage, setProfileImage] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password, full_name, phonenumber, profileImage));
     }
   };
 
@@ -34,12 +37,33 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
+  const updateFullName = (e) => {
+    setFullName(e.target.value)
+  }
+
+  const updatePhoneNumber = (e) => {
+    setPhoneNumber(e.target.value)
+  }
+
+  const updateProfileImage = (e) => {
+    setProfileImage(e.target.value)
+  }
+
   if (user) {
     return <Redirect to="/" />;
   }
 
   return (
     <form onSubmit={onSignUp}>
+      <div>
+        <label>Full Name</label>
+        <input
+          type="text"
+          name="fullname"
+          onChange={updateFullName}
+          value={full_name}
+        ></input>
+      </div>
       <div>
         <label>User Name</label>
         <input
@@ -56,6 +80,24 @@ const SignUpForm = () => {
           name="email"
           onChange={updateEmail}
           value={email}
+        ></input>
+      </div>
+      <div>
+        <label>Phone Number</label>
+        <input
+          type="text"
+          name="phonenumber"
+          onChange={updatePhoneNumber}
+          value={phonenumber}
+        ></input>
+      </div>
+      <div>
+        <label>Profile Image</label>
+        <input
+          type="text"
+          name="profileImage"
+          onChange={updateProfileImage}
+          value={profileImage}
         ></input>
       </div>
       <div>
