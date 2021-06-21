@@ -1,33 +1,41 @@
-
+import React from "react";
+import  "./StackImg.css";
 
 export default function StackImg(props){
-
-    return(
+    const orient = props.orient;
+    let section;
+    if (orient === "left"){
+        section =
         <div className="StackContainer">
-            if ({props.orientation} === "left")
-            {<>
-            <div>
-                <img src={props.imgUrl}/>
+            <div className="class1">
+                <img className="img" src={props.imgUrl}/>
             </div>
 
-            <div>
+            <div className="class2">
+                <h1>{props.header}</h1>
                 <p>
-                   {props.text}
+                    {props.text}
                 </p>
             </div>
-            </>}
-            else
-            {<>
-            <div>
-                <p>
-                   {props.text}
-                </p>
-            </div>
-
-            <div>
-                <img src={props.imgUrl}/>
-            </div>
-            </>}
         </div>
+    } else {
+        section =
+        <div className="StackContainer">
+            <div className="class1">
+                <h1>{props.header}</h1>
+                <p>
+                    {props.text}
+                </p>
+            </div>
+
+            <div className="class2">
+                <img className="img" src={props.imgUrl}/>
+            </div>
+        </div>
+    }
+    return(
+        <>
+            {section}
+        </>
     )
 }

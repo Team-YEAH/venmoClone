@@ -2,23 +2,43 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import './styles/NavBar.css'
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
-  return (
-    <nav className="navContainer">
-      <ul className="navItems">
+  const user = useSelector(state => state.session.user)
+  let sideButtons;
+  if (user){
+    sideButtons =
+    <ul className="navItems">
+      <li className="sideButtons">
+        <NavLink to="/" exact={true} activeClassName="active">
+          Home
+        </NavLink>
+      </li>
+      {/* <li className="sideButtons">
+        <NavLink to="/users" exact={true} activeClassName="active">
+          Users
+        </NavLink>
+      </li> */}
+      <li className="sideButtons">
+        <LogoutButton />
+      </li>
+  </ul>
+  } else {
+    sideButtons =
+    <ul className="navItems">
         <li className="sideButtons">
-          <NavLink to="/" exact={true} activeClassName="active">
+          <NavLink to="/" exact={true} activeClassName="active" className="button">
             Home
           </NavLink>
         </li>
         <li className="sideButtons">
-          <NavLink to="/login" exact={true} activeClassName="active">
+          <NavLink to="/login" exact={true} activeClassName="active" className="button">
             Login
           </NavLink>
         </li>
         <li className="sideButtons">
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
+          <NavLink to="/sign-up" exact={true} activeClassName="active" className="button">
             Sign Up
           </NavLink>
         </li>
@@ -27,10 +47,11 @@ const NavBar = () => {
             Users
           </NavLink>
         </li> */}
-        <li className="sideButtons">
-          <LogoutButton />
-        </li>
       </ul>
+  }
+  return (
+    <nav className="navContainer">
+      {sideButtons}
     </nav>
   );
 }
