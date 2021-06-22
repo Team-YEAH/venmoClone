@@ -1,6 +1,6 @@
 from .db import db
 from sqlalchemy.schema import ForeignKey
-
+import datetime
 
 class Transaction(db.Model):
   __tablename__ = 'transactions'
@@ -10,5 +10,6 @@ class Transaction(db.Model):
   request = db.Column(db.Boolean, default=False)
   sender = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
   receiver = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
+  created_at=db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
   rel_comment = db.relationship('Comment', backref='trans_comm', lazy='dynamic', foreign_keys='Comment.transactions_id')
