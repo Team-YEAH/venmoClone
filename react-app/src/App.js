@@ -11,6 +11,7 @@ import { authenticate } from "./store/session";
 import SplashPage from "./components/SplashPage/SplashPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import ProfileSettings from "./components/ProfileSettings/ProfileSettings";
+import TransactionsPage  from "./components/TransactionsPage/TransactionsPage";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -46,6 +47,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/users" exact={true}>
           <UsersList/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/transactions' exact={true}>
+          <TransactionsPage />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />

@@ -1,0 +1,18 @@
+.div__outer__container{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.div__profile__container{
+
+}
+
+.div__transactions__container{
+    border: 1px solid;
+    min-width: 300px;
+    text-align: center;
+    width: 800px;
+    margin-left: 100px;
+}
