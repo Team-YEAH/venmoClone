@@ -5,27 +5,27 @@ const ADD_TRANSACTION = "transaction/ADD_USER"
 // action creators
 const addTransaction = (transaction) => ({
     type: ADD_TRANSACTION,
-    payload = transaction
+    payload: transaction
 })
 
 //thunks
 
 export const makePayment = (userName, amount) => async (dispatch) => {
-    const response = await fetch('/api/auth/login', {
-        method: 'POST',
+    const response = await fetch('/api/transaction/transaction-form', {
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            auth,
-            password
+            userName,
+            amount
         })
     });
     const data = await response.json();
     if (data.errors) {
         return data;
     }
-    dispatch(setUser(data))
+    dispatch(addTransaction(data))
     return {}
 }
 
