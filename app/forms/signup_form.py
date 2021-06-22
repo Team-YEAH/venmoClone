@@ -38,7 +38,7 @@ def validate_email(form, field):
         raise ValidationError("Email is not a valid email. Please provide a correct email.")
 
 def check_phonenumber_length(form, field):
-    print("checking phone number length", field.data)
+    print("checking phone number length", len(field.data))
     phonenumber = field.data
     print(phonenumber)
     if len(phonenumber) != 11 :
