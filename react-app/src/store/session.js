@@ -12,6 +12,7 @@ const removeUser = () => ({
     type: REMOVE_USER,
 })
 
+
 // thunks
 
 export const authenticate = () => async (dispatch) => {
@@ -80,7 +81,29 @@ export const signUp = (username, email, password, full_name, phonenumber, profil
     return {};
 }
 
-
+export const edit = payload => async (dispatch) => {
+    console.log(payload, 'payload')
+    const {id, username, email, full_name, phonenumber, profileImage} = payload
+    console.log(id)
+    const response = await fetch(`/api/users/edit/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            username,
+            email,
+            full_name,
+            phonenumber,
+            profileImage
+        }),
+    });
+    const data = await response.json();
+    if (data.errors) {
+        return data;
+    }
+    dispatch(setUser(data))
+}
 
 const initialState = {user: null}
 

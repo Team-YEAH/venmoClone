@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import { NavLink } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
+import { edit } from "../../store/session";
 
 const ProfileSettings = () => {
     const dispatch = useDispatch()
@@ -11,6 +12,12 @@ const ProfileSettings = () => {
     const [email, setEmail] = useState(user?.email)
     const [phonenumber, setPhoneNumber] = useState(user?.phonenumber)
     const [profileImage, setProfileImage] = useState(user?.profileImage)
+
+    const onEdit = async (e) => {
+        e.preventDefault();
+        const id = user.id
+        const data = await dispatch(edit({id, full_name, username, email, phonenumber, profileImage}))
+    }
 
     const updateFullName = (e) => {
         setFullName(e.target.value)
@@ -38,6 +45,7 @@ const ProfileSettings = () => {
 
     return (
         <>
+        <form onSubmit={onEdit}>
             <div>
                 <label>
                     Full Name
@@ -104,9 +112,13 @@ const ProfileSettings = () => {
                 onChange={updateProfileImage}
                 />
             </div>
-            <NavLink to='/profile'>
-                Back to Profile
-            </NavLink>
+            <button>
+                Submit
+            </button>
+        </form>
+        <NavLink to='/profile'>
+            Back to Profile
+        </NavLink>
         </>
     )
 }
