@@ -1,0 +1,15 @@
+.LoginFormContainer{
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50vh;
+}
+
+.FormBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
