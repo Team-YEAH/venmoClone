@@ -9,6 +9,8 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
 import SplashPage from "./components/SplashPage/SplashPage";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
+import ProfileSettings from "./components/ProfileSettings/ProfileSettings";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -36,6 +38,12 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
+        <ProtectedRoute path="/profile" exact={true}>
+          <ProfilePage />
+        </ProtectedRoute>
+        <ProtectedRoute path="/profilesettings" exact={true}>
+          <ProfileSettings />
+        </ProtectedRoute>
         <ProtectedRoute path="/users" exact={true}>
           <UsersList/>
         </ProtectedRoute>

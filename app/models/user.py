@@ -38,8 +38,13 @@ class User(db.Model, UserMixin):
 
 
   def to_dict(self):
+    balance = 0 if not self.balance else self.balance
     return {
       "id": self.id,
       "username": self.username,
-      "email": self.email
+      "email": self.email,
+      "full_name": self.full_name,
+      "phonenumber": self.phonenumber,
+      "profileImage": self.profileImage,
+      "balance": balance
     }
