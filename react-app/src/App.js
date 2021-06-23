@@ -12,6 +12,8 @@ import SplashPage from "./components/SplashPage/SplashPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import ProfileSettings from "./components/ProfileSettings/ProfileSettings";
 import TransactionsPage  from "./components/TransactionsPage/TransactionsPage";
+import PaymentDetailsPage from "./components/PaymentDetailsPage/PaymentDetailsPage";
+import PaymentMethodsPage from "./components/PaymentMethodsPage/PaymentMethodsPage";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -41,6 +43,12 @@ function App() {
         </Route>
         <ProtectedRoute path="/profile" exact={true}>
           <ProfilePage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/paymentdetails' exact={true}>
+          <PaymentDetailsPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/paymentmethods' exact={true}>
+          <PaymentMethodsPage />
         </ProtectedRoute>
         <ProtectedRoute path="/profilesettings" exact={true}>
           <ProfileSettings />

@@ -33,7 +33,9 @@ const ProfilePage = () => {
                     <NavLink to='/profilesettings'>
                         Settings
                     </NavLink>
-
+                    <NavLink to='/paymentdetails'>
+                        Payment Details
+                    </NavLink>
                 </div>
 
                 <div className='div__transactions__container'>

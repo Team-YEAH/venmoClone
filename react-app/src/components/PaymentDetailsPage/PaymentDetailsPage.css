@@ -1,0 +1,9 @@
+.div__popUp {
+    height: 200px;
+    width: 200px;
+    border: 2px solid black
+}
+
+.div__popUp.hidden{
+    visibility: hidden;
+}

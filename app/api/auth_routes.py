@@ -4,19 +4,9 @@ from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
 from sqlalchemy import or_
+from .validation_errors import validation_errors_to_error_messages
 
 auth_routes = Blueprint('auth', __name__)
-
-
-def validation_errors_to_error_messages(validation_errors):
-    """
-    Simple function that turns the WTForms validation errors into a simple list
-    """
-    errorMessages = []
-    for field in validation_errors:
-        for error in validation_errors[field]:
-            errorMessages.append(f"{field} : {error}")
-    return errorMessages
 
 
 @auth_routes.route('/')
@@ -43,9 +33,6 @@ def login():
         # Add the user to the session, we are logged in!
         user = User.query.filter(or_(User.email == form.data['auth'], User.username == form.data['auth'])).first()
         login_user(user)
-        print(user.to_dict())
-        test = User.query.filter(User.id == 5).first()
-        print(test.to_dict(), 'test')
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 

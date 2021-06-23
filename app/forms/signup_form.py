@@ -44,7 +44,7 @@ def check_phonenumber_length(form, field):
     if len(phonenumber) != 11 :
         raise ValidationError("Not a valid phone number. Phone number should be 11 digits.")
 
-def validate_profileimage(form, field):
+def validate_profileImage(form, field):
     print("checking profile image", field.data)
     regex = re.compile(
         r'^(?:http|ftp)s?://' # http:// or https://
@@ -66,5 +66,5 @@ class SignUpForm(FlaskForm):
     password = StringField('password', validators=[DataRequired()])
     full_name = StringField('full_name', validators=[DataRequired()])
     phonenumber = StringField('phonenumber', validators=[check_phonenumber_length])
-    profileImage = StringField('profileImage', validators=[validate_profileimage])
+    profileImage = StringField('profileImage', validators=[validate_profileImage])
     balance = StringField('balance')
