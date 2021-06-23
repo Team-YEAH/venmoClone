@@ -18,6 +18,14 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f"{field} : {error}")
     return errorMessages
 
+@transactions_routes.route('/get-balance')
+def get_balance():
+    user=User.query.filter(User.id == current_user.id).first()
+    print("THIS IS THE USER",user)
+    balance = user.balance
+    print("THIS IS THE BALANCE", balance)
+    return balance
+
 @transactions_routes.route('/get-transactions')
 def get_records():
     print("WE'RE IN THE GET ROUTE!!!!!!!!!!!!!!!!!!!!!!!")
