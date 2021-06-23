@@ -9,6 +9,7 @@ const TransactionForm = () => {
     const [transactionErrors, setTransactionErrors] = useState([])
     const [userName, setUserName] = useState("");
     const [amount, setAmount] = useState("");
+    const [description, setDescription] = useState("");
     const user = useSelector(state => state.session.user)
 
     const onSend = async (e) => {
@@ -16,13 +17,13 @@ const TransactionForm = () => {
 
 
         let request = false;
-        const transactionHistoryData = await dispatch(setNewTransactionRecord(amount, request, user.id, userName, userName, amount))
+        const transactionHistoryData = await dispatch(setNewTransactionRecord(amount, request, user.id, userName, userName, amount, description))
         if (transactionHistoryData.errors) {
             setTransactionErrors(transactionHistoryData.errors);
             }
 
 
-        const data = await dispatch(makePayment(userName, amount));
+        const data = await dispatch(makePayment(userName, amount, description));
         if (data.errors) {
             setErrors(data.errors);
             }
@@ -31,9 +32,9 @@ const TransactionForm = () => {
     return (
         <form onSubmit={onSend} className="">
             <div>
-            {/* {errors.map((error) => (
+            {errors.map((error) => (
                 <div>{error}</div>
-            ))} */}
+            ))}
             {transactionErrors.map((error) => (
                 <div>{error}</div>
             ))}
@@ -56,6 +57,16 @@ const TransactionForm = () => {
                 placeholder="00.00"
                 value={amount}
                 onChange={(e)=>setAmount(e.target.value)}
+            />
+            </div>
+            <div>
+            <label>Description:</label>
+            <input
+                name="description"
+                type="text"
+                placeholder="Describe your transaction"
+                value={description}
+                onChange={(e)=>setDescription(e.target.value)}
             />
             <button type="submit">Send</button>
             </div>

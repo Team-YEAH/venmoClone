@@ -21,19 +21,13 @@ def validation_errors_to_error_messages(validation_errors):
 @transactions_routes.route('/get-balance')
 def get_balance():
     user=User.query.filter(User.id == current_user.id).first()
-    print("THIS IS THE USER",user)
     balance = user.balance
-    print("THIS IS THE BALANCE", balance)
-    return balance
+    return {"balance": balance}
 
 @transactions_routes.route('/get-transactions')
 def get_records():
-    print("WE'RE IN THE GET ROUTE!!!!!!!!!!!!!!!!!!!!!!!")
     user = current_user.id
-    print("USER ID HEYYYYYYYYYY",user)
     transactions = Transaction.query.filter(or_(Transaction.sender==user, Transaction.receiver==user)).all()
-    print("HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEY", transactions)
-    print({"transactions": [transaction.to_dict() for transaction in transactions]})
     return {"transactions": [transaction.to_dict() for transaction in transactions]}
 
 
@@ -67,6 +61,7 @@ def make_record():
     #Puts it in the form manually so we can use validate_on_submit
     form['csrf_token'].data=request.cookies['csrf_token']
     if form.validate_on_submit():
+        print("DESCRIPTION ISSSSSSSSSSSSSSSSSSSSSSSSSSS", form.description.data)
         receiver_info=User.query.filter_by(username=form.userName.data).first()
         form_cost = form.amount.data
         form_request = False
@@ -78,7 +73,8 @@ def make_record():
             cost=form_cost,
             request=form_request,
             sender=form_sender,
-            receiver=form_receiver
+            receiver=form_receiver,
+            description=form.description.data
         )
         db.session.add(transactionRecord)
         db.session.commit()

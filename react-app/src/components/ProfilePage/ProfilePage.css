@@ -14,5 +14,7 @@
     min-width: 300px;
     text-align: center;
     width: 800px;
+    height: 800px;
     margin-left: 100px;
+    overflow-y: auto;
 }

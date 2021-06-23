@@ -26,7 +26,7 @@ export const getTransactionsRecords = () => async(dispatch) =>{
     return {}
 }
 
-export const setNewTransactionRecord = (cost, request, sender, receiver, userName, amount) => async (dispatch) => {
+export const setNewTransactionRecord = (cost, request, sender, receiver, userName, amount, description) => async (dispatch) => {
     const response = await fetch('/api/transaction/transaction-history', {
         method: 'POST',
         headers: {
@@ -38,7 +38,8 @@ export const setNewTransactionRecord = (cost, request, sender, receiver, userNam
             cost,
             request,
             sender,
-            receiver
+            receiver,
+            description
         })
     });
     const data = await response.json();

@@ -15,7 +15,7 @@ const getBalance=(balance)=>({
 
 //thunks
 
-export const getCurrentBalance=(userName)=> async(dispatch) =>{
+export const getCurrentBalance=()=> async(dispatch) =>{
     const response = await fetch ('/api/transaction/get-balance')
     const data = await response.json();
     if (data.errors) {
@@ -25,7 +25,7 @@ export const getCurrentBalance=(userName)=> async(dispatch) =>{
     return{}
 }
 
-export const makePayment = (userName, amount) => async (dispatch) => {
+export const makePayment = (userName, amount, description) => async (dispatch) => {
     const response = await fetch('/api/transaction/transaction-form', {
         method: 'PATCH',
         headers: {
@@ -33,7 +33,8 @@ export const makePayment = (userName, amount) => async (dispatch) => {
         },
         body: JSON.stringify({
             userName,
-            amount
+            amount,
+            description
         })
     });
     const data = await response.json();
@@ -56,7 +57,7 @@ export default function reducer(state = initialState, action) {
             return newState
         case GET_BALANCE:
             newState = {...state}
-            newState.transactions = action.payload
+            newState.transactions = action.payload.balance
             return newState
         default:
             return state;

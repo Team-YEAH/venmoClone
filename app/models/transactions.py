@@ -22,5 +22,6 @@ class Transaction(db.Model):
         "request": self.request,
         "sender": self.sender,
         "receiver": self.receiver,
-        "created_at": self.created_at
+        "created_at": self.created_at,
+        "description": self.description
       }

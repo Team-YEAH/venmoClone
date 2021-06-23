@@ -2,6 +2,8 @@ import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { getTransactionsRecords } from "../../store/transactionHistory";
+import { getCurrentBalance } from "../../store/transaction";
+import TransactionComponentContainer from "../TransactionComponent/TransactionComponentContainer";
 
 import './ProfilePage.css';
 
@@ -11,6 +13,7 @@ const ProfilePage = () => {
 
     useEffect(async()=>{
         await dispatch(getTransactionsRecords())
+        await dispatch(getCurrentBalance())
     }, [])
 
     return (
@@ -47,6 +50,7 @@ const ProfilePage = () => {
                     <NavLink to='/transactions'>
                         Transactions
                     </NavLink>
+                    <TransactionComponentContainer />
                 </div>
 
             </div>
