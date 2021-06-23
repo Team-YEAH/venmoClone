@@ -1,12 +1,17 @@
 import React, { useEffect } from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { NavLink } from "react-router-dom"
+import { getTransactionsRecords } from "../../store/transactionHistory";
 
 import './ProfilePage.css';
 
 const ProfilePage = () => {
+    const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
 
+    useEffect(async()=>{
+        await dispatch(getTransactionsRecords())
+    }, [])
 
     return (
         <>

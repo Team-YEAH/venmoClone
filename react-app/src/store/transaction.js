@@ -1,5 +1,6 @@
 //constants
 const ADD_TRANSACTION = "transaction/ADD_TRANSACTION"
+const GET_BALANCE = "transaction/GET_BALANCE"
 
 // action creators
 const addTransaction = (transaction) => ({
@@ -7,7 +8,23 @@ const addTransaction = (transaction) => ({
     payload: transaction
 })
 
+const getBalance=(balance)=>({
+    type: GET_BALANCE,
+    payload: balance
+})
+
 //thunks
+
+export const getCurrentBalance=(userName)=> async(dispatch) =>{
+    const response = await fetch ('/api/transaction/get-balance')
+    const data = await response.json();
+    if (data.errors) {
+        return data;
+    }
+    dispatch(getBalance(data))
+    return{}
+}
+
 export const makePayment = (userName, amount) => async (dispatch) => {
     const response = await fetch('/api/transaction/transaction-form', {
         method: 'PATCH',
@@ -34,6 +51,10 @@ export default function reducer(state = initialState, action) {
     let newState;
     switch (action.type) {
         case ADD_TRANSACTION:
+            newState = {...state}
+            newState.transactions = action.payload
+            return newState
+        case GET_BALANCE:
             newState = {...state}
             newState.transactions = action.payload
             return newState
