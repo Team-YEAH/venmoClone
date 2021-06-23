@@ -13,3 +13,14 @@ class Transaction(db.Model):
   created_at=db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
   rel_comment = db.relationship('Comment', backref='trans_comm', lazy='dynamic', foreign_keys='Comment.transactions_id')
+
+
+  def to_dict(self):
+      return {
+        "id": self.id,
+        "cost": float(self.cost),
+        "request": self.request,
+        "sender": self.sender,
+        "receiver": self.receiver,
+        "created_at": self.created_at
+      }
