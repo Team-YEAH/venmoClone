@@ -18,6 +18,16 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f"{field} : {error}")
     return errorMessages
 
+@transactions_routes.route('/get-transactions')
+def get_records():
+    print("WE'RE IN THE GET ROUTE!!!!!!!!!!!!!!!!!!!!!!!")
+    user = current_user.id
+    print("USER ID HEYYYYYYYYYY",user)
+    transactions = Transaction.query.filter(or_(Transaction.sender==user, Transaction.receiver==user)).all()
+    print("HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEY", transactions)
+    print({"transactions": [transaction.to_dict() for transaction in transactions]})
+    return {"transactions": [transaction.to_dict() for transaction in transactions]}
+
 
 @transactions_routes.route('/transaction-form', methods=['PATCH'])
 def send_money():

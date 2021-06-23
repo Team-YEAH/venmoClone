@@ -1,6 +1,7 @@
 //constants
 const ADD_TRANSACTION = "transaction/ADD_TRANSACTION"
 
+
 // action creators
 const addTransaction = (transaction) => ({
     type: ADD_TRANSACTION,
@@ -8,6 +9,7 @@ const addTransaction = (transaction) => ({
 })
 
 //thunks
+
 export const makePayment = (userName, amount) => async (dispatch) => {
     const response = await fetch('/api/transaction/transaction-form', {
         method: 'PATCH',
