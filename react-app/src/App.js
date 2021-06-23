@@ -14,6 +14,7 @@ import ProfileSettings from "./components/ProfileSettings/ProfileSettings";
 import TransactionsPage  from "./components/TransactionsPage/TransactionsPage";
 import PaymentDetailsPage from "./components/PaymentDetailsPage/PaymentDetailsPage";
 import PaymentMethodsPage from "./components/PaymentMethodsPage/PaymentMethodsPage";
+import TransactionForm from "./components/TransactionForm/TransactionForm";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -35,6 +36,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path="/transaction-form" exact={true}>
+          <TransactionForm />
+        </Route>
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
