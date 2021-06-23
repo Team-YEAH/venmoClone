@@ -37,7 +37,7 @@ export default function TransactionComponent(props){
     if (props.entry[1].sender === props.user.id){
         senderReceiver =
         <div className="Sender_Receiver">
-            You paid <b>{receiverName}</b>
+            You paid &nbsp;<b>{receiverName}</b>
         </div>
         cost =
         <div className="CostLoss">
