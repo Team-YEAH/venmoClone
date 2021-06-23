@@ -32,16 +32,25 @@ export default function TransactionComponent(props){
     }, [])
 
     let senderReceiver;
+    let cost;
     // if current user is the sender
     if (props.entry[1].sender === props.user.id){
         senderReceiver =
         <div className="Sender_Receiver">
-            You paid {receiverName}
+            You paid <b>{receiverName}</b>
+        </div>
+        cost =
+        <div className="CostLoss">
+            -${props.entry[1].cost}
         </div>
     } else {
         senderReceiver =
         <div className="Sender_Receiver">
-            {receiverName} paid you
+            <b>{receiverName}</b> paid you
+        </div>
+        cost =
+        <div className="CostGain">
+            +${props.entry[1].cost}
         </div>
     }
     return(
@@ -50,9 +59,7 @@ export default function TransactionComponent(props){
             <div className="Description">
                 {props.entry[1].description}
             </div>
-            <div className="Cost">
-                ${props.entry[1].cost}
-            </div>
+            {cost}
             <div className="date">
                 {`${day}, ${month} ${date}, ${year} at ${hour}:${minute}${pmAm}`}
             </div>

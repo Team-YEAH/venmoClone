@@ -1,5 +1,47 @@
 .TransactionComp{
+    display: grid;
     border: 1px solid black;
-    width: 99%;
+    width: 100%;
     height: 100px;
+    grid-template-areas:
+    "payer cost"
+    "desc cost"
+    "date cost";
+    grid-template-columns: 80% 20%;
+}
+
+.Sender_Receiver{
+    grid-area: payer;
+    font-size: 20px;
+}
+
+.Description{
+    grid-area: desc;
+}
+
+.date{
+    grid-area: date;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.CostLoss{
+    grid-area: cost;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    color: red;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.CostGain{
+    grid-area: cost;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    color: green;
+    font-size: 20px;
+    font-weight: 800;
 }
