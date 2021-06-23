@@ -11,7 +11,7 @@ class Transaction(db.Model):
   sender = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
   receiver = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
   created_at=db.Column(db.DateTime, default=datetime.datetime.utcnow)
-
+  description=db.Column(db.String(255))
   rel_comment = db.relationship('Comment', backref='trans_comm', lazy='dynamic', foreign_keys='Comment.transactions_id')
 
 
