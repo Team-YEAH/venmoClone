@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: c1aab83b66d0
+Revision ID: 2bcc9f4a648a
 Revises: 
-Create Date: 2021-06-23 12:54:52.626192
+Create Date: 2021-06-24 09:14:08.193151
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c1aab83b66d0'
+revision = '2bcc9f4a648a'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -26,7 +26,7 @@ def upgrade():
     sa.Column('email', sa.String(length=320), nullable=False),
     sa.Column('phonenumber', sa.String(length=11), nullable=True),
     sa.Column('profileImage', sa.String(length=256), nullable=True),
-    sa.Column('balance', sa.Float(precision=10, decimal_return_scale=2), nullable=True),
+    sa.Column('balance', sa.String(length=11), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
@@ -35,6 +35,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('requester', sa.Integer(), nullable=False),
     sa.Column('accepter', sa.Integer(), nullable=False),
+    sa.Column('accepted', sa.Boolean(), nullable=False),
     sa.ForeignKeyConstraint(['accepter'], ['users.id'], ),
     sa.ForeignKeyConstraint(['requester'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -46,6 +47,7 @@ def upgrade():
     sa.Column('bank', sa.String(length=50), nullable=True),
     sa.Column('billing_address', sa.String(length=100), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.Column('default_payment', sa.Boolean(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -57,6 +59,8 @@ def upgrade():
     sa.Column('receiver', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('description', sa.String(length=255), nullable=True),
+    sa.Column('requester_username', sa.String(length=50), nullable=False),
+    sa.Column('sender_username', sa.String(length=50), nullable=False),
     sa.ForeignKeyConstraint(['receiver'], ['users.id'], ),
     sa.ForeignKeyConstraint(['sender'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')

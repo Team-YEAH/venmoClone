@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
   email = db.Column(db.String(320), nullable = False, unique = True)
   phonenumber = db.Column(db.String(11))
   profileImage = db.Column(db.String(256))
-  balance = db.Column(db.Float(precision=10, decimal_return_scale=2, asdecimal=False))
+  balance = db.Column(db.String(11), default="0")
 
   Requester = db.relationship('Friend', backref='request', lazy='dynamic', foreign_keys='Friend.requester')
   Accepter = db.relationship('Friend', backref='accept', lazy='dynamic', foreign_keys='Friend.accepter')
