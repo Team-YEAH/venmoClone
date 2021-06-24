@@ -11,3 +11,10 @@ class PaymentDetail(db.Model):
   bank = db.Column(db.String(50))
   billing_address = db.Column(db.String(100))
   user_id = db.Column(db.Integer,ForeignKey('users.id'), nullable=False)
+
+  def to_dict(self):
+    return {'id': self.id,
+    'debit_card' : self.debit_card,
+    'bank_number' : self.bank_number,
+    'bank' : self.bank,
+    'billing_address' : self.billing_address}

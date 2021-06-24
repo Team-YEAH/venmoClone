@@ -1,12 +1,20 @@
+import re
+import os
+from werkzeug.utils import secure_filename
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import User, db, PaymentDetail
 from app.forms import EditForm, PaymentDetailForm
 from .validation_errors import validation_errors_to_error_messages
-import re
-
+from app.helpers import *
 
 user_routes = Blueprint('users', __name__)
+
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def user_exists(data, id):
     username = data
@@ -29,7 +37,6 @@ def email_exists(data, id):
         raise ValueError("Email is already registered.")
     else:
         return True
-
 
 def check_user_length(data):
     username = data
@@ -68,13 +75,11 @@ def validate_profileImage(data):
     else:
         return True
 
-
 @user_routes.route('/')
 @login_required
 def users():
     users = User.query.all()
     return {"users": [user.to_dict() for user in users]}
-
 
 @user_routes.route('/<int:id>')
 @login_required
@@ -82,13 +87,14 @@ def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
-
 @user_routes.route('/edit/<int:id>', methods=['PUT'])
 @login_required
 def edit(id):
     user = User.query.filter(User.id == id).first()
     form = EditForm()
+    output = ''
     form['csrf_token'].data = request.cookies['csrf_token']
+    user_info = form.data['username']
     if form.validate_on_submit():
         data = form.data
         full_name = data['full_name']
@@ -96,9 +102,16 @@ def edit(id):
         email = data['email']
         phonenumber = data['phonenumber']
         profileImage = data['profileImage']
+        if user.profileImage != data['profileImage'] and data['profileImage']:
+            file = request.files['image']
+            if file and allowed_file(file.filename):
+                file.filename = secure_filename(file.filename)
+                # output = upload_file_to_s3(file, app.config["S3_BUCKET"])
+                profileImage = upload_file_to_s3(file, os.environ.get("S3_BUCKET"), user_info)
+        else:
+            profileImage = user.profileImage
         if (user_exists(username, id), email_exists(email, id), check_user_length(username),
             validate_email(email), check_phonenumber_length(phonenumber), validate_profileImage(profileImage)):
-
             user.full_name = full_name
             user.username = username
             user.email = email
@@ -108,9 +121,8 @@ def edit(id):
             return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-
 @user_routes.route('/add/paymentdetail/<int:id>', methods=['GET','POST'])
-# @login_required
+@login_required
 def add_payment(id):
     form = PaymentDetailForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -138,9 +150,13 @@ def add_payment(id):
     results = {}
     count = 0
     for i in user_payment_details:
-        results[i] = {}
-        for (key, value) in user_payment_details[count]:
-            results[i][key] = value
+        obj_data = user_payment_details[count]
+        results[obj_data.id] = {
+            'debit_card' : obj_data.debit_card,
+            'bank_number' : obj_data.bank_number,
+            'bank' : obj_data.bank,
+            'billing_address' : obj_data.billing_address
+        }
         count +=1
     return results
 
