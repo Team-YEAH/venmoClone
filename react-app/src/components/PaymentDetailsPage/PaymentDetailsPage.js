@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { NavLink } from "react-router-dom"
 import './PaymentDetailsPage.css'
 import PaymentOption from "../PaymentOption/PaymentOption"
-import { getPaymentDetail } from "../../store/session"
+import { getPaymentDetail, removePaymentDetail } from "../../store/session"
 
 const PaymentDetailsPage = () => {
     const dispatch = useDispatch()
@@ -23,7 +23,7 @@ const PaymentDetailsPage = () => {
         // map through payment details here
         <>
             {Object.keys(paymentDetails).map((key) => {
-                return <PaymentOption key={key} paymentdetails={paymentDetails[key]}/>
+                return <PaymentOption key={key} user={user.id} paymentdetails={paymentDetails[key]}/>
             })}
             <NavLink to='/paymentmethods'> Payment Methods </NavLink>
         </>

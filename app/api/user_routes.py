@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import User, db, PaymentDetail
-from app.forms import EditForm, PaymentDetailForm
+from app.forms import EditForm, PaymentDetailForm, RemovePaymentDetail
 from .validation_errors import validation_errors_to_error_messages
 from app.helpers import *
 
@@ -152,6 +152,7 @@ def add_payment(id):
     for i in user_payment_details:
         obj_data = user_payment_details[count]
         results[obj_data.id] = {
+            'id' : obj_data.id,
             'debit_card' : obj_data.debit_card,
             'bank_number' : obj_data.bank_number,
             'bank' : obj_data.bank,
@@ -160,3 +161,15 @@ def add_payment(id):
         count +=1
     return results
 
+@user_routes.route('/removepayment', methods=['DELETE'])
+@login_required
+def remove_payment():
+    form = RemovePaymentDetail()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    print(form.data['payment_detail_id'], form.data['user_id'])
+    print(form.data)
+    if form.validate_on_submit():
+        paymentdetail = PaymentDetail.query.filter(PaymentDetail.user_id == form.data['user_id'], PaymentDetail.id == form.data['payment_detail_id']).delete()
+        db.session.commit()
+        return { 'user': form.data['user_id'],
+                'payment_detail': form.data['payment_detail_id']}

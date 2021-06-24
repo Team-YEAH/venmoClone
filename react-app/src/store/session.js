@@ -3,6 +3,7 @@ const SET_USER = "session/SET_USER"
 const REMOVE_USER = "session/REMOVE_USER"
 const ADD_PAYMENT = "session/ADD_PAYMENT"
 const SET_PAYMENT = "session/SET_PAYMENT"
+const REMOVE_PAYMENT = "session/REMOVE_PAYMENT"
 
 // action creators
 const setUser = (user) => ({
@@ -24,6 +25,10 @@ const setPayment = (payload) => ({
     payload
 })
 
+const removePayment = (payload) => ({
+    type: REMOVE_PAYMENT,
+    payload
+})
 
 // thunks
 
@@ -167,6 +172,26 @@ export const getPaymentDetail = payload => async (dispatch) => {
     dispatch(setPayment(data))
 }
 
+export const removePaymentDetail = payload => async(dispatch) => {
+    const { user_id, payment_detail_id } = payload
+    console.log(user_id, payment_detail_id)
+    const response = await fetch('/api/users/removepayment', {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            user_id,
+            payment_detail_id
+        }),
+    })
+    const data = await response.json();
+    if (data.errors) {
+        return data
+    }
+    dispatch(removePayment(data))
+}
+
 const initialState = {user: null,
                      paymentdetails: {}}
 
@@ -189,6 +214,11 @@ export default function reducer(state = initialState, action) {
             newState.paymentdetails = {
                 [action.payload.id]: action.payload
             }
+            return newState
+        case REMOVE_PAYMENT:
+            newState = {...state}
+            let x = newState.paymentdetails
+            delete x[action.payload.payment_detail]
             return newState
         default:
             return state;

@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useState }  from 'react'
+import { useDispatch } from 'react-redux'
+import { removePaymentDetail } from "../../store/session"
 import "./PaymentOption.css"
 
-const PaymentOption = ({paymentdetails}) => {
+const PaymentOption = ({user, paymentdetails}) => {
+    const dispatch = useDispatch()
+    const [deleteTrigger, setDeleteTrigger] = useState(false);
+
+    const removePayment = async () => {
+        let user_id = user
+        let payment_detail_id = paymentdetails.id
+        await dispatch(removePaymentDetail({user_id, payment_detail_id}))
+        setDeleteTrigger(true)
+    }
+
     return (
         <>
-            <tbody className='div__payment__container'>
+            {!deleteTrigger && <tbody className='div__payment__container'>
                 <tr>
                     <td className='payment__td'>
                         {paymentdetails.debit_card}
@@ -18,8 +30,11 @@ const PaymentOption = ({paymentdetails}) => {
                     <td className='payment__td'>
                         {paymentdetails.billing_address}
                     </td>
+                    <button onClick={removePayment}>
+                        Delete
+                    </button>
                 </tr>
-            </tbody >
+            </tbody > }
         </>
     )
 }
