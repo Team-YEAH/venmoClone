@@ -11,12 +11,17 @@ const NavBar = () => {
     sideButtons =
     <ul className="navItems">
       <li className="sideButtons">
-        <NavLink to="/" exact={true} activeClassName="active">
+        <NavLink to="/" exact={true} className="navbarLinks" activeClassName="active">
           Home
         </NavLink>
       </li>
       <li className="sideButtons">
-        <NavLink to="/" exact={true} activeClassName="active">
+        <NavLink to="/profile" exact={true} className="navbarLinks" activeClassName="active">
+          {user.full_name}
+        </NavLink>
+      </li>
+      <li className="sideButtons">
+        <NavLink to="/" exact={true} className="navbarLinks" activeClassName="active">
           Send Money
         </NavLink>
       </li>

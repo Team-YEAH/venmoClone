@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-// import { addPayment } from '../../store/session'
+import { addPaymentDetail } from '../../store/session'
 
 const PaymentMethod = () => {
     const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const PaymentMethod = () => {
         e.preventDefault();
         const id = user.id
         const payload = { id, debit_card, bank_number, bank, billing_address}
-        // const paymentmethod = await dispatch(addPayment(payload))
+        const paymentmethod = await dispatch(addPaymentDetail(payload))
 
         history.push('/paymentdetails')
 

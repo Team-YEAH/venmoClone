@@ -1,15 +1,77 @@
 .LoginFormContainer{
     display: flex;
     justify-content: center;
-    border: 1px solid black;
+    border: 1px solid #ededed;
     width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    margin-top: 100px;
     height: 50vh;
+    border-radius: 5px;
+    background: #f7f7f7;
+    box-sizing:border-box
 }
 
 .FormBox{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+.loginFormInput {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #7f7f7f;
+    text-transform: uppercase;
+    display: block;
+    padding-left: 4px;
+}
+
+.loginFormBoxes {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    background: none;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid #d9d9d9;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #262626;
+    display: block;
+    min-width: 0;
+    padding: 12px 8px 12px 4px;
+    width: 100%;
+}
+
+.loginButton {
+    margin-top: 30px;
+    margin-left: 30%;
+    background: #3d95ce;
+    color: white;
+    border-radius: 4px;
+    padding-top: 12px;
+    padding-right: 20px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    font-weight: 600px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+}
+
+.loginButton:hover {
+    margin-top: 30px;
+    margin-left: 30%;
+    background: #c00a0a;
+    color: white;
+    border-radius: 4px;
+    padding-top: 12px;
+    padding-right: 20px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    font-weight: 600px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
 }

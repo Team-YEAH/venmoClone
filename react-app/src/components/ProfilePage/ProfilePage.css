@@ -2,17 +2,47 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    border: 1px solid black;
-}
-
-.div__profile__container{
-
+    margin-top: 3%;
+    margin-left: 2%;
+    /* border-top: 1px solid black; */
 }
 
 .div__transactions__container{
-    border: 1px solid;
+    border-left: 1px solid black;
     min-width: 300px;
     text-align: center;
     width: 800px;
-    margin-left: 100px;
+    margin-right: 150px;
 }
+
+.profileImage {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 3px solid #3d95ce;
+    margin: 10px;
+}
+
+.div__profile__descriptions {
+    /* border: 1px solid black; */
+    margin-top: 15px;
+    font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.div__profile__links {
+    margin-top: 15px;
+    color: #0074de;
+    text-decoration: none;
+    font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.div__profile__links:hover {
+    margin-top: 15px;
+    color: #c00a0a;
+    text-decoration: none;
+}
+
+/*
+.div__profile__container {
+    margin-bottom: 100px;
+} */

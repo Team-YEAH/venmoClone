@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import { NavLink } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { edit } from "../../store/session";
+import "./ProfileSettings.css"
 
 const ProfileSettings = () => {
     const dispatch = useDispatch()
@@ -40,85 +41,90 @@ const ProfileSettings = () => {
     }
 
     const updateProfileImage = (e) => {
-        setProfileImage(e.target.value)
+        const file = e.target.files[0];
+        if (file) setProfileImage(file)
     }
 
     return (
         <>
-        <form onSubmit={onEdit}>
-            <div>
-                <label>
-                    Full Name
-                </label>
-                <input
-                name="full_name"
-                value={full_name}
-                type="text"
-                onChange={updateFullName}
-                />
-            </div>
-            <div>
-                <label>
-                    Username
-                </label>
-                <input
-                name="username"
-                value={username}
-                type="text"
-                onChange={updateUsername}
-                />
-            </div>
-            <div>
-                <label>
-                    Email
-                </label>
-                <input
-                name="email"
-                value={email}
-                type="text"
-                onChange={updateEmail}
-                />
-            </div>
-            <div>
-                <label>
-                    Password
-                </label>
-                <input
-                name="password"
-                value={password}
-                type="text"
-                onChange={updatePassword}
-                />
-            </div>
-            <div>
-                <label>
-                    Phone number
-                </label>
-                <input
-                name="phonenumber"
-                value={phonenumber}
-                type="text"
-                onChange={updatePhoneNumber}
-                />
-            </div>
-            <div>
-                <label>
-                    Profile Image
-                </label>
-                <input
-                name="profileImage"
-                value={profileImage}
-                type="text"
-                onChange={updateProfileImage}
-                />
-            </div>
-            <button>
-                Submit
-            </button>
-        </form>
-        <NavLink to='/profile'>
-            Back to Profile
-        </NavLink>
+        <div className='ProfileSettingsContainer'>
+            <form className='ProfileSettingsBox' onSubmit={onEdit}>
+                <div>
+                    <label className='ProfileSettingsLabel'>
+                        Full Name
+                    </label>
+                    <input
+                    className='ProfileSettingsBoxes'
+                    name="full_name"
+                    value={full_name}
+                    type="text"
+                    onChange={updateFullName}
+                    />
+                </div>
+                <div>
+                    <label className='ProfileSettingsLabel'>
+                        Username
+                    </label>
+                    <input
+                    className='ProfileSettingsBoxes'
+                    name="username"
+                    value={username}
+                    type="text"
+                    onChange={updateUsername}
+                    />
+                </div>
+                <div>
+                    <label className='ProfileSettingsLabel'>
+                        Email
+                    </label>
+                    <input
+                    className='ProfileSettingsBoxes'
+                    name="email"
+                    value={email}
+                    type="text"
+                    onChange={updateEmail}
+                    />
+                </div>
+                <div>
+                    <label className='ProfileSettingsLabel'>
+                        Password
+                    </label>
+                    <input
+                    className='ProfileSettingsBoxes'
+                    name="password"
+                    value={password}
+                    type="text"
+                    onChange={updatePassword}
+                    />
+                </div>
+                <div>
+                    <label className='ProfileSettingsLabel'>
+                        Phone number
+                    </label>
+                    <input
+                    className='ProfileSettingsBoxes'
+                    name="phonenumber"
+                    value={phonenumber}
+                    type="text"
+                    onChange={updatePhoneNumber}
+                    />
+                </div>
+                <div>
+                    <label className='ProfileSettingsLabel'>
+                        Profile Image
+                    </label>
+                    <input
+                    className='ProfileSettingsBoxes'
+                    type="file"
+                    onChange={updateProfileImage}
+                    />
+                </div>
+                <button className='ProfileSettingsSubmit' type="submit">Edit</button>
+                <NavLink className='ProfileBtn' to='/profile'>
+                    Back to Profile
+                </NavLink>
+            </form>
+        </div>
         </>
     )
 }
