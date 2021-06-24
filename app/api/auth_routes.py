@@ -69,7 +69,11 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
     user_info = form.data['username']  # adds to file name to get user
 
-    file = request.files['image'] # checks to see if files has a key 'image' and places in file
+    try:
+        file = request.files['image'] # checks to see if files has a key 'image' and places in file
+    except:
+        file = None
+
     if file and allowed_file(file.filename): # if the file exists, check the file type with our function
         file.filename = secure_filename(file.filename)   # checks if file name is secure
         # output = upload_file_to_s3(file, app.config["S3_BUCKET"])

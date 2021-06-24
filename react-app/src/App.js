@@ -15,6 +15,7 @@ import TransactionsPage  from "./components/TransactionsPage/TransactionsPage";
 import PaymentDetailsPage from "./components/PaymentDetailsPage/PaymentDetailsPage";
 import PaymentMethodsPage from "./components/PaymentMethodsPage/PaymentMethodsPage";
 import TransactionForm from "./components/TransactionForm/TransactionForm";
+import IndividualTransactionPageComponent from "./components/IndividualTransactionPage/IndividualTransactionPageComponent";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -38,6 +39,9 @@ function App() {
       <Switch>
         <Route path="/transaction-form" exact={true}>
           <TransactionForm />
+        </Route>
+        <Route path="/transaction/:id" exact={true}>
+          <IndividualTransactionPageComponent />
         </Route>
         <Route path="/login" exact={true}>
           <LoginForm />

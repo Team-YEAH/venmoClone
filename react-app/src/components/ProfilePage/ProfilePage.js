@@ -51,12 +51,15 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                <div className='div__transactions__container'>
-                    <NavLink to='/transactions'>
-                        Transactions
+                <div className="transaction_display">
+                    <NavLink className="transaction_link" to='/transactions'>
+                            Transactions
                     </NavLink>
-                    <TransactionComponentContainer />
+                    <div className='div__transactions__container'>
+                        <TransactionComponentContainer />
+                    </div>
                 </div>
+
 
             </div>
         </>
