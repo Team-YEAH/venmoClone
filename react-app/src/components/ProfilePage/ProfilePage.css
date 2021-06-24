@@ -12,11 +12,9 @@
     min-width: 300px;
     text-align: center;
     width: 800px;
-<<<<<<< HEAD
     height: 800px;
     margin-left: 100px;
     overflow-y: auto;
-=======
     margin-right: 150px;
 }
 
@@ -39,7 +37,6 @@
     color: #0074de;
     text-decoration: none;
     font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif;
->>>>>>> signup
 }
 
 .div__profile__links:hover {
