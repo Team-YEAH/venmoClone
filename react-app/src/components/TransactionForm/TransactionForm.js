@@ -30,7 +30,8 @@ const TransactionForm = () => {
             setErrors(data.errors);
             }
 
-        history.push("/profile")
+        history.push("/transactions")
+        history.go(0)
     }
 
     return (

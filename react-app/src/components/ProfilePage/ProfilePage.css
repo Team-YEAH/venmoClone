@@ -8,7 +8,19 @@
 }
 
 .div__transactions__container{
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    min-width: 300px;
+    text-align: center;
+    width: 800px;
+    height: 800px;
+    margin-left: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-right: 150px;
+}
+
+.div__transactions__container{
+    /* border: 1px solid black; */
     min-width: 300px;
     text-align: center;
     width: 800px;
@@ -53,14 +65,19 @@
 
 .transaction_display{
     border-left: 1px solid black;
-    padding-left: 500px;
+    padding-left: 100px;
     display:flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .transaction_link{
-    width:100%;
+    width:90%;
     display:flex;
     justify-content: center;
+    margin: 20px;
+    color: #3d95ce;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif;
 }

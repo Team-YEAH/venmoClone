@@ -14,7 +14,6 @@ export default function IndividualTransactionPageComponent(){
         const data = await res.json()
         setTransaction(data)
     }, [])
-    console.log("TRANSAAAAAAAAAAAAAAAAAAAAAAAAAAAAACTION", transaction);
     const dayOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 

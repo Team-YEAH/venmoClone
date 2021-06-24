@@ -16,7 +16,7 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li className="sideButtons">
-        <NavLink to="/transaction-form" exact={true} activeClassName="active">Send Money</NavLink>
+        <NavLink to="/transaction-form" exact={true} className="navbarLinks">Send Money</NavLink>
       </li>
       <li className="sideButtons">
         <NavLink to="/profile" exact={true} className="navbarLinks" activeClassName="active">

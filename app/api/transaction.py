@@ -51,8 +51,12 @@ def send_money():
     form['csrf_token'].data=request.cookies['csrf_token']
     if form.validate_on_submit():
         user=User.query.filter_by(username=form.userName.data).first()
+        me=current_user.id
+        currentuser = User.query.filter_by(id=me).first()
+        currentuser_balance=float(currentuser.balance) - float(form.amount.data)
         new_balance=float(user.balance) + float(form.amount.data)
         user.balance="{:.2f}".format(new_balance)
+        currentuser.balance="{:.2f}".format(currentuser_balance)
 
         db.session.commit()
 

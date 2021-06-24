@@ -1,6 +1,19 @@
 .TransactionComp{
     display: grid;
     border-bottom: 1px solid black;
+    /* border-top: 1px solid black; */
+    width: 100;
+    height: 100px;
+    grid-template-areas:
+    "payer cost"
+    "desc cost"
+    "date cost";
+    grid-template-columns: 80% 20%;
+}
+
+.TransactionComp:hover {
+    display: grid;
+    border: 2px solid black;
     width: 100;
     height: 100px;
     grid-template-areas:

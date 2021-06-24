@@ -1,12 +1,9 @@
 .navItems{
     display: grid;
-    grid-template-columns: 75% 5% 7% 4%;
+    grid-template-columns: 65% 10% 10% 15%;
     grid-template-rows: 10%;
-    /* display: flex; */
     list-style-type: none;
     width: 100%;
-
-    /* justify-content: space-around; */
 }
 
 .button1{
@@ -22,7 +19,7 @@
 .sideButtons{
     margin-top: 20px;
     font-size: 20px;
-
+    margin-right: 20px;
 }
 
 .navContainer{
