@@ -46,7 +46,7 @@ export default function TransactionComponent(props){
     } else {
         senderReceiver =
         <div className="Sender_Receiver">
-            <b>{receiverName}</b> paid you
+            <b>{receiverName}</b>&nbsp; paid you
         </div>
         cost =
         <div className="CostGain">
