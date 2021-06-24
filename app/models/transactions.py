@@ -12,6 +12,8 @@ class Transaction(db.Model):
   receiver = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
   created_at=db.Column(db.DateTime, default=datetime.datetime.utcnow)
   description=db.Column(db.String(255))
+  requester_username = db.Column(db.String(50), nullable=False)
+  sender_username = db.Column(db.String(50), nullable=False)
   rel_comment = db.relationship('Comment', backref='trans_comm', lazy='dynamic', foreign_keys='Comment.transactions_id')
 
 
@@ -23,5 +25,7 @@ class Transaction(db.Model):
         "sender": self.sender,
         "receiver": self.receiver,
         "created_at": self.created_at,
-        "description": self.description
+        "description": self.description,
+        'requester_username': self.requester_username,
+        'sender_username': self.sender_username
       }

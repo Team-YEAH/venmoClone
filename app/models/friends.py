@@ -8,3 +8,4 @@ class Friend(db.Model):
   id = db.Column(db.Integer, primary_key = True)
   requester = db.Column(db.Integer, ForeignKey('users.id'),  nullable=False)
   accepter = db.Column(db.Integer, ForeignKey('users.id'),  nullable=False)
+  accepted = db.Column(db.Boolean, default=False, nullable=False)
