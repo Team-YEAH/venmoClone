@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {makePayment} from "../../store/transaction"
 import { setNewTransactionRecord } from "../../store/transactionHistory";
+import {useHistory} from "react-router-dom"
 
 const TransactionForm = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
     const [transactionErrors, setTransactionErrors] = useState([])
@@ -27,6 +29,8 @@ const TransactionForm = () => {
         if (data.errors) {
             setErrors(data.errors);
             }
+
+        history.push("/profile")
     }
 
     return (

@@ -1,0 +1,8 @@
+.TransactionComponentContainer{
+    max-width: 100%;
+}
+
+.redirectToTransaction{
+    text-decoration: none;
+    color: black;
+}

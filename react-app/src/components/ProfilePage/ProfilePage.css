@@ -8,13 +8,14 @@
 }
 
 .div__transactions__container{
-    border-left: 1px solid black;
+    border: 1px solid black;
     min-width: 300px;
     text-align: center;
     width: 800px;
     height: 800px;
     margin-left: 100px;
     overflow-y: auto;
+    overflow-x: hidden;
     margin-right: 150px;
 }
 
@@ -49,3 +50,17 @@
 .div__profile__container {
     margin-bottom: 100px;
 } */
+
+.transaction_display{
+    border-left: 1px solid black;
+    padding-left: 500px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.transaction_link{
+    width:100%;
+    display:flex;
+    justify-content: center;
+}

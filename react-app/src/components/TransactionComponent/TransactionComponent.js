@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 
 export default function TransactionComponent(props){
-    const [receiverName, setReceiverName] = useState("")
 
     const dayOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -24,29 +23,22 @@ export default function TransactionComponent(props){
     const month = monthNames[dateTime.getMonth()];
     const year = dateTime.getFullYear();
 
-    console.log(props.entry)
-    useEffect( async()=> {
-        const res = await fetch(`/api/users/${props.entry[1].receiver}`)
-        const data = await res.json()
-        setReceiverName(data.username)
-    }, [])
-
     let senderReceiver;
     let cost;
     // if current user is the sender
     if (props.entry[1].sender === props.user.id){
         senderReceiver =
         <div className="Sender_Receiver">
-            You paid &nbsp;<b>{receiverName}</b>
+            You paid &nbsp;<b>{props.entry[1].requester_username}</b>
         </div>
         cost =
         <div className="CostLoss">
             -${props.entry[1].cost}
         </div>
-    } else {
+    } else { //current user is receiver
         senderReceiver =
         <div className="Sender_Receiver">
-            <b>{receiverName}</b>&nbsp; paid you
+            <b>{props.entry[1].sender_username}</b>&nbsp; paid you
         </div>
         cost =
         <div className="CostGain">

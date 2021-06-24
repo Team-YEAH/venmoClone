@@ -1,6 +1,8 @@
 import React from "react";
 import TransactionComponent from "./TransactionComponent";
 import { useSelector } from "react-redux";
+import './TransactionComponentContainer.css'
+import { NavLink } from 'react-router-dom';
 
 
 export default function TransactionComponentContainer(){
@@ -8,9 +10,11 @@ export default function TransactionComponentContainer(){
     const user = useSelector(state => state.session.user)
     //[ [3:{}] , [2:{} ], [1:{} ] ]
     return(
-        <div>
+        <div className="TransactionComponentContainer">
             {transactionHistories.map((entry)=>{
-                return <TransactionComponent key={entry} entry={entry} user={user}/>
+                return <NavLink className="redirectToTransaction" to={`/transaction/${entry[0]}`} key={entry}>
+                    <TransactionComponent entry={entry} user={user}/>
+                </NavLink>
             })}
         </div>
     )
