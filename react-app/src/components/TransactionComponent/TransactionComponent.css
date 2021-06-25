@@ -1,6 +1,6 @@
 .TransactionComp{
     display: grid;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid darkgray;
     /* border-top: 1px solid black; */
     width: 100;
     height: 100px;
@@ -29,6 +29,7 @@
     display: flex;
     justify-content: flex-start;
     font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight:300;
 }
 
 .Description{
@@ -46,6 +47,7 @@
     justify-content: flex-end;
     align-items: flex-start;
     font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight:300;
 }
 
 .CostLoss{
