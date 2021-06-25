@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import "./SignUpForm.css"
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,8 @@ const SignUpForm = () => {
   }
 
   const updateProfileImage = (e) => {
-    setProfileImage(e.target.value)
+    const file = e.target.files[0]; /* grabs first file and setting as profile image*/
+    if (file) setProfileImage(file)
   }
 
   if (user) {
@@ -54,73 +56,80 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        <label>Full Name</label>
-        <input
-          type="text"
-          name="fullname"
-          onChange={updateFullName}
-          value={full_name}
-        ></input>
-      </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type="text"
-          name="username"
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type="text"
-          name="email"
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Phone Number</label>
-        <input
-          type="text"
-          name="phonenumber"
-          onChange={updatePhoneNumber}
-          value={phonenumber}
-        ></input>
-      </div>
-      <div>
-        <label>Profile Image</label>
-        <input
-          type="text"
-          name="profileImage"
-          onChange={updateProfileImage}
-          value={profileImage}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type="password"
-          name="repeat_password"
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type="submit">Sign Up</button>
-    </form>
+    <div className="SignUpFormContainer">
+      <form className='SignUpFormBox' onSubmit={onSignUp}>
+        <div>
+          <label className="SignUpFormInput">Full Name</label>
+          <input
+            className="SignUpFormBoxes"
+            type="text"
+            name="fullname"
+            onChange={updateFullName}
+            value={full_name}
+          ></input>
+        </div>
+        <div>
+          <label className="SignUpFormInput">User Name</label>
+          <input
+            className="SignUpFormBoxes"
+            type="text"
+            name="username"
+            onChange={updateUsername}
+            value={username}
+          ></input>
+        </div>
+        <div>
+          <label className="SignUpFormInput">Email</label>
+          <input
+            className="SignUpFormBoxes"
+            type="text"
+            name="email"
+            onChange={updateEmail}
+            value={email}
+          ></input>
+        </div>
+        <div>
+          <label className="SignUpFormInput">Phone Number</label>
+          <input
+            className="SignUpFormBoxes"
+            type="text"
+            name="phonenumber"
+            onChange={updatePhoneNumber}
+            value={phonenumber}
+          ></input>
+        </div>
+        <div>
+          <label className="SignUpFormInput">Profile Image</label>
+          <input
+            className="SignUpFormBoxes"
+            type="file"
+            onChange={updateProfileImage}
+          ></input>
+        </div>
+        <div>
+          <label className="SignUpFormInput">Password</label>
+          <input
+            className="SignUpFormBoxes"
+            type="password"
+            name="password"
+            onChange={updatePassword}
+            value={password}
+          ></input>
+        </div>
+        <div>
+          <label className="SignUpFormInput">Repeat Password</label>
+          <input
+            className="SignUpFormBoxes"
+            type="password"
+            name="repeat_password"
+            onChange={updateRepeatPassword}
+            value={repeatPassword}
+            required={true}
+          ></input>
+        </div>
+        <button className='SignUpButton' type="submit">Sign Up</button>
+      </form>
+    </div>
   );
 };
 

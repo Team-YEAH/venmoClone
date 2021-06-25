@@ -1,11 +1,9 @@
 .navItems{
     display: grid;
-    grid-template-columns: 85% 5% 7% 4%;
+    grid-template-columns: 65% 10% 10% 15%;
     grid-template-rows: 10%;
-    /* display: flex; */
     list-style-type: none;
     width: 100%;
-    /* justify-content: space-around; */
 }
 
 .button1{
@@ -21,19 +19,82 @@
 .sideButtons{
     margin-top: 20px;
     font-size: 20px;
-
+    margin-right: 20px;
 }
 
 .navContainer{
-    height: 70px;
+    height: 85px;
     background-color: whitesmoke;
     margin-top: -15px;
 }
 
 .button{
-    background-color: aqua;
-    padding: 3px 4px;
-    border-radius: 25px;
+    background-color:#3d95ce;
+    padding-top: 3px;
+    padding-right: 5px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    border-radius: 4px;
     text-decoration: none;
-    box-shadow: 10px 5px 5px teal;
+    box-shadow: 10px 5px 5px lightslategrey;
+    color: white;
+    font-weight: 600px;
+    cursor: pointer;
+    border: none;
+}
+
+.button:hover {
+    background-color: #c00a0a;
+    padding-top: 3px;
+    padding-right: 5px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 10px 5px 5px lightslategrey;
+    color: white;
+    font-weight: 600px;
+    cursor: pointer;
+    border: none;
+}
+
+.navbarLinks {
+    color: #3d95ce;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.navbarLinks:hover {
+    color: #c00a0a;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.logoutButton {
+    background: #3d95ce;
+    color: white;
+    border-radius: 4px;
+    padding-top: 12px;
+    padding-right: 20px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    font-weight: 600px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+}
+
+.logoutButton:hover {
+    background: #c00a0a;
+    color: white;
+    border-radius: 4px;
+    padding-top: 12px;
+    padding-right: 20px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    font-weight: 600px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
 }

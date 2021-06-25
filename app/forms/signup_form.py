@@ -59,7 +59,6 @@ def validate_profileImage(form, field):
         raise ValidationError("Not a valid URL.")
 
 
-
 class SignUpForm(FlaskForm):
     username = StringField('username', validators=[DataRequired(), user_exists, check_user_length])
     email = StringField('email', validators=[DataRequired(), email_exists, validate_email])

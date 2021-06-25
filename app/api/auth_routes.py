@@ -1,12 +1,24 @@
-from flask import Blueprint, jsonify, session, request
-from app.models import User, db
+import os # Local packages
+from werkzeug.utils import secure_filename
+
+from flask import Blueprint, jsonify, session, request # External files
+from sqlalchemy import or_
+from flask_login import current_user, login_user, logout_user, login_required
+
+from app.models import User, db # Local files
 from app.forms import LoginForm
 from app.forms import SignUpForm
-from flask_login import current_user, login_user, logout_user, login_required
-from sqlalchemy import or_
 from .validation_errors import validation_errors_to_error_messages
+from app.helpers import *
 
 auth_routes = Blueprint('auth', __name__)
+
+
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @auth_routes.route('/')
@@ -51,21 +63,31 @@ def sign_up():
     """
     Creates a new user and logs them in
     """
+
     form = SignUpForm()
+    output = ''
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("please work")
-    print(form.validate_on_submit(), 'hello')
+    user_info = form.data['username']  # adds to file name to get user
+
+    try:
+        file = request.files['image'] # checks to see if files has a key 'image' and places in file
+    except:
+        file = None
+
+    if file and allowed_file(file.filename): # if the file exists, check the file type with our function
+        file.filename = secure_filename(file.filename)   # checks if file name is secure
+        # output = upload_file_to_s3(file, app.config["S3_BUCKET"])
+        output = upload_file_to_s3(file, os.environ.get("S3_BUCKET"), user_info) #
+
     if form.validate_on_submit():
-        print('checking post route123123')
         user = User(
             full_name=form.data['full_name'],
             username=form.data['username'],
             email=form.data['email'],
             password=form.data['password'],
             phonenumber=form.data['phonenumber'],
-            profileImage=form.data['profileImage'],
+            profileImage=str(output),
         )
-        print('checking post route', user)
         db.session.add(user)
         db.session.commit()
         login_user(user)

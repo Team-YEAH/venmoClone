@@ -6,3 +6,4 @@ from app.models import User
 class TransactionForm(FlaskForm):
     userName=StringField('userName', validators=[DataRequired()])
     amount=StringField('amount', validators=[DataRequired()])
+    description=StringField('description', validators=[DataRequired()])

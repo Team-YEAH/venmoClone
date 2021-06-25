@@ -1,0 +1,58 @@
+.IndividualTransactionContainer{
+    width: 80vw;
+    height: 80vh;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    display: grid;
+    grid-template-areas:
+    "payer cost"
+    "desc cost"
+    "date cost";
+    grid-template-columns: 80% 20%;
+}
+
+.Sender_Receiver_Big{
+    grid-area: payer;
+    font-size: 100px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.Description_Big{
+    grid-area: desc;
+    display: flex;
+    justify-content: center;
+    font-size: 80px;
+    align-items: center;
+}
+
+.date_Big{
+    grid-area: date;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 80px;
+}
+
+.CostLoss_Big{
+    grid-area: cost;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    color: red;
+    font-size: 80px;
+    font-weight: 800;
+}
+
+.CostGain_Big{
+    grid-area: cost;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    color: green;
+    font-size: 80px;
+    font-weight: 800;
+}
