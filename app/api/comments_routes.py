@@ -19,6 +19,13 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f"{field} : {error}")
     return errorMessages
 
+@comments_routes.route('/<int:id>')
+
+def get_comments(id):
+    transaction = Transaction.query.filter_by(id=id).first()
+    comments=Comment.query.filter(Comment.transactions_id == transaction.id).all()
+    print({"comments":[comment.to_dict() for comment in comments]})
+    return {"comments":[comment.to_dict() for comment in comments]}
 
 @comments_routes.route('/<int:id>', methods=['POST'])
 @login_required

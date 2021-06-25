@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { makeComment } from '../../store/comments'
+import { makeComment, obtainComments } from '../../store/comments'
 
 const Comments = () => {
     const dispatch = useDispatch();
     const [comment, setComment] = useState('')
     // const [errors, setErrors] = useState([])
     const { id } = useParams()
-
+    const comments = useSelector(state => (state.comments));
     const updateComment = (e) => {
         setComment(e.target.value)
     }
 
     const onSubmitComment = async (e) => {
-        console.log('hello')
         e.preventDefault()
-        console.log(id)
         const sendComment = await dispatch(makeComment({comment, id }))
-        // if (sendComment.errors) {
-        //     setErrors(sendComment.error)
-        // }
+        // setComment()
     }
+    useEffect(() => {
+        dispatch(obtainComments(id))
+        console.log('After comments renders')
+    }, [dispatch])
+
+    console.log("THESE ARE THE COMENTS ASFJKASHFJKAFH", comments)
 
     return (
         <>
@@ -37,6 +39,11 @@ const Comments = () => {
                     <button> Submit </button>
                 </div>
             </form>
+            <div>
+                {comments && comments?.map((comment)=>{
+                    return <div>Posted by:{comment.user}--{comment.comment}</div>
+                })}
+            </div>
         </>
     )
 }
