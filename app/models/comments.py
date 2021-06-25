@@ -9,3 +9,11 @@ class Comment(db.Model):
   comment = db.Column(db.Text, nullable=False)
   user_id = db.Column(db.Integer,ForeignKey('users.id'), nullable=False)
   transactions_id = db.Column(db.Integer, ForeignKey('transactions.id'), nullable=False)
+
+  def to_dict(self):
+    return {
+      'id': self.id,
+      'comment': self.comment,
+      'user_id': self.user_id,
+      'transactions_id': self.transactions_id
+    }

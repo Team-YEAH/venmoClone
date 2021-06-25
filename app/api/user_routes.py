@@ -23,7 +23,7 @@ def user_exists(data, id):
     if user_exists.username == username:
         return True
     elif username_exists:
-        raise ValueError("User is already registered.")
+        return {'errors': "User is already registered." }
     else:
         return True
 
@@ -34,30 +34,30 @@ def email_exists(data, id):
     if user_exists.email == email:
        return True
     elif email_exists:
-        raise ValueError("Email is already registered.")
+        return {'errors': "Email is already registered."}
     else:
         return True
 
 def check_user_length(data):
     username = data
     if len(username) < 3:
-        raise ValueError("Username length is too short. Minimum of 3 characters.")
+        return {'errors': "Username length is too short. Minimum of 3 characters."}
     elif len(username) > 50:
-        raise ValueError("Username length is too long. Maximum of 50 characters.")
+        return {'errors': "Username length is too long. Maximum of 50 characters."}
     else:
         return True
 
 def validate_email(data):
     email = data
     if not bool(re.search(r"^[\w\.\+\-]+\@[\w]+\.[a-z]{2,3}$", email)):
-        raise ValueError("Email is not a valid email. Please provide a correct email.")
+        return {'errors': "Email is not a valid email. Please provide a correct email."}
     else:
         return True
 
 def check_phonenumber_length(data):
     phonenumber = data
     if len(phonenumber) != 11 :
-        raise ValueError("Not a valid phone number. Phone number should be 11 digits.")
+        return {'errors': "Not a valid phone number. Phone number should be 11 digits."}
     else:
         return True
 
@@ -71,7 +71,7 @@ def validate_profileImage(data):
         r'(?:/?|[/?]\S+)$', re.IGNORECASE)
     profileImage = data
     if not re.match(regex, profileImage) and profileImage:
-        raise ValidationError("Not a valid URL.")
+        return {'errors': "Not a valid URL."}
     else:
         return True
 
@@ -173,3 +173,4 @@ def remove_payment():
         db.session.commit()
         return { 'user': form.data['user_id'],
                 'payment_detail': form.data['payment_detail_id']}
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401

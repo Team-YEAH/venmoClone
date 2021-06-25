@@ -55,7 +55,7 @@ def send_money():
         currentuser_balance=float(currentuser.balance) - float(form.amount.data)
         new_balance=float(user.balance) + float(form.amount.data)
         user.balance="{:.2f}".format(new_balance)
-        currentuser.balance="{:.2f}".format(currentuser_balance)
+        currentuser.balance="{:.2f}".format()
 
         db.session.commit()
 
@@ -64,7 +64,7 @@ def send_money():
 
 def check_cost_decimals(cost):
     if not bool(re.search(r"^(?:[0-9][0-9]{0,4}(?:\.\d{1,2})?|100000000|100000000.00)?(\.\d{1,2})?$",cost)):
-        raise ValueError("Not a valid amount, please enter value up to 2 decimal places and under 100000000.00")
+        return {'errors': "Not a valid amount, please enter value up to 2 decimal places and under 100000000.00"}
     else:
         return True
 

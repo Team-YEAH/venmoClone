@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { getTransactionsRecords } from "../../store/transactionHistory";
 import { getCurrentBalance } from "../../store/transaction";
 import TransactionComponentContainer from "../TransactionComponent/TransactionComponentContainer";
+import Comments from '../Comment/Comment';
 
 const TransactionsPage = () => {
 
@@ -20,6 +21,9 @@ const TransactionsPage = () => {
         <h1 className="TransactionsTitle">My Transactions</h1>
         <div className = "TransactionsPageContainer">
             <TransactionComponentContainer />
+        </div>
+        <div>
+            <Comments/>
         </div>
         </>
     )
