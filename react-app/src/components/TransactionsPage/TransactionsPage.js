@@ -22,9 +22,6 @@ const TransactionsPage = () => {
         <div className = "TransactionsPageContainer">
             <TransactionComponentContainer />
         </div>
-        <div>
-            <Comments/>
-        </div>
         </>
     )
 }
