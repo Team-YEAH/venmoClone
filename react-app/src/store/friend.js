@@ -121,7 +121,7 @@ export default function reducer(state = initialState, action) {
             }
             return newState
         case SEND_FRIEND_REQUEST:
-            newState = {...state}
+            newState = {friends:{...state.friends}, friend_requests:{...state.friend_requests}, pending_requests:{...state.pending_requests}}
             newState.pending_requests[action.payload.accepter_id] = {
                 "requester_id": action.payload.requester_id,
                 "accepter_id" : action.payload.accepter_id,
@@ -130,7 +130,7 @@ export default function reducer(state = initialState, action) {
             }
             return newState
         case ADD_FRIEND:
-            newState = {...state}
+            newState = {friends:{...state.friends}, friend_requests:{...state.friend_requests}, pending_requests:{...state.pending_requests}}
             newState.friends[action.payload.requester_id] = {
                 "requester_id": action.payload.requester_id,
                 "accepter_id" : action.payload.accepter_id,
@@ -143,7 +143,7 @@ export default function reducer(state = initialState, action) {
             }
             return newState
         case DELETE_FRIEND:
-            newState = {...state}
+            newState = {friends:{...state.friends}, friend_requests:{...state.friend_requests}, pending_requests:{...state.pending_requests}}
 
             delete newState.friends[action.payload.accepter_id]
             delete newState.friend_requests[action.payload.accepter_id]
