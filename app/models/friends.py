@@ -9,3 +9,11 @@ class Friend(db.Model):
   requester = db.Column(db.Integer, ForeignKey('users.id'),  nullable=False)
   accepter = db.Column(db.Integer, ForeignKey('users.id'),  nullable=False)
   accepted = db.Column(db.Boolean, default=False, nullable=False)
+
+  def to_dict(self):
+      return {
+        "id": self.id,
+        "requester": self.requester,
+        "accepter": self.accepter,
+        "accepted": self.accepted,
+      }

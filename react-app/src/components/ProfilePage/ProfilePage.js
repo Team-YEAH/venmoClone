@@ -49,6 +49,11 @@ const ProfilePage = () => {
                         Payment Details
                     </NavLink>
                     </div>
+                    <div className='button__profile__friends'>
+                        <NavLink to='/friends'>
+                            <button >Friends</button>
+                        </NavLink>
+                    </div>
                 </div>
 
                 <div className="transaction_display">

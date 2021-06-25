@@ -16,6 +16,8 @@ import PaymentDetailsPage from "./components/PaymentDetailsPage/PaymentDetailsPa
 import PaymentMethodsPage from "./components/PaymentMethodsPage/PaymentMethodsPage";
 import TransactionForm from "./components/TransactionForm/TransactionForm";
 import IndividualTransactionPageComponent from "./components/IndividualTransactionPage/IndividualTransactionPageComponent";
+import FriendsPageComponent from "./components/FriendsPageComponent/FriendsPageComponent";
+import AddFriendsFormComponent from "./components/FriendsPageComponent/AddFriendsFormComponent";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -39,6 +41,12 @@ function App() {
       <Switch>
         <Route path="/transaction-form" exact={true}>
           <TransactionForm />
+        </Route>
+        <Route path="/friends" exact={true}>
+          <FriendsPageComponent />
+        </Route>
+        <Route path="/addFriends" exact={true}>
+          <AddFriendsFormComponent />
         </Route>
         <Route path="/transaction/:id" exact={true}>
           <IndividualTransactionPageComponent />

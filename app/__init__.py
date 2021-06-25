@@ -10,6 +10,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.transaction import transactions_routes
 from .seeds import seed_commands
+from .api.friend import friends_routes
 
 from .config import Config
 
@@ -32,6 +33,7 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(transactions_routes, url_prefix='/api/transaction')
+app.register_blueprint(friends_routes, url_prefix='/api/friend')
 db.init_app(app)
 Migrate(app, db, compare_type=True)
 
