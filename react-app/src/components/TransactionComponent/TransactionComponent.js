@@ -3,6 +3,7 @@ import './TransactionComponent.css'
 import { useEffect, useState } from "react";
 
 
+
 export default function TransactionComponent(props){
 
     const dayOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
@@ -55,6 +56,9 @@ export default function TransactionComponent(props){
             <div className="date">
                 {`${day}, ${month} ${date}, ${year} at ${hour}:${minute}${pmAm}`}
             </div>
+            {/* <div>
+                <Comments/>
+            </div> */}
         </div>
     )
 }

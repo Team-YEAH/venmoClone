@@ -56,7 +56,7 @@ def send_money():
         currentuser_balance=float(currentuser.balance) - float(form.amount.data)
         new_balance=float(user.balance) + float(form.amount.data)
         user.balance="{:.2f}".format(new_balance)
-        currentuser.balance="{:.2f}".format(currentuser_balance)
+        currentuser.balance="{:.2f}".format()
 
         db.session.commit()
 

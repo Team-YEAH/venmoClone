@@ -16,6 +16,7 @@ import PaymentDetailsPage from "./components/PaymentDetailsPage/PaymentDetailsPa
 import PaymentMethodsPage from "./components/PaymentMethodsPage/PaymentMethodsPage";
 import TransactionForm from "./components/TransactionForm/TransactionForm";
 import IndividualTransactionPageComponent from "./components/IndividualTransactionPage/IndividualTransactionPageComponent";
+import Comments from "./components/Comment/Comment";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -42,6 +43,7 @@ function App() {
         </Route>
         <Route path="/transaction/:id" exact={true}>
           <IndividualTransactionPageComponent />
+          <Comments/>
         </Route>
         <Route path="/login" exact={true}>
           <LoginForm />
