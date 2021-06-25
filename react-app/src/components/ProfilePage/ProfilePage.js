@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom"
 import { getTransactionsRecords } from "../../store/transactionHistory";
 import { getCurrentBalance } from "../../store/transaction";
 import TransactionComponentContainer from "../TransactionComponent/TransactionComponentContainer";
+import {getFriends} from  '../../store/friend';
 
 import './ProfilePage.css';
 
@@ -14,6 +15,10 @@ const ProfilePage = () => {
     useEffect(async()=>{
         await dispatch(getTransactionsRecords())
         await dispatch(getCurrentBalance())
+        const getFL = async () => {
+            await dispatch(getFriends())
+        }
+        getFL()
     }, [])
 
     return (

@@ -1,0 +1,15 @@
+.friend__icon{
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 50%;
+    margin-right: 5px;
+    position: relative;
+    top: 7px;
+}
+
+.div__friend__username{
+    display: inline-block;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 10px
+}

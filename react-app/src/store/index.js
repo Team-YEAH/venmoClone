@@ -5,13 +5,15 @@ import transaction from "./transaction"
 import transactionHistory from "./transactionHistory"
 import friend from "./friend"
 import comments from "./comments"
+import users from "./users"
 
 const rootReducer = combineReducers({
     session,
     transaction,
     transactionHistory,
     friend,
-    comments
+    comments,
+    users
 });
 
 

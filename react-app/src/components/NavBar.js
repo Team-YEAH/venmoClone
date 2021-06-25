@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import './styles/NavBar.css'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 const NavBar = () => {
+
   const user = useSelector(state => state.session.user)
+
   let sideButtons;
   if (user){
     sideButtons =

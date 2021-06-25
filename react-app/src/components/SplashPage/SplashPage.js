@@ -2,8 +2,6 @@ import './SplashPage.css';
 import StackImg from './StackImg';
 import React from "react";
 
-
-
 export default function SplashPage(){
     return(
         <div className="SplashContainer">
