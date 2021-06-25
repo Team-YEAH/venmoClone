@@ -41,6 +41,9 @@ export const makePayment = (userName, amount, description) => async (dispatch) =
     if (data.errors) {
         return data;
     }
+    if(data.negativeValue === true){
+        window.alert("Sending this payment results in a negative Doughmo balance, the difference will be taken out of your active payment method")
+    }
     dispatch(addTransaction(data))
     return {}
 }
