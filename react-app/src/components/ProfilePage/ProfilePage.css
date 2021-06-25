@@ -23,18 +23,6 @@
     margin-right: 150px;
 }
 
-.div__transactions__container{
-    /* border: 1px solid black; */
-    min-width: 300px;
-    text-align: center;
-    width: 800px;
-    height: 800px;
-    margin-left: 100px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    margin-right: 150px;
-}
-
 .profileImage {
     height: 150px;
     width: 150px;
