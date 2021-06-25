@@ -1,8 +1,4 @@
 import boto3, botocore
-<<<<<<< HEAD
-import os
-=======
->>>>>>> 24a91dba7506a66269972cc3c7e021ddac25cdd8
 from .config import Config
 
 
@@ -13,12 +9,7 @@ s3 = boto3.client(
    aws_secret_access_key=Config.S3_SECRET_ACCESS_KEY
 )
 
-<<<<<<< HEAD
-print('Config.S3_KEY,', Config.S3_KEY)
-print('Config.S3_SECRET_ACCESS_KEY,', Config.S3_SECRET_ACCESS_KEY)
 
-=======
->>>>>>> 24a91dba7506a66269972cc3c7e021ddac25cdd8
 def upload_file_to_s3(file, bucket_name, user_info, acl="public-read"):
 
     new_file_name = user_info + '_' + file.filename

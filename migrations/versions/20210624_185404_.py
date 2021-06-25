@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 3423017a9c88
+Revision ID: b94a7ca658ea
 Revises: 
-Create Date: 2021-06-24 12:21:43.702859
+Create Date: 2021-06-24 18:54:04.203845
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '3423017a9c88'
+revision = 'b94a7ca658ea'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,13 +32,11 @@ def upgrade():
     sa.UniqueConstraint('username')
     )
     op.create_table('friends',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('requester', sa.Integer(), nullable=False),
-    sa.Column('accepter', sa.Integer(), nullable=False),
-    sa.Column('accepted', sa.Boolean(), nullable=False),
-    sa.ForeignKeyConstraint(['accepter'], ['users.id'], ),
-    sa.ForeignKeyConstraint(['requester'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id')
+    sa.Column('requester_id', sa.Integer(), nullable=True),
+    sa.Column('accepter_id', sa.Integer(), nullable=True),
+    sa.Column('accepted', sa.Boolean(), nullable=True),
+    sa.ForeignKeyConstraint(['accepter_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['requester_id'], ['users.id'], )
     )
     op.create_table('paymentdetails',
     sa.Column('id', sa.Integer(), nullable=False),
