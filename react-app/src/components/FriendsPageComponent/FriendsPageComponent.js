@@ -14,26 +14,24 @@ export default function FriendsPageComponent(){
     // const friend_requests= useSelector(state=> state.friend.friend_requests)
     // const pending_requests= useSelector(state=> state.friend.pending_requests)
 
-    const friendsState = useSelector(state=> state.friend.friends)
-    const friend_requestsState = useSelector(state=> state.friend.friend_requests)
-    const pending_requestsState = useSelector(state=> state.friend.pending_requests)
+    const friends = useSelector(state=> state.friend.friends)
+    const friend_requests = useSelector(state=> state.friend.friend_requests)
+    const pending_requests = useSelector(state=> state.friend.pending_requests)
 
-    const [friends, setFriends] = useState(friendsState)
-    const [friend_requests, setFriendRequests] = useState(friend_requestsState)
-    const [pending_requests, setPendingRequests] = useState(pending_requestsState)
+
 
     // useEffect(()=>{
     //     const getFL = async () => {
     //         await dispatch(getFriends())
     //         // await setFriends(friendsState)
     //         // await setFriendRequests(friend_requestsState)
-    //         // await setPendingRequests(pending_requestsState)
+    //         // await setPendingRequests(pending_requests)
     //     }
     //     getFL()
     // },[dispatch])
 
     useEffect(()=>{
-        
+
     },[friends, friend_requests, pending_requests])
 
     if(friends === null){
