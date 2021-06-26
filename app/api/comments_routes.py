@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import User, db, Transaction, Comment
-from sqlalchemy import or_
+from sqlalchemy import or_, and_
 from app.forms import CommentForm
 from flask_login import current_user, login_required
 import re
@@ -47,4 +47,13 @@ def post_comment(id):
         return newComment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-# comment_id = Comment.query.filter_by(id=id).first()
+
+@comments_routes.route('/<int:id>', methods=['DELETE'])
+def delete_comment(id):
+    user = current_user.id
+    deletethis = Comment.query.filter(Comment.id == id).first()
+    db.session.delete(deletethis)
+    if deletethis.user_id != user:
+        return {'errors': 'You must own this comment to delete it.'}
+    db.session.commit()
+    return {'id': id}
