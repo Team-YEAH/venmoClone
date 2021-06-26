@@ -2,7 +2,8 @@ import re
 import os
 from werkzeug.utils import secure_filename
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import login_required, current_user
+from sqlalchemy import or_
 from app.models import User, db, PaymentDetail
 from app.forms import EditForm, PaymentDetailForm, RemovePaymentDetail
 from .validation_errors import validation_errors_to_error_messages
@@ -179,7 +180,13 @@ def remove_payment():
 @login_required
 def search():
     data = request.get_json()
-    user = User.query.filter(User.username == data['username']).first()
+
+    if (current_user.username == data['username']) or (current_user.phonenumber == data['username']) or (current_user.email == data['username']):
+        return {'errors' : ["Can't add yourself"]}
+
+    user = User.query.filter(or_(User.username == data['username'],
+                                 User.phonenumber == data['username'],
+                                 User.email == data['username'])).first()
     if user:
         return user.to_dict()
     return {'errors': ['user does not exist']}
