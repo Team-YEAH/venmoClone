@@ -16,13 +16,14 @@ export default function AddFriendsFormComponent(){
     const search = async (e) => {
         e.preventDefault();
         setErrors([])
-        setSearchedUser([])
+        setSearchedUser('')
         setFriendRequestSucess(false)
         const data = await dispatch(searchUser({username}))
         if (data.errors) {
             setErrors(data.errors);
+        } else {
+            setSearchedUser(data)
         }
-        setSearchedUser(data)
     }
 
     const sendFriendRequest = async (e) => {
