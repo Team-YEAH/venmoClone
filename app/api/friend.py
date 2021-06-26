@@ -63,9 +63,12 @@ def friend():
                                 values(
                                         accepted = True
                                     )
+        requester = User.query.filter(User.id == requester_id).first()
         db.session.execute(accept_friend)
         db.session.commit()
         ret_obj['accepted'] = True
+        ret_obj['accepter_username'] = requester.username
+        ret_obj['accepter_profileImage'] = requester.profileImage
         return ret_obj
     elif request.method == 'DELETE':
         delete_friend = friends.delete(). \
@@ -78,4 +81,3 @@ def friend():
         user = current_user
         friends_res = User.query.filter(User.id == current_user.id).first()
         return friends_res.to_dict_friends()
-0

@@ -16,6 +16,12 @@ const NavBar = () => {
       <a href='/'><img className='doughmologo' src='../../Doughmo.png'></img></a>
       </li>
       <li className="sideButtons">
+        <NavLink to="/requests" exact={true} className="navbarLinks">My Requests</NavLink>
+      </li>
+      <li className="sideButtons">
+        <NavLink to="/transaction-form/request" exact={true} className="navbarLinks">Request Money</NavLink>
+      </li>
+      <li className="sideButtons">
         <NavLink to="/transaction-form" exact={true} className="navbarLinks">Send Money</NavLink>
       </li>
       <li className="sideButtons">

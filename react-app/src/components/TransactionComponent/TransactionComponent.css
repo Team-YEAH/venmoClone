@@ -11,6 +11,25 @@
     grid-template-columns: 80% 20%;
 }
 
+.TransactionCompRequest{
+    display: grid;
+    border-bottom: 1px solid darkgray;
+    /* border-top: 1px solid black; */
+    width: 100;
+    height: 100px;
+    grid-template-areas:
+    "payer cost"
+    "desc cost"
+    "date reqButton";
+    grid-template-columns: 80% 20%;
+}
+
+.RequestButtons{
+    grid-area: reqButton;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
 .TransactionComp:hover {
     display: grid;
     border: 2px solid black;
