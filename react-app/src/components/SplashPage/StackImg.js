@@ -12,7 +12,7 @@ export default function StackImg(props){
             </div>
 
             <div className="class2">
-                <h1>{props.header}</h1>
+                <h2>{props.header}</h2>
                 <p>
                     {props.text}
                 </p>
@@ -22,7 +22,7 @@ export default function StackImg(props){
         section =
         <div className="StackContainer">
             <div className="class1">
-                <h1>{props.header}</h1>
+                <h2>{props.header}</h2>
                 <p>
                     {props.text}
                 </p>
