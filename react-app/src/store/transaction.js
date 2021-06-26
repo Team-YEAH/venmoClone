@@ -1,6 +1,6 @@
 //constants
 const ADD_TRANSACTION = "transaction/ADD_TRANSACTION"
-const GET_BALANCE = "transaction/GET_BALANCE"
+export const GET_BALANCE = "transaction/GET_BALANCE"
 
 // action creators
 const addTransaction = (transaction) => ({
@@ -45,6 +45,28 @@ export const makePayment = (userName, amount, description) => async (dispatch) =
         window.alert("Sending this payment results in a negative Doughmo balance, the difference will be taken out of your active payment method")
     }
     dispatch(addTransaction(data))
+    return {}
+}
+
+export const updateBalance = (userName, amount) => async (dispatch) => {
+    const response = await fetch('/api/transaction/update-balance', {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userName,
+            amount
+        })
+    });
+    const data = await response.json();
+    if (data.errors) {
+        return data;
+    }
+    if(data.negativeValue === true){
+        window.alert("Sending this payment results in a negative Doughmo balance, the difference will be taken out of your active payment method")
+    }
+    dispatch(getBalance(data))
     return {}
 }
 

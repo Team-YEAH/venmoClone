@@ -40,8 +40,14 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path="/requests" exact={true}>
+          <TransactionsPage request={true}/>
+        </Route>
         <Route path="/transaction-form" exact={true}>
-          <TransactionForm />
+          <TransactionForm request={false}/>
+        </Route>
+        <Route path="/transaction-form/request" exact={true}>
+          <TransactionForm request={true}/>
         </Route>
         <Route path="/friends" exact={true}>
           <FriendsPageComponent />

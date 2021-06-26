@@ -4,7 +4,7 @@ import {makePayment} from "../../store/transaction"
 import { setNewTransactionRecord } from "../../store/transactionHistory";
 import {useHistory} from "react-router-dom"
 
-const TransactionForm = () => {
+const TransactionForm = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
@@ -18,17 +18,18 @@ const TransactionForm = () => {
         e.preventDefault();
 
 
-        let request = false;
+        let request = props.request;
         const transactionHistoryData = await dispatch(setNewTransactionRecord(amount, request, user.id, userName, userName, amount, description))
         if (transactionHistoryData.errors) {
             setTransactionErrors(transactionHistoryData.errors);
             }
 
-
-        const data = await dispatch(makePayment(userName, amount, description));
-        if (data.errors) {
-            setErrors(data.errors);
-            }
+        if(!request){
+            const data = await dispatch(makePayment(userName, amount, description));
+            if (data.errors) {
+                setErrors(data.errors);
+                }
+        }
 
         if(!transactionHistoryData.errors){
             history.push("/transactions")
