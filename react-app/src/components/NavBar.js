@@ -40,7 +40,7 @@ const NavBar = () => {
   </ul>
   } else {
     sideButtons =
-    <ul className="navItems">
+    <ul className="navItems2">
         <li className="sideButtons">
           <NavLink to="/" exact={true} activeClassName="active" className="button1 button">
             Home

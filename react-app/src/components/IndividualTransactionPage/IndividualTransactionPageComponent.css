@@ -2,6 +2,7 @@
     width: 50%;
     height: 50%;
     border-bottom: 1px solid darkgrey;
+    border-top: 1px solid darkgrey;
     /* border: none; */
     /* background: #ededed; */
     margin: auto;
