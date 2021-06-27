@@ -59,7 +59,8 @@
 
 .transaction_display{
     border-left: 1px solid darkgray;
-    padding-left: 100px;
+    padding-left: 15%;
+    padding-right: 15%;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -109,7 +110,8 @@
 .div__friend__list__flex__container{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items:flex-start;
+    /* position: sticky; */
 }
 
 .img__friend__icon{
@@ -118,7 +120,7 @@
     max-width: 40px;
     max-height: 40px;
     z-index: 200;
-    position: relative;
+    position: fixed;
     bottom: 25px;
     cursor: pointer;
 }
