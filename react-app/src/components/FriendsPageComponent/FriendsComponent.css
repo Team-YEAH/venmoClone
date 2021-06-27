@@ -1,4 +1,6 @@
 .friend__icon{
+    min-width: 30px;
+    min-height: 30px;
     max-width: 40px;
     max-height: 40px;
     border-radius: 50%;
@@ -12,4 +14,70 @@
     border: 1px solid black;
     margin: 5px;
     padding: 10px
+}
+
+.img__icons__friends{
+
+}
+
+.div__friend__buttons__container{
+    display: flex;
+    justify-content: space-around
+}
+
+.div__friends__list__container{
+    min-height: 220px;
+}
+
+.div__friends__list__flex{
+}
+
+.div__friend__buttons__container img{
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.img__icons__friends__1{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    cursor: pointer;
+}
+
+.img__icons__friends__2{
+    position: absolute;
+    bottom: 0px;
+    right: 50%;
+    left: 43%;
+    cursor: pointer;
+}
+
+.img__icons__friends__3{
+    position: absolute;
+    bottom: 0px;
+    cursor: pointer;
+}
+
+.div__friend__buttons__container img.active{
+    border: 1px solid blue;
+    border-radius: 50%;
+}
+
+.friends__list{
+
+}
+
+.friend__requests{
+
+}
+
+.pending__requests{
+
+}
+
+
+.hidden{
+    display: none;
 }

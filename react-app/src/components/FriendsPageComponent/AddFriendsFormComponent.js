@@ -80,11 +80,6 @@ export default function AddFriendsFormComponent(){
             </div>
 
         }
-        <div>
-            <NavLink to='/friends'>
-                <button>BACK</button>
-            </NavLink>
-        </div>
         </>
     )
 }

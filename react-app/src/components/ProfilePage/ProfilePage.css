@@ -1,7 +1,7 @@
 .div__outer__container{
     display: flex;
-    /* justify-content: space-around; */
-    width: 100%;
+    justify-content: space-around;
+    /* width: 100%; */
     margin-top: 3%;
     margin-left: 2%;
     /* border-top: 1px solid black; */
@@ -10,13 +10,14 @@
 .div__profile__container{
     min-width: 200px;
     margin: 2%;
+    display: flex;
+    flex-direction: column;
 }
 
 .div__transactions__container{
     /* border: 1px solid black; */
     min-width: 300px;
     text-align: center;
-    width: 800px;
     height: 800px;
     margin-left: 100px;
     overflow-y: auto;
@@ -88,4 +89,55 @@
 
 .button__profile__friends {
     margin-top: 5%;
+}
+
+
+.div__friends__list{
+    border: 1px solid black;
+    position: relative;
+    /* left: 70%; */
+    min-width: 250px;
+    /* min-height: 300px; */
+    bottom: 331px;
+    right: 212px;
+}
+
+.div__friends__list.hidden{
+    visibility: hidden
+}
+
+.div__friend__list__flex__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img__friend__icon{
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 40px;
+    max-height: 40px;
+    z-index: 200;
+    position: relative;
+    bottom: 25px;
+    cursor: pointer;
+}
+
+.div__add__friends__form__container{
+
+}
+
+.div__friend__icon{
+    float: right;
+    position: relative;
+    background: transparent;
+    right: 10px;
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.img__friend__icon.hidden{
+    visibility: hidden;
 }

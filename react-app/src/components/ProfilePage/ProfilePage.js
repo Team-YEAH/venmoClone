@@ -1,16 +1,21 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { getTransactionsRecords } from "../../store/transactionHistory";
 import { getCurrentBalance } from "../../store/transaction";
 import TransactionComponentContainer from "../TransactionComponent/TransactionComponentContainer";
 import {getFriends} from  '../../store/friend';
+import friendIcon from '../img/friend.png';
+import AddFriendsFormComponent from "../FriendsPageComponent/AddFriendsFormComponent";
+import FriendsPageComponent from "../FriendsPageComponent/FriendsPageComponent";
 
 import './ProfilePage.css';
 
 const ProfilePage = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
+    const friendImageIcon = useRef()
+    const divFriendList = useRef()
 
     useEffect(async()=>{
         await dispatch(getTransactionsRecords())
@@ -19,7 +24,34 @@ const ProfilePage = () => {
             await dispatch(getFriends())
         }
         getFL()
+
+        document.addEventListener("mousedown", handleClick);
+        return () => {
+            document.removeEventListener("mousedown", handleClick);
+        };
+
     }, [])
+
+    const toggleFriends = () => {
+        if(divFriendList.current.classList.contains('hidden')){
+            divFriendList.current.classList.remove('hidden')
+            friendImageIcon.current.classList.add('hidden')
+        } else {
+            divFriendList.current.classList.add('hidden')
+        }
+    }
+
+    const handleClick = e =>{
+        try {
+          if(divFriendList.current.contains(e.target)){
+            return
+          }
+          divFriendList.current.classList.add('hidden')
+          friendImageIcon.current.classList.remove('hidden')
+        } catch {
+          //
+        }
+      }
 
     return (
         <>
@@ -54,11 +86,11 @@ const ProfilePage = () => {
                         Payment Details
                     </NavLink>
                     </div>
-                    <div className='button__profile__friends'>
+                    {/* <div className='button__profile__friends'>
                         <NavLink to='/friends'>
                             <button >Friends</button>
                         </NavLink>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="transaction_display">
@@ -71,6 +103,22 @@ const ProfilePage = () => {
                 </div>
 
 
+            </div>
+
+
+            <div className='div__friend__icon'>
+                <img className='img__friend__icon' src={friendIcon} ref={friendImageIcon}
+                     onClick={toggleFriends}/>
+                <div className='div__friends__list hidden' ref={divFriendList}>
+                    <div className='div__friend__list__flex__container'>
+                        <div className='div__add__friends__form__container'>
+                            <AddFriendsFormComponent />
+                        </div>
+                        <div className='div__friends__page__container'>
+                            <FriendsPageComponent />
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     )

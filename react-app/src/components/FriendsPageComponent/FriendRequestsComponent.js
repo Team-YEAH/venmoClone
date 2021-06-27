@@ -1,17 +1,18 @@
-import React from 'react';
+import React from "react";
 import {useSelector, useDispatch } from "react-redux";
 
 import {acceptFriendRequest, removeFriend} from  '../../store/friend';
 
-import './FriendsComponent.css'
 
-const FriendsComponent = ({username, requester_id, accepter_id, profileImage}) =>{
+const FriendRequestsComponent = ({username, requester_id, accepter_id, profileImage}) => {
 
     const dispatch = useDispatch();
 
-    const deleteFriend = async (e) =>{
+    let accepted=true
+
+    const acceptFriend = async (e) =>{
         e.preventDefault();
-        await dispatch(removeFriend({requester_id, accepter_id}))
+        await dispatch(acceptFriendRequest({requester_id, accepter_id, accepted}))
     }
 
     return (
@@ -20,11 +21,11 @@ const FriendsComponent = ({username, requester_id, accepter_id, profileImage}) =
                 {username}
             </div>
             <img className='friend__icon' src={profileImage}/>
-            <button onClick={deleteFriend}>
-                Delete Friend
+            <button onClick={acceptFriend}>
+                Accept Friend
             </button>
         </>
     )
 }
 
-export default FriendsComponent;
+export default FriendRequestsComponent;
