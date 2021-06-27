@@ -5,10 +5,11 @@
     width: 50%;
     margin: auto;
     margin-top: 100px;
-    height: 50vh;
+    height: auto;
     border-radius: 5px;
     background: #f7f7f7;
-    box-sizing:border-box
+    box-sizing:border-box;
+    padding: 20px;
 }
 
 .FormBox{

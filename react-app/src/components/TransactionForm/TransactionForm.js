@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux"
 import {makePayment} from "../../store/transaction"
 import { setNewTransactionRecord } from "../../store/transactionHistory";
 import {useHistory} from "react-router-dom"
+import './TransactionForm.css'
 
 const TransactionForm = (props) => {
     const history = useHistory();
@@ -38,7 +39,8 @@ const TransactionForm = (props) => {
     }
 
     return (
-        <form onSubmit={onSend} className="">
+        <div className='sendreqFormContainer'>
+        <form className='sendreqForm' onSubmit={onSend} className="">
             <div>
             {errors.map((error) => (
                 <div>{error}</div>
@@ -48,7 +50,7 @@ const TransactionForm = (props) => {
             ))}
             </div>
             <div>
-            <label>User To Send Money:</label>
+            <label className='sendreqLabels'>User To Request/Send:</label>
             <input
                 name="username"
                 type="text"
@@ -58,7 +60,7 @@ const TransactionForm = (props) => {
             />
             </div>
             <div>
-            <label>Amount:</label>
+            <label className='sendreqLabels'>Amount:</label>
             <input
                 name="amount"
                 type="text"
@@ -68,17 +70,20 @@ const TransactionForm = (props) => {
             />
             </div>
             <div>
-            <label>Description:</label>
-            <input
+            <label className='sendreqLabels'>Description:</label>
+            <textarea
+                rows="5"
+                cols="18"
                 name="description"
                 type="text"
                 placeholder="Describe your transaction"
                 value={description}
                 onChange={(e)=>setDescription(e.target.value)}
             />
-            <button type="submit">Send</button>
+            <button className='sendreqBtn' type="submit">Send</button>
             </div>
         </form>
+        </div>
     )
 }
 

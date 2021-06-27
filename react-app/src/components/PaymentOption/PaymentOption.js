@@ -16,21 +16,22 @@ const PaymentOption = ({user, paymentdetails}) => {
 
     return (
         <>
-            {!deleteTrigger && <tbody className='div__payment__container'>
+            {
+            !deleteTrigger && <tbody className='div__payment__container'>
                 <tr>
                     <td className='payment__td'>
-                        {paymentdetails.debit_card}
+                        Card #: {paymentdetails.debit_card}
                     </td>
                     <td className='payment__td'>
-                        {paymentdetails.bank_number}
+                        Bank #: {paymentdetails.bank_number}
                     </td>
                     <td className='payment__td'>
-                        {paymentdetails.bank}
+                        Bank: {paymentdetails.bank}
                     </td>
                     <td className='payment__td'>
-                        {paymentdetails.billing_address}
+                        Billing: {paymentdetails.billing_address}
                     </td>
-                    <button onClick={removePayment}>
+                    <button className='payment__deleteBtn' onClick={removePayment}>
                         Delete
                     </button>
                 </tr>

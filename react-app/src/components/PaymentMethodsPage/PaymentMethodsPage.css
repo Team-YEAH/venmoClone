@@ -1,0 +1,82 @@
+.paymentMethodPageContainer {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #ededed;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    height: auto;
+    border-radius: 5px;
+    background: #f7f7f7;
+    box-sizing:border-box;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.paymentMethodBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.paymentMethodLabel {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #7f7f7f;
+    text-transform: uppercase;
+    display: block;
+    padding-left: 4px;
+    margin-top: 5px
+}
+
+.paymentMethodInput {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    background: none;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid #d9d9d9;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #262626;
+    display: block;
+    min-width: 0;
+    padding: 12px 8px 12px 4px;
+    width: 100%;
+}
+
+.paymentMethodBtn {
+    margin-top: 10%;
+    margin-left: 25%;
+    margin-right: 25%;
+    background: #3d95ce;
+    color: white;
+    border-radius: 4px;
+    padding-top: 6px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    font-weight: 600px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+}
+
+.paymentMethodBtn:hover {
+    margin-top: 10%;
+    margin-left: 25%;
+    margin-right: 25%;
+    background: #c00a0a;
+    color: white;
+    border-radius: 4px;
+    padding-top: 6px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    font-weight: 600px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+}

@@ -84,11 +84,13 @@
 .ProfileBtn {
     margin-top: 10%;
     color: #3d95ce;
-    margin-left: 25%;
+    display: flex;
+    justify-content: center;
 }
 
 .ProfileBtn:hover {
     margin-top: 10%;
     color: #c00a0a;
-    margin-left: 25%;
+    display: flex;
+    justify-content: center;
 }

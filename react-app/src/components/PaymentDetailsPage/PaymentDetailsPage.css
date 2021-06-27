@@ -7,3 +7,17 @@
 .div__popUp.hidden{
     visibility: hidden;
 }
+
+.paymentmethodlink {
+    color: #0074de;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.paymentmethodlink:hover {
+    color: #c00a0a;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif;
+}

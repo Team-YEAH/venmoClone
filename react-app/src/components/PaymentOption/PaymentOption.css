@@ -1,3 +1,41 @@
+
+.div__payment__container {
+    border-radius: 4px;
+    width: 100%;
+}
+
 .payment__td {
+    padding: 1%;
+    background: white;
+    width: 150px;
+    border-radius: 2px;
     border: 1px solid black;
+}
+
+.payment__deleteBtn {
+    width: auto;
+    height: auto;
+    margin: 50%;
+    background: #3d95ce;
+    color: white;
+    border-radius: 4px;
+    padding: 1%;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+    padding: 10%;
+}
+
+.payment__deleteBtn:hover {
+    width: auto;
+    height: auto;
+    margin: 50%;
+    background: #c00a0a;
+    color: white;
+    border-radius: 4px;
+    padding: 1%;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+    padding: 10%;
 }

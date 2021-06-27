@@ -25,7 +25,7 @@ const PaymentDetailsPage = () => {
             {Object.keys(paymentDetails).map((key) => {
                 return <PaymentOption key={key} user={user.id} paymentdetails={paymentDetails[key]}/>
             })}
-            <NavLink to='/paymentmethods'> Payment Methods </NavLink>
+            <NavLink className='paymentmethodlink' to='/paymentmethods'> Add a Payment </NavLink>
         </>
     )
 }

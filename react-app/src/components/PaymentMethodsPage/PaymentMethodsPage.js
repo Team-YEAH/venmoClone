@@ -2,6 +2,7 @@ import React, { useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { addPaymentDetail } from '../../store/session'
+import './PaymentMethodsPage.css'
 
 const PaymentMethod = () => {
     const dispatch = useDispatch();
@@ -40,45 +41,51 @@ const PaymentMethod = () => {
 
     return (
         <>
-            <form onSubmit={onPaymentSubmit}>
-                <div>
-                    <label>Debit Card</label>
-                    <input
-                    type='text'
-                    name='debit_card'
-                    onChange={updateDebitCard}
-                    value={debit_card}
-                    ></input>
-                </div>
-                <div>
-                    <label>Bank Number</label>
-                    <input
-                    type='text'
-                    name='bank_number'
-                    onChange={updateBankNumber}
-                    value={bank_number}
-                    ></input>
-                </div>
-                <div>
-                    <label>Bank</label>
-                    <input
-                    type='text'
-                    name='bank'
-                    onChange={updateBank}
-                    value={bank}
-                    ></input>
-                </div>
-                <div>
-                    <label>Billing Address</label>
-                    <input
-                    type='text'
-                    name='billing_address'
-                    onChange={updateBillingAddress}
-                    value={billing_address}
-                    ></input>
-                </div>
-                <button type='submit'>Submit</button>
-            </form>
+            <div className='paymentMethodPageContainer'>
+                <form className='paymentMethodBox'onSubmit={onPaymentSubmit}>
+                    <div>
+                        <label className='paymentMethodLabel'>Debit Card</label>
+                        <input
+                        className='paymentMethodInput'
+                        type='text'
+                        name='debit_card'
+                        onChange={updateDebitCard}
+                        value={debit_card}
+                        ></input>
+                    </div>
+                    <div>
+                        <label className='paymentMethodLabel'>Bank Number</label>
+                        <input
+                        className='paymentMethodInput'
+                        type='text'
+                        name='bank_number'
+                        onChange={updateBankNumber}
+                        value={bank_number}
+                        ></input>
+                    </div>
+                    <div>
+                        <label className='paymentMethodLabel'>Bank</label>
+                        <input
+                        className='paymentMethodInput'
+                        type='text'
+                        name='bank'
+                        onChange={updateBank}
+                        value={bank}
+                        ></input>
+                    </div>
+                    <div>
+                        <label className='paymentMethodLabel'>Billing Address</label>
+                        <input
+                        className='paymentMethodInput'
+                        type='text'
+                        name='billing_address'
+                        onChange={updateBillingAddress}
+                        value={billing_address}
+                        ></input>
+                    </div>
+                    <button className='paymentMethodBtn'type='submit'>Submit</button>
+                </form>
+            </div>
         </>
     )
 }

@@ -1,0 +1,51 @@
+.sendreqFormContainer {
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    margin: auto;
+    background: #f7f7f7;
+    margin-top: 5%;
+    padding: 5%;
+    border-radius: 5px;
+}
+
+.sendreqLabels {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: black;
+    text-transform: uppercase;
+    display: block;
+    padding-left: 4px;
+    margin-top: 5px
+}
+
+.sendreqBtn {
+    margin-top: 10%;
+    background: #3d95ce;
+    margin-left: 25%;
+    color: white;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+    padding-top: 6px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+}
+
+.sendreqBtn:hover {
+    margin-top: 10%;
+    background: #c00a0a;
+    margin-left: 25%;
+    color: white;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+    padding-top: 6px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+}
