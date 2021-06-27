@@ -12,6 +12,7 @@
     margin: 2%;
     display: flex;
     flex-direction: column;
+    padding-right: 5%;
 }
 
 .div__transactions__container{
@@ -59,10 +60,12 @@
 
 .transaction_display{
     border-left: 1px solid darkgray;
-    padding-left: 100px;
+    padding-left: 10%;
+    padding-right: 10%;
     display:flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 
 .transaction_link{
@@ -109,7 +112,8 @@
 .div__friend__list__flex__container{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items:flex-start;
+    /* position: sticky; */
 }
 
 .img__friend__icon{
@@ -118,7 +122,7 @@
     max-width: 40px;
     max-height: 40px;
     z-index: 200;
-    position: relative;
+    position: fixed;
     bottom: 25px;
     cursor: pointer;
 }

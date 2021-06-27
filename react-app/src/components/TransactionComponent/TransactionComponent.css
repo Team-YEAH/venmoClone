@@ -2,7 +2,7 @@
     display: grid;
     border-bottom: 1px solid darkgray;
     /* border-top: 1px solid black; */
-    width: 100;
+    /* width: 400px; */
     height: 100px;
     grid-template-areas:
     "payer cost"
