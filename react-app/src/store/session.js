@@ -1,3 +1,5 @@
+import { GET_BALANCE } from "./transaction"
+
 // constants
 const SET_USER = "session/SET_USER"
 const REMOVE_USER = "session/REMOVE_USER"
@@ -219,6 +221,10 @@ export default function reducer(state = initialState, action) {
             newState = {...state}
             let x = newState.paymentdetails
             delete x[action.payload.payment_detail]
+            return newState
+        case GET_BALANCE:
+            newState = {...state}
+            newState.user.balance = action.payload.balance
             return newState
         default:
             return state;
