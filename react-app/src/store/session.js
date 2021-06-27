@@ -127,6 +127,7 @@ export const edit = payload => async (dispatch) => {
     formData.append("username", username);
     formData.append("email", email);
     // for single file
+    console.log(profileImage, 'profileImage')
     if (profileImage) formData.append("image", profileImage);
     const response = await fetch(`/api/users/edit/${id}`, {
         method: "PUT",

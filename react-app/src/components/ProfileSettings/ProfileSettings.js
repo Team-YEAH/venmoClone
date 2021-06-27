@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { edit } from "../../store/session";
 import "./ProfileSettings.css"
 
 const ProfileSettings = () => {
     const dispatch = useDispatch()
+    const history = useHistory()
     const user = useSelector(state => state.session.user)
     const [full_name, setFullName] = useState(user?.full_name)
     const [username, setUsername] = useState(user?.username)
@@ -13,11 +14,21 @@ const ProfileSettings = () => {
     const [email, setEmail] = useState(user?.email)
     const [phonenumber, setPhoneNumber] = useState(user?.phonenumber)
     const [profileImage, setProfileImage] = useState(user?.profileImage)
+    const [errors, setErrors] = useState([]);
 
     const onEdit = async (e) => {
         e.preventDefault();
         const id = user.id
         const data = await dispatch(edit({id, full_name, username, email, phonenumber, profileImage}))
+        try{
+            if (data.errors) {
+                setErrors(data.errors);
+                }
+        } catch {
+            //
+        }
+        history.push("/profile")
+
     }
 
     const updateFullName = (e) => {
