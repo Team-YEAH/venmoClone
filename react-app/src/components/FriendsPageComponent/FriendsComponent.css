@@ -50,7 +50,7 @@
     position: absolute;
     bottom: 0px;
     right: 50%;
-    left: 43%;
+    left: 44%;
     cursor: pointer;
 }
 
@@ -58,6 +58,7 @@
     position: absolute;
     bottom: 0px;
     cursor: pointer;
+    right: 0;
 }
 
 .div__friend__buttons__container img.active{

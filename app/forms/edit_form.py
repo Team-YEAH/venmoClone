@@ -10,7 +10,7 @@ class EditForm(FlaskForm):
     username = StringField('username', validators=[DataRequired()])
     email = StringField('email', validators=[DataRequired()])
     phonenumber = StringField('phonenumber')
-    profileImage = StringField('profileImage')
+    image = StringField('image')
 
 
 class PasswordForm(FlaskForm):

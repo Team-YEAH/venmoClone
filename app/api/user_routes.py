@@ -11,7 +11,7 @@ from app.helpers import *
 
 user_routes = Blueprint('users', __name__)
 
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'jfif'])
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -102,8 +102,8 @@ def edit(id):
         username = data['username']
         email = data['email']
         phonenumber = data['phonenumber']
-        profileImage = data['profileImage']
-        if user.profileImage != data['profileImage'] and data['profileImage']:
+        profileImage = data['image']
+        if user.profileImage != data['image'] and data['image']:
             file = request.files['image']
             if file and allowed_file(file.filename):
                 file.filename = secure_filename(file.filename)
