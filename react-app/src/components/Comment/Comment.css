@@ -1,0 +1,96 @@
+.commentForm {
+    width: 50%;
+    height: 50%;
+    border: none;
+    /* background: #7db0db; */
+    margin: auto;
+    display: grid;
+    padding: 3%;
+    grid-template-columns: 80% 20%;
+    /* border: 1px solid black; */
+}
+
+.commentFormInput {
+    margin: 2%;
+}
+
+.comments {
+    width: 50%;
+    height: 50%;
+    /* border-top: 1px solid darkgrey; */
+    margin: auto;
+    display: grid;
+    padding: 1%;
+}
+
+.commentFormBox {
+    display: flex;
+    justify-content: center;
+}
+
+.submitCommentBtn {
+    height: auto;
+    /* width: auto; */
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #3d95ce;
+    color: white;
+    border-radius: 4px;
+    padding-top: 6px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.submitCommentBtn:hover {
+    height: auto;
+    /* width: auto; */
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #c00a0a;
+    color: white;
+    border-radius: 4px;
+    padding-top: 6px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.deleteCommentBtn {
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 4px;
+    padding-top: 6px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.deleteCommentBtn:hover {
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 4px;
+    padding-top: 6px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    cursor: pointer;
+    border: none;
+    background: lightgrey;
+}
+
+.individualComments {
+    margin: 2%;
+    border-bottom: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+    padding: 2%;
+}

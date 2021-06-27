@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { makeComment, obtainComments, deleteComment } from '../../store/comments'
+import './Comment.css'
 
 const Comments = () => {
     const dispatch = useDispatch();
@@ -32,21 +33,21 @@ const Comments = () => {
 
     return (
         <>
-            <form onSubmit={onSubmitComment}>
-                <div>
-                    <label> Make a comment </label>
-                        <input name='comment'
+            <form className='commentForm' onSubmit={onSubmitComment}>
+                <div className='commentFormBox'>
+                    <label className='commentFormName'></label>
+                        <input className='commentFormInput'name='comment'
                                 type='text'
                                 placeholder='Write a comment...'
                                 value={comment}
                                 onChange={updateComment}
                         ></input>
-                    <button> Submit </button>
+                    <button className='submitCommentBtn'> Submit </button>
                 </div>
             </form>
-            <div>
+            <div className='comments'>
                 {comments && comments?.map((comment)=>{
-                    return <div key={comment}>Posted by:{comment.user}--{comment.comment} <button onClick={(e)=>delComment(e, comment)}> Delete Comment </button> </div>
+                    return <div className='individualComments' key={comment}>{comment.user}: {comment.comment} {} <button className='deleteCommentBtn' onClick={(e)=>delComment(e, comment)}> ❌ </button> </div>
                 })}
             </div>
         </>

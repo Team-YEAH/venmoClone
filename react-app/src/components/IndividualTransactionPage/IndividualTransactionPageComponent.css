@@ -1,11 +1,13 @@
 .IndividualTransactionContainer{
-    width: 80vw;
-    height: 80vh;
-    border: 1px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3%;
+    width: 50%;
+    height: 50%;
+    border-bottom: 1px solid darkgrey;
+    /* border: none; */
+    /* background: #ededed; */
+    margin: auto;
+    margin-top: 5%;
     display: grid;
+    padding: 5%;
     grid-template-areas:
     "payer cost"
     "desc cost"
@@ -15,17 +17,19 @@
 
 .Sender_Receiver_Big{
     grid-area: payer;
-    font-size: 100px;
+    font-size: 25px;
     display: flex;
     justify-content: flex-start;
+    margin: 2%;
 }
 
 .Description_Big{
     grid-area: desc;
     display: flex;
     justify-content: center;
-    font-size: 80px;
+    font-size: 25px;
     align-items: center;
+    margin: 2%;
 }
 
 .date_Big{
@@ -34,7 +38,8 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    font-size: 80px;
+    font-size: 25px;
+    margin: 2%;
 }
 
 .CostLoss_Big{
@@ -43,8 +48,9 @@
     justify-content: flex-end;
     margin-right: 10px;
     color: red;
-    font-size: 80px;
+    font-size: 25px;
     font-weight: 800;
+    margin: 2%;
 }
 
 .CostGain_Big{
@@ -53,6 +59,7 @@
     justify-content: flex-end;
     margin-right: 10px;
     color: green;
-    font-size: 80px;
+    font-size: 25px;
     font-weight: 800;
+    margin: 2%;
 }
