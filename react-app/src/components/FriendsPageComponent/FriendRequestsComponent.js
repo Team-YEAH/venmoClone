@@ -21,7 +21,7 @@ const FriendRequestsComponent = ({username, requester_id, accepter_id, profileIm
                 {username}
             </div>
             <img className='friend__icon' src={profileImage}/>
-            <button onClick={acceptFriend}>
+            <button className='friend__button'onClick={acceptFriend}>
                 Accept Friend
             </button>
         </>

@@ -46,7 +46,7 @@ export default function AddFriendsFormComponent(){
 
     return(
         <>
-        <form onSubmit={search} className="">
+        <form onSubmit={search} className="add__a__friend__form">
             <div>
             {errors.map((error, id) => (
                 <div key={id}>{error}</div>
@@ -67,7 +67,7 @@ export default function AddFriendsFormComponent(){
                 onChange={(e)=>setUserName(e.target.value)}
             />
             </div>
-            <button type="submit">Search User</button>
+            <button className='search__button' type="submit">Search User</button>
         </form>
         {searchedUser &&
             <div>

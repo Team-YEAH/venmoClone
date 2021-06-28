@@ -96,13 +96,16 @@
 
 
 .div__friends__list{
-    border: 1px solid black;
+    border: 1px solid rgba(146, 183, 224, 0.753);
     position: relative;
     /* left: 70%; */
     min-width: 250px;
     /* min-height: 300px; */
     bottom: 331px;
     right: 212px;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 7px;
 }
 
 .div__friends__list.hidden{

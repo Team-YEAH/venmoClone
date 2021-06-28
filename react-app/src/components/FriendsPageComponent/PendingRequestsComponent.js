@@ -5,7 +5,7 @@ import {acceptFriendRequest, removeFriend} from  '../../store/friend';
 
 
 const PendingRequestsComponent = ({username, requester_id, accepter_id, profileImage}) => {
-    
+
     const dispatch = useDispatch();
 
     const cancelRequest = async (e) =>{
@@ -19,7 +19,7 @@ const PendingRequestsComponent = ({username, requester_id, accepter_id, profileI
                 {username}
             </div>
             <img className='friend__icon' src={profileImage}/>
-            <button onClick={cancelRequest}>
+            <button className='friend__button' onClick={cancelRequest}>
                 Cancel Request
             </button>
         </>

@@ -11,9 +11,11 @@
 
 .div__friend__username{
     display: inline-block;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 5px;
-    padding: 10px
+    padding: 10px;
+    font-family: sans-serif;
+    font-size: 14px;
 }
 
 .img__icons__friends{
@@ -22,11 +24,12 @@
 
 .div__friend__buttons__container{
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
 }
 
 .div__friends__list__container{
     min-height: 280px;
+
 }
 
 .div__friends__list__flex{
@@ -66,18 +69,85 @@
     border-radius: 50%;
 }
 
-.friends__list{
+.friends__list.selected{
 
 }
 
-.friend__requests{
+
+.friend__button {
+    color: white;
+    background-color:#339DFF;
+    border-radius: 50px;
+    border: none;
+    font-size: 14px;
+    height: 6vh;
+}
+
+.add__a__friend__form{
 
 }
 
-.pending__requests{
+.search__button{
+    color: white;
+    background-color:#339DFF;
+    border-radius: 50px;
+    border: none;
+    font-size: 14px;
+    height: 6vh;
+}
+
+.friends__list ul{
+    border-top: 2px solid #DDD;
+    width: auto;
+}
+
+
+.friends__list ul li{
+    margin-top: 5px;
+    display: inline-block;
+    list-style: none;
+    width: auto;
+}
+
+.friends__list ul li:hover{
+    background-color:#DDD;
+    border-radius: 10px;
+}
+
+.friend__requests ul{
+    border-top: 2px solid #DDD;
+    width: auto;
 
 }
 
+.friend__requests ul li{
+    margin-top: 5px;
+    display: inline-block;
+    list-style: none;
+
+}
+
+.friend__requests ul li:hover{
+    background-color:#DDD;
+    border-radius: 10px;
+}
+
+.pending__requests ul{
+    border-top: 2px solid #DDD;
+    width: auto;
+
+}
+
+.pending__requests ul li{
+    margin-top: 5px;
+    display: inline-block;
+    list-style: none;
+}
+
+.pending__requests ul li:hover{
+    background-color:#DDD;
+    border-radius: 10px;
+}
 
 .hidden{
     display: none;

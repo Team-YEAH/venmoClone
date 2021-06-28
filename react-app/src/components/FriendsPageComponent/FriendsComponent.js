@@ -20,7 +20,7 @@ const FriendsComponent = ({username, requester_id, accepter_id, profileImage}) =
                 {username}
             </div>
             <img className='friend__icon' src={profileImage}/>
-            <button onClick={deleteFriend}>
+            <button className='friend__button'onClick={deleteFriend}>
                 Delete Friend
             </button>
         </>
