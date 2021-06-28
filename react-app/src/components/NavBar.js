@@ -17,7 +17,7 @@ const NavBar = () => {
       <a href='/'><img className='doughmologo' src={logo}></img></a>
       </li>
       <li className="sideButtons">
-        <NavLink to="/requests" exact={true} className="navbarLinks">My Requests</NavLink>
+        <NavLink to="/requests" exact={true} className="navbarLinks">Pending</NavLink>
       </li>
       <li className="sideButtons">
         <NavLink to="/transaction-form/request" exact={true} className="navbarLinks">Request Money</NavLink>
