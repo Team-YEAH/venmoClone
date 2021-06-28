@@ -125,8 +125,6 @@
     max-width: 40px;
     max-height: 40px;
     z-index: 200;
-    position: fixed;
-    bottom: 25px;
     cursor: pointer;
 }
 
@@ -136,9 +134,10 @@
 
 .div__friend__icon{
     float: right;
-    position: relative;
+    position: fixed;
+    bottom: 25px;
     background: transparent;
-    right: 10px;
+    right: 20px;
     min-width: 30px;
     min-height: 30px;
     max-width: 30px;
@@ -146,5 +145,29 @@
 }
 
 .img__friend__icon.hidden{
+    visibility: hidden;
+}
+
+.div__friend__requests__length{
+    border: 1px solid red;
+    background: red;
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+    position: absolute;
+    min-height: 20px;
+    min-width: 20px;
+    left: 25px;
+    bottom: 15px;
+    max-width: 20px;
+    max-height: 20px;
+    font-size: 10px;
+    display: flex;
+    /* overflow: hidden; */
+    justify-content: center;
+    align-items: center;
+}
+
+.div__friend__requests__length.hidden{
     visibility: hidden;
 }

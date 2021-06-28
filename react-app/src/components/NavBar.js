@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import './styles/NavBar.css'
 import { useSelector, useDispatch } from 'react-redux';
+import logo from './img/Doughmo.png'
 
 const NavBar = () => {
 
@@ -13,7 +14,7 @@ const NavBar = () => {
     sideButtons =
     <ul className="navItems">
       <li className="sideButtons">
-      <a href='/'><img className='doughmologo' src='../../Doughmo.png'></img></a>
+      <a href='/'><img className='doughmologo' src={logo}></img></a>
       </li>
       <li className="sideButtons">
         <NavLink to="/requests" exact={true} className="navbarLinks">My Requests</NavLink>

@@ -16,6 +16,9 @@ const ProfilePage = () => {
     const user = useSelector(state => state.session.user)
     const friendImageIcon = useRef()
     const divFriendList = useRef()
+    const frLength = useRef()
+
+    const friend_requests = useSelector(state=> state.friend.friend_requests)
 
     useEffect(async()=>{
         await dispatch(getTransactionsRecords())
@@ -36,6 +39,7 @@ const ProfilePage = () => {
         if(divFriendList.current.classList.contains('hidden')){
             divFriendList.current.classList.remove('hidden')
             friendImageIcon.current.classList.add('hidden')
+            frLength.current.classList.add('hidden')
         } else {
             divFriendList.current.classList.add('hidden')
         }
@@ -48,6 +52,7 @@ const ProfilePage = () => {
           }
           divFriendList.current.classList.add('hidden')
           friendImageIcon.current.classList.remove('hidden')
+          frLength.current.classList.remove('hidden')
         } catch {
           //
         }
@@ -107,6 +112,13 @@ const ProfilePage = () => {
 
 
             <div className='div__friend__icon'>
+                {friend_requests && Object.keys(friend_requests).length !== 0 &&
+                    <div className='div__friend__requests__length' ref={frLength}>
+                        <span>
+                            {Object.keys(friend_requests).length}
+                        </span>
+                    </div>
+                    }
                 <img className='img__friend__icon' src={friendIcon} ref={friendImageIcon}
                      onClick={toggleFriends}/>
                 <div className='div__friends__list hidden' ref={divFriendList}>

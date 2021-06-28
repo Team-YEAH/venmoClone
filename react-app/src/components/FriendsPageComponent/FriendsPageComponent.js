@@ -11,6 +11,8 @@ import pending_icon from '../img/pending.png';
 import friend_r_icon from '../img/friend_requests.png'
 // import {getFriends} from  '../../store/friend';
 
+import './FriendsPageComponent.css'
+
 export default function FriendsPageComponent(){
     const dispatch = useDispatch()
     const history = useHistory()
@@ -27,9 +29,9 @@ export default function FriendsPageComponent(){
     const friend_requests = useSelector(state=> state.friend.friend_requests)
     const pending_requests = useSelector(state=> state.friend.pending_requests)
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-    },[friends, friend_requests, pending_requests])
+    // },[friends, friend_requests, pending_requests])
 
     if(friends === null){
         history.push('/profile')
@@ -93,7 +95,7 @@ export default function FriendsPageComponent(){
             <div className='div__friends__list__container'>
                 <div className="div__friends__list__flex">
                     <div className='friends__list' ref={divFriendsList}>Friends List:
-                        <ul>
+                        <ul className='ul__friends__lists'>
                         {friends && Object.keys(friends).map((key, id)=>{
                             return (
                                 <li>
@@ -108,7 +110,7 @@ export default function FriendsPageComponent(){
                         </ul>
                     </div>
                     <div className='friend__requests hidden' ref={divFriendRequests}>Friend Requests:
-                        <ul>
+                        <ul className='ul__friend__requests'>
                             {friend_requests && Object.keys(friend_requests).map((key, id)=>{
                                 return (
                                     <li>
@@ -124,7 +126,7 @@ export default function FriendsPageComponent(){
                         </ul>
                     </div>
                     <div className='pending__requests hidden' ref={divPendingRequests}>Pending Requests:
-                        <ul>
+                        <ul className='ul__pending__requests'>
                             {pending_requests && Object.keys(pending_requests).map((key, id)=>{
                                 return(
                                     <li>
@@ -161,6 +163,8 @@ export default function FriendsPageComponent(){
                     </div>
                 </div>
             </div>
+
+
         </>
     )
 }

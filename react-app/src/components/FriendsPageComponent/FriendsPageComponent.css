@@ -1,8 +1,8 @@
 .friend__icon{
-    min-width: 30px;
-    min-height: 30px;
-    max-width: 40px;
-    max-height: 40px;
+    min-width: 35px;
+    min-height: 35px;
+    max-width: 35px;
+    max-height: 35px;
     border-radius: 50%;
     margin-right: 5px;
     position: relative;
@@ -11,11 +11,14 @@
 
 .div__friend__username{
     display: inline-block;
-    /* border: 1px solid black; */
-    margin: 5px;
-    padding: 10px;
+    border: 1px solid black;
+    /* margin: 5px; */
+    /* padding: 5px; */
     font-family: sans-serif;
     font-size: 14px;
+    min-width: 50px;
+    overflow: hidden;
+    text-align: center;
 }
 
 .img__icons__friends{
@@ -29,10 +32,10 @@
 
 .div__friends__list__container{
     min-height: 280px;
-
 }
 
 .div__friends__list__flex{
+    max-height: 280px;
 }
 
 .div__friend__buttons__container img{
@@ -76,13 +79,20 @@
 
 .friend__button {
     color: white;
-    background-color:#339DFF;
+    background-color: #339DFF;
     border-radius: 50px;
     border: none;
     font-size: 14px;
     max-height: 6vh;
+    cursor: pointer;
+    position: relative;
+    left: 40%;
+    bottom: 4px;
 }
 
+.div__friends__list__flex li{
+    display: inline-block;
+}
 
 .search__button{
     color: white;
@@ -93,9 +103,19 @@
 }
 
 
+.friends__list{
+    overflow: auto;
+    max-height: 280px;
+}
+
 .friends__list ul{
     border-top: 2px solid #DDD;
     width: auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 194px;
+    align-items: center;
+
 }
 
 
@@ -103,7 +123,9 @@
     margin-top: 5px;
     display: inline-block;
     list-style: none;
-    width: auto;
+    position: relative;
+    right: 55px;
+    ;
 }
 
 .friends__list ul li:hover{
@@ -111,9 +133,18 @@
     border-radius: 10px;
 }
 
+.friend__requests{
+    overflow: auto;
+    max-height: 280px;
+}
+
 .friend__requests ul{
     border-top: 2px solid #DDD;
     width: auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 194px;
+    align-items: center;
 
 }
 
@@ -121,6 +152,9 @@
     margin-top: 5px;
     display: inline-block;
     list-style: none;
+    position: relative;
+    right: 55px;
+    ;
 
 }
 
@@ -129,9 +163,18 @@
     border-radius: 10px;
 }
 
+.pending__requests{
+    overflow: auto;
+    max-height: 280px;
+}
+
 .pending__requests ul{
     border-top: 2px solid #DDD;
     width: auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 194px;
+    align-items: center;
 
 }
 
@@ -139,6 +182,9 @@
     margin-top: 5px;
     display: inline-block;
     list-style: none;
+    position: relative;
+    right: 55px;
+    ;
 }
 
 .pending__requests ul li:hover{

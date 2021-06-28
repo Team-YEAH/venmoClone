@@ -3,7 +3,6 @@ import {useSelector, useDispatch } from "react-redux";
 
 import {acceptFriendRequest, removeFriend} from  '../../store/friend';
 
-import './FriendsComponent.css'
 
 const FriendsComponent = ({username, requester_id, accepter_id, profileImage}) =>{
 
@@ -16,12 +15,12 @@ const FriendsComponent = ({username, requester_id, accepter_id, profileImage}) =
 
     return (
         <>
+            <img className='friend__icon' src={profileImage}/>
             <div className='div__friend__username'>
                 {username}
             </div>
-            <img className='friend__icon' src={profileImage}/>
             <button className='friend__button'onClick={deleteFriend}>
-                Delete Friend
+                Remove
             </button>
         </>
     )

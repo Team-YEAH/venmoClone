@@ -181,11 +181,13 @@ def remove_payment():
 def search():
     data = request.get_json()
 
-    if (current_user.username == data['username']) or (current_user.phonenumber == data['username']) or (current_user.email == data['username']):
+    # or (current_user.phonenumber == data['username'])
+    # User.phonenumber == data['username'],
+
+    if (current_user.username == data['username']) or (current_user.email == data['username']):
         return {'errors' : ["Can't add yourself"]}
 
     user = User.query.filter(or_(User.username == data['username'],
-                                 User.phonenumber == data['username'],
                                  User.email == data['username'])).first()
     if user:
         return user.to_dict()

@@ -15,12 +15,12 @@ const PendingRequestsComponent = ({username, requester_id, accepter_id, profileI
 
     return (
         <>
+            <img className='friend__icon' src={profileImage}/>
             <div className='div__friend__username'>
                 {username}
             </div>
-            <img className='friend__icon' src={profileImage}/>
             <button className='friend__button' onClick={cancelRequest}>
-                Cancel Request
+                Cancel
             </button>
         </>
     )
