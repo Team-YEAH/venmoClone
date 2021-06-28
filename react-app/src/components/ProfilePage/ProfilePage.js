@@ -39,7 +39,12 @@ const ProfilePage = () => {
         if(divFriendList.current.classList.contains('hidden')){
             divFriendList.current.classList.remove('hidden')
             friendImageIcon.current.classList.add('hidden')
-            frLength.current.classList.add('hidden')
+            try{
+                frLength.current.classList.add('hidden')
+            } catch {
+                //
+            }
+
         } else {
             divFriendList.current.classList.add('hidden')
         }
@@ -53,6 +58,7 @@ const ProfilePage = () => {
           divFriendList.current.classList.add('hidden')
           friendImageIcon.current.classList.remove('hidden')
           frLength.current.classList.remove('hidden')
+
         } catch {
           //
         }

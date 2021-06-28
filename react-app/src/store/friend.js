@@ -1,4 +1,6 @@
 //constants
+import { REMOVE_USER } from './session';
+
 const ADD_FRIEND = "friend/ADD_FRIEND"
 const SET_FRIENDS = "friend/GET_FRIENDS"
 const SEND_FRIEND_REQUEST = "friend/SEND_FRIEND_REQUEST"
@@ -153,6 +155,12 @@ export default function reducer(state = initialState, action) {
             delete newState.pending_requests[action.payload.requester_id]
 
             return newState
+        case REMOVE_USER:
+            return newState = {
+                friends : {},
+                friend_requests : {},
+                pending_requests : {}
+            }
         default:
             return state;
     }

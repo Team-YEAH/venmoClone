@@ -2,7 +2,7 @@ import { GET_BALANCE } from "./transaction"
 
 // constants
 const SET_USER = "session/SET_USER"
-const REMOVE_USER = "session/REMOVE_USER"
+export const REMOVE_USER = "session/REMOVE_USER"
 const ADD_PAYMENT = "session/ADD_PAYMENT"
 const SET_PAYMENT = "session/SET_PAYMENT"
 const REMOVE_PAYMENT = "session/REMOVE_PAYMENT"
