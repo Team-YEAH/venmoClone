@@ -80,12 +80,9 @@
     border-radius: 50px;
     border: none;
     font-size: 14px;
-    height: 6vh;
+    max-height: 6vh;
 }
 
-.add__a__friend__form{
-
-}
 
 .search__button{
     color: white;
@@ -93,8 +90,8 @@
     border-radius: 50px;
     border: none;
     font-size: 14px;
-    height: 6vh;
 }
+
 
 .friends__list ul{
     border-top: 2px solid #DDD;
