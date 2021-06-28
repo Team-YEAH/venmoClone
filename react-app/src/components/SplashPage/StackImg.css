@@ -43,3 +43,10 @@ h1{
 p{
     font-size: 30px;
 }
+
+/* @media screen and (max-width: 500px) {
+    .StackContainer{
+        display: grid;
+        grid-template-columns: 1fr
+    }
+} */
