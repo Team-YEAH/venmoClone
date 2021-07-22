@@ -3,7 +3,7 @@ import './TransactionComponent.css'
 import { useEffect, useState } from "react";
 import { updateTransactionRecord, deleteTransactionRecord } from "../../store/transactionHistory";
 import {useDispatch, useSelector} from "react-redux"
-import {updateBalance} from "../../store/transaction"
+import {updateBalance, makePayment} from "../../store/transaction"
 
 
 
@@ -13,7 +13,7 @@ export default function TransactionComponent(props){
 
     const approveTransaction = async () => {
         await dispatch(updateTransactionRecord(props.entry[0]))
-        await dispatch(updateBalance(props.entry[1].requester_username, props.entry[1].cost))
+        await dispatch(makePayment(props.entry[1].sender_username, props.entry[1].cost, props.entry[1].description))
     }
 
     const denyTransaction = async () => {
