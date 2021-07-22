@@ -18,12 +18,25 @@ const ProfileSettings = () => {
 
     const onEdit = async (e) => {
         e.preventDefault();
+        setErrors([])
         const id = user.id
+        let newErrors = []
+
+        if(phonenumber.length !== 11) {
+            newErrors.push('Phone number is too long/short. Please do not exceed 11 digits.')
+
+        }
+
+        if (newErrors.length) {
+            setErrors(newErrors)
+            return
+        }
         const data = await dispatch(edit({id, full_name, username, email, phonenumber, profileImage}))
+
         try{
             if (data.errors) {
                 setErrors(data.errors);
-                }
+            }
         } catch {
             //
         }
@@ -60,6 +73,9 @@ const ProfileSettings = () => {
         <>
         <div className='ProfileSettingsContainer'>
             <form className='ProfileSettingsBox' onSubmit={onEdit}>
+                <ul>
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
                 <div>
                     <label className='ProfileSettingsLabel'>
                         Full Name
