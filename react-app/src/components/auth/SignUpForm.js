@@ -14,11 +14,17 @@ const SignUpForm = () => {
   const [phonenumber, setPhoneNumber] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
+      setErrors([]);
       const data = await dispatch(signUp(username, email, password, full_name, phonenumber, profileImage));
+    }
+
+    if(password !== repeatPassword){
+      return setErrors(['Passwords do not match!'])
     }
   };
 
@@ -58,6 +64,9 @@ const SignUpForm = () => {
   return (
     <div className="SignUpFormContainer">
       <form className='SignUpFormBox' onSubmit={onSignUp}>
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
         <div>
           <label className="SignUpFormInput">Full Name</label>
           <input
