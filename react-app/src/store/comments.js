@@ -1,4 +1,6 @@
 // Constants
+import { REMOVE_USER } from './session';
+
 const ADD_COMMENT = "comments/ADD_COMMENT"
 const GET_COMMENTS = "comments/GET_COMMENTS"
 const REMOVE_COMMENT = "comments/REMOVE_COMMENT"
@@ -97,6 +99,8 @@ export default function reducer(state = initialState, action) {
                }
             })
             return newState
+        case REMOVE_USER:
+            return newState = {}
         default:
             return state;
     }

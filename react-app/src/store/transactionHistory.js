@@ -1,4 +1,6 @@
 //constants
+import { REMOVE_USER } from './session';
+
 const SET_TRANSACTIONRECORD = "transactionHistory/SET_TRANSACTIONRECORD"
 const GET_TRANSACTION_RECORDS = "transaction/GET_TRANSACTION_RECORDS"
 const UPDATE_TRANSACTION_RECORDS = "transaction/UPDATE_TRANSACTION_RECORDS"
@@ -120,6 +122,10 @@ export default function reducer(state = initialState, action) {
             newState = {...state}
             delete newState.transactionsHistory[action.payload.id]
             return newState
+        case REMOVE_USER:
+            return newState = {
+                transactionsHistory : {}
+            }
         default:
             return state;
     }

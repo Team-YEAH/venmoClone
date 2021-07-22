@@ -1,4 +1,6 @@
 // Constants
+import { REMOVE_USER } from './session';
+
 const ADD_USER = "users/ADD_USER"
 
 // action creators
@@ -41,6 +43,8 @@ export default function reducer(state = initialState, action) {
             newState = {...state}
             newState[action.payload.id] = action.payload
             return newState
+        case REMOVE_USER:
+            return newState = {}
         default:
             return state;
     }
