@@ -19,6 +19,7 @@ import IndividualTransactionPageComponent from "./components/IndividualTransacti
 import FriendsPageComponent from "./components/FriendsPageComponent/FriendsPageComponent";
 import AddFriendsFormComponent from "./components/FriendsPageComponent/AddFriendsFormComponent";
 import Comments from "./components/Comment/Comment";
+import ErrorPage from "./components/404Page/404Page";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -88,6 +89,9 @@ function App() {
         </ProtectedRoute>
         <Route path="/" exact={true} >
           <SplashPage />
+        </Route>
+        <Route>
+          <ErrorPage />
         </Route>
       </Switch>
     </BrowserRouter>

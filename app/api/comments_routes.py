@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, session, request
+from sqlalchemy.sql.expression import null
 from app.models import User, db, Transaction, Comment
 from sqlalchemy import or_, and_
 from app.forms import CommentForm
@@ -20,11 +21,12 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 @comments_routes.route('/<int:id>')
-
 def get_comments(id):
     transaction = Transaction.query.filter_by(id=id).first()
+    #if transaction does not exist, return to reducer nothing for comments 
+    if transaction == None:
+        return {"comments": ""}
     comments=Comment.query.filter(Comment.transactions_id == transaction.id).all()
-    print({"comments":[comment.to_dict() for comment in comments]})
     return {"comments":[comment.to_dict() for comment in comments]}
 
 @comments_routes.route('/<int:id>', methods=['POST'])

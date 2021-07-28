@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, session, request
+from sqlalchemy.sql.expression import null
 from app.models import User, db, Transaction
 from app.forms import TransactionForm
 from sqlalchemy import or_
@@ -37,7 +38,7 @@ def get_records():
 @transactions_routes.route('/get-transaction/<int:id>')
 def get_one_record(id):
     transaction = Transaction.query.filter_by(id=id).first()
-    return transaction.to_dict()
+    return (transaction.to_dict() if transaction != None else {})
 
 
 @transactions_routes.route('/transaction-form', methods=['PATCH'])

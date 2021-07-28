@@ -1,17 +1,21 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import {useSelector} from "react-redux";
 import './IndividualTransactionPageComponent.css';
 
 
 export default function IndividualTransactionPageComponent(){
+    const history = useHistory();
     const [transaction, setTransaction] = useState("")
     const user = useSelector(state => state.session.user)
     const {id} = useParams();
     useEffect( async()=>{
         const res = await fetch(`/api/transaction/get-transaction/${id}`)
         const data = await res.json()
+        if (!Object.keys(data).length){
+            return history.push('/404')
+        }
         setTransaction(data)
     }, [])
     const dayOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']

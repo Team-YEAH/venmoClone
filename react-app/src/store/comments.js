@@ -27,7 +27,6 @@ export const obtainComments=(id) =>async(dispatch) =>{
     if (data.errors) {
         return data;
     }
-
     dispatch(getComments(data.comments))
 
 }
