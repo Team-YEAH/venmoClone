@@ -143,6 +143,7 @@
     min-height: 30px;
     max-width: 30px;
     max-height: 30px;
+    margin-bottom:50px;
 }
 
 .img__friend__icon.hidden{
