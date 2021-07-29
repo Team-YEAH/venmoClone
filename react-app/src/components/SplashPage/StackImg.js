@@ -12,8 +12,8 @@ export default function StackImg(props){
             </div>
 
             <div className="class2">
-                <h2>{props.header}</h2>
-                <p>
+                <h2 className="splashHeaders">{props.header}</h2>
+                <p className="splashText">
                     {props.text}
                 </p>
             </div>
@@ -22,8 +22,8 @@ export default function StackImg(props){
         section =
         <div className="StackContainer">
             <div className="class1">
-                <h2>{props.header}</h2>
-                <p>
+                <h2 className="splashHeaders">{props.header}</h2>
+                <p className="splashText">
                     {props.text}
                 </p>
             </div>

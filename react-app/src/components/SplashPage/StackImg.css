@@ -34,14 +34,21 @@
     border: 2px solid black;
 }
 
-h1{
+/* h1{
     margin-left: 60px;
     margin-right: 40px;
     font-size: 100px;
-}
+} */
 
-p{
-    font-size: 30px;
+.splashHeaders{
+    font-size: 2vw;
+
+}
+.splashText{
+    font-size: 1.5vw;
+    text-align: center;
+    width: 85%;
+    
 }
 
 /* @media screen and (max-width: 500px) {
