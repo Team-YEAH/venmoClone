@@ -3,6 +3,7 @@ import StackImg from './StackImg';
 import React from "react";
 import logo from '../img/Doughmo.png'
 
+
 export default function SplashPage(){
     return(
         <div className="SplashContainer">

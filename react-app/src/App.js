@@ -20,6 +20,7 @@ import FriendsPageComponent from "./components/FriendsPageComponent/FriendsPageC
 import AddFriendsFormComponent from "./components/FriendsPageComponent/AddFriendsFormComponent";
 import Comments from "./components/Comment/Comment";
 import ErrorPage from "./components/404Page/404Page";
+import Footer from "./components/Footer/Footer"
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -94,6 +95,7 @@ function App() {
           <ErrorPage />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

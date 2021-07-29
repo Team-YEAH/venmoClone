@@ -1,0 +1,24 @@
+.footerContainer{
+    background-color: whitesmoke;
+    display:flex;
+    justify-content:space-evenly;
+    padding: 1%;
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* .footerLinks{
+    display:flex;
+    justify-content:space-evenly;
+    padding: 1%;
+} */
+
+.footerContainer a{
+    text-decoration: none;
+    color: black;
+}
+
+.footIcon{
+    margin-left: 4px;
+}

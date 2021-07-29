@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login, demologin } from "../../store/session";
 import "./LoginForm.css";
+import Footer from '../../components/Footer/Footer'
 
 const LoginForm = () => {
   const dispatch = useDispatch();
