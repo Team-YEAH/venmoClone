@@ -18,14 +18,21 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      setErrors([]);
+    if (password === repeatPassword && phonenumber.length === 11) {
       const data = await dispatch(signUp(username, email, password, full_name, phonenumber, profileImage));
+      if (data.errors){
+        setErrors(data.errors)
+      }
     }
 
-    if(password !== repeatPassword){
+    if(password !== repeatPassword && phonenumber.length !== 11){
+      return setErrors(['Passwords do not match!', 'Phone number must be 11 digits'])
+    } else if (password !== repeatPassword){
       return setErrors(['Passwords do not match!'])
+    } else {
+      return setErrors(['Phone number must be 11 digits'])
     }
+
   };
 
   const updateUsername = (e) => {
