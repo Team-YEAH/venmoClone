@@ -7,7 +7,9 @@ friends = db.Table(
   db.Column('requester_id', db.Integer, db.ForeignKey("users.id")),
   db.Column('accepter_id', db.Integer, db.ForeignKey("users.id")),
   db.Column('accepted', db.Boolean, default=False)
+  
 )
+
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
 

@@ -6,6 +6,8 @@ import {useHistory} from "react-router-dom"
 import './TransactionForm.css'
 
 const TransactionForm = (props) => {
+    const request = props.request;
+
     const history = useHistory();
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
@@ -18,8 +20,6 @@ const TransactionForm = (props) => {
     const onSend = async (e) => {
         e.preventDefault();
 
-
-        let request = props.request;
         const transactionHistoryData = await dispatch(setNewTransactionRecord(amount, request, user.id, userName, userName, amount, description))
         if (transactionHistoryData.errors) {
             setTransactionErrors(transactionHistoryData.errors);
@@ -39,51 +39,135 @@ const TransactionForm = (props) => {
     }
 
     return (
-        <div className='sendreqFormContainer'>
-        <form className='sendreqForm' onSubmit={onSend} className="">
-            <div>
-            {errors.map((error) => (
-                <div>{error}</div>
-            ))}
-            {transactionErrors.map((error) => (
-                <div>{error}</div>
-            ))}
-            </div>
-            <div>
-            <label className='sendreqLabels'>User To Request/Send:</label>
-            <input
-                name="username"
-                type="text"
-                placeholder="Enter Username"
-                value={userName}
-                onChange={(e)=>setUserName(e.target.value)}
-            />
-            </div>
-            <div>
-            <label className='sendreqLabels'>Amount:</label>
-            <input
-                name="amount"
-                type="text"
-                placeholder="00.00"
-                value={amount}
-                onChange={(e)=>setAmount(e.target.value)}
-            />
-            </div>
-            <div>
-            <label className='sendreqLabels'>Description:</label>
-            <textarea
-                rows="5"
-                cols="18"
-                name="description"
-                type="text"
-                placeholder="Describe your transaction"
-                value={description}
-                onChange={(e)=>setDescription(e.target.value)}
-            />
-            <button className='sendreqBtn' type="submit">Send</button>
-            </div>
-        </form>
-        </div>
+        <>
+            {request &&
+                <>
+                    <div className='titleText'>
+                        REQUEST MONEY
+                    </div>
+                    <div className='sendreqFormContainer'>
+                    <form className='sendreqForm' onSubmit={onSend} className="">
+                        <div>
+                        {errors.map((error) => (
+                            <div>{error}</div>
+                        ))}
+                        {transactionErrors.map((error) => (
+                            <div>{error}</div>
+                        ))}
+                        </div>
+
+                        <div className='amountReqContainer'>
+                            <label className='sendreqLabels'>Amount:</label>
+                            <div>
+                                $
+                                <input
+                                    className='amountInput'
+                                    name="amount"
+                                    type="number"
+                                    placeholder="00.00"
+                                    value={amount}
+                                    step='.01'
+                                    onChange={(e)=>setAmount(e.target.value)}
+                                />
+                            </div>
+                        </div>
+
+                        <div className='userReqContainer'>
+                            <label className='sendreqLabels'>User To Request:</label>
+                            <div className>
+                                <input
+                                    className='usernameInput'
+                                    name="username"
+                                    type="text"
+                                    placeholder="Enter Username"
+                                    value={userName}
+                                    onChange={(e)=>setUserName(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                        <div className='transactionContainer'>
+                            <label className='sendreqLabels'>Description:</label>
+                            <textarea
+                                className='textAreaInput'
+                                rows="5"
+                                cols="18"
+                                name="description"
+                                type="text"
+                                placeholder="Describe your transaction"
+                                value={description}
+                                onChange={(e)=>setDescription(e.target.value)}
+                            />
+                        </div>
+                        <button className='sendreqBtn' type="submit">Request</button>
+                    </form>
+                    </div>
+                </>
+            }
+
+            {!request &&
+                <>
+                    <div className='titleText'>
+                        SEND MONEY
+                    </div>
+                    <div className='sendreqFormContainer'>
+                    <form className='sendreqForm' onSubmit={onSend} className="">
+                        <div>
+                        {errors.map((error) => (
+                            <div>{error}</div>
+                        ))}
+                        {transactionErrors.map((error) => (
+                            <div>{error}</div>
+                        ))}
+                        </div>
+
+                        <div className='amountReqContainer'>
+                            <label className='sendreqLabels'>Amount:</label>
+                            <div>
+                                $
+                                <input
+                                    className='amountInput'
+                                    name="amount"
+                                    type="number"
+                                    placeholder="00.00"
+                                    value={amount}
+                                    step='.01'
+                                    onChange={(e)=>setAmount(e.target.value)}
+                                />
+                            </div>
+                        </div>
+
+                        <div className='userReqContainer'>
+                            <label className='sendreqLabels'>User To Send:</label>
+                            <div className>
+                                <input
+                                    className='usernameInput'
+                                    name="username"
+                                    type="text"
+                                    placeholder="Enter Username"
+                                    value={userName}
+                                    onChange={(e)=>setUserName(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                        <div className='transactionContainer'>
+                            <label className='sendreqLabels'>Description:</label>
+                            <textarea
+                                className='textAreaInput'
+                                rows="5"
+                                cols="18"
+                                name="description"
+                                type="text"
+                                placeholder="Describe your transaction"
+                                value={description}
+                                onChange={(e)=>setDescription(e.target.value)}
+                            />
+                        </div>
+                        <button className='sendreqBtn' type="submit">Send</button>
+                    </form>
+                    </div>
+                </>
+            }
+        </>
     )
 }
 
