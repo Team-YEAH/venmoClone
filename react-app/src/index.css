@@ -15,3 +15,19 @@ div {
     font-size: 1vw;
     flex-direction: column;
 }
+
+.errors2{
+    display: flex;
+    color: red;
+    font-size: 1vw;
+    flex-direction: column;
+}
+
+.errors3{
+    display: flex;
+    color: red;
+    font-size: 1vw;
+    flex-direction: column;
+    position: relative;
+    bottom: 22px;
+}

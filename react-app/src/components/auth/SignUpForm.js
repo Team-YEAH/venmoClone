@@ -71,9 +71,11 @@ const SignUpForm = () => {
   return (
     <div className="SignUpFormContainer">
       <form className='SignUpFormBox' onSubmit={onSignUp}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
+        <div className='errors3'>
+          {errors.map((error, idx) => (
+            <div key={idx}>{error}</div>
+          ))}
+        </div>
         <div>
           <div className="signUp-header-container">
             <h1>Sign-Up</h1>
