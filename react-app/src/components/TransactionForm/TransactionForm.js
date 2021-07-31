@@ -53,9 +53,6 @@ const TransactionForm = (props) => {
                 {/* <div className='sendreqFormContainer'> */}
                     <form className='sendreqForm' onSubmit={onSend} >
                         <div>
-                        {errors.map((error) => (
-                            <div>{error}</div>
-                        ))}
                         {transactionErrors.map((error) => (
                             <div>{error}</div>
                         ))}
@@ -125,9 +122,6 @@ const TransactionForm = (props) => {
                     {/* <div className='sendreqFormContainer'> */}
                         <form className='sendreqForm' onSubmit={onSend} >
                             <div>
-                            {errors.map((error) => (
-                                <div>{error}</div>
-                            ))}
                             {transactionErrors.map((error) => (
                                 <div>{error}</div>
                             ))}
