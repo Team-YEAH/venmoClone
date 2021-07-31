@@ -72,10 +72,16 @@ const ProfileSettings = () => {
     return (
         <>
         <div className='ProfileSettingsContainer'>
+
             <form className='ProfileSettingsBox' onSubmit={onEdit}>
                 <ul>
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
+                <div className="edit-profile-title">
+                    <h1>
+                        Edit Profile
+                    </h1>
+                </div>
                 <div>
                     <label className='ProfileSettingsLabel'>
                         Full Name
