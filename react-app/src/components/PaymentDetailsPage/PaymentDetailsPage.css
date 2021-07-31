@@ -10,14 +10,18 @@
 
 .paymentmethodlink {
     display:flex;
+    position: relative;
     color: #0074de;
     text-decoration: none;
+    justify-content: flex-end;
     font-weight: 500;
     font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif;
-    position:absolute;
-    margin-left: 5px;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 58.5%;
     justify-self: center;
+    right: 0px;
+    padding: 10px;
 }
 
 .paymentmethodlink:hover {
@@ -25,4 +29,22 @@
     text-decoration: none;
     font-weight: 500;
     font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.paymentDetailsContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divPaymentMethods{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-size: 3vw;
+}
+
+.paymentMethodsContainer{
+    background: #f7f7f7;
+    min-height: 45px;
 }

@@ -2,3 +2,7 @@
 body, html{
     margin: 0;
 }
+
+div {
+    font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif  !important;
+}

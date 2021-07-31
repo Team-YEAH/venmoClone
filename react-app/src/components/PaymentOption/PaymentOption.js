@@ -19,7 +19,7 @@ const PaymentOption = ({user, paymentdetails}) => {
             <div className="paymentTable-container">
                 {
                 !deleteTrigger && <tbody className='div__payment__container'>
-                    <tr>
+                    <tr className='tablePaymentMethods'>
                         <td className='payment__td'>
                             Card #: {paymentdetails.debit_card}
                         </td>

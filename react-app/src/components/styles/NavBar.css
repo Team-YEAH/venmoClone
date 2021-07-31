@@ -9,11 +9,18 @@
 }
 
 .navItems2 {
-    display: grid;
-    grid-template-columns: 70% 15% 15%;
-    grid-template-rows: 10%;
+    display: flex;
+    /* grid-template-columns: 50% 10% 10% 10% 10% 5%; */
+    justify-content: space-between;
+    align-items: center;
+    /* grid-template-rows: 10%; */
     list-style-type: none;
-    height: auto;
+    margin: 0;
+    height: 70px;
+}
+
+.loginsignupButtons{
+    display: flex;
 }
 
 .button1{

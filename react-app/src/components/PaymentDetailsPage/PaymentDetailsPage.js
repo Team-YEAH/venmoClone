@@ -22,10 +22,23 @@ const PaymentDetailsPage = () => {
     return (
         // map through payment details here
         <>
-            {Object.keys(paymentDetails).map((key) => {
-                return <PaymentOption key={key} user={user.id} paymentdetails={paymentDetails[key]}/>
-            })}
-            <NavLink className='paymentmethodlink' to='/paymentmethods'> Add a Payment </NavLink>
+            <div className='paymentDetailsContainer'>
+                <div className='divPaymentMethods'>
+                    PAYMENT METHODS
+                </div>
+                <div className='paymentMethodsContainer'>
+                    {paymentDetails &&
+                    <>
+                        {Object.keys(paymentDetails).map((key) => {
+                            return <PaymentOption key={key} user={user.id} paymentdetails={paymentDetails[key]}/>
+                        })}
+                    </>
+                    }
+                    <div>
+                        <NavLink className='paymentmethodlink' to='/paymentmethods'> Add a Payment </NavLink>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

@@ -9,7 +9,6 @@
     margin-left:auto;
     margin-right:auto;
     margin-top: 5%;
-    background-color: rgb(179, 177, 177);
 }
 
 .payment__td {
@@ -46,4 +45,8 @@
     cursor: pointer;
     border: none;
     padding: 10%;
+}
+
+.tablePaymentMethods{
+    font-size: 1vw;
 }

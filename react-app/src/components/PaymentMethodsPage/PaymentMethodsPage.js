@@ -41,6 +41,9 @@ const PaymentMethod = () => {
 
     return (
         <>
+            <div className='paymentMethodContainer'>
+                PAYMENT METHOD
+            </div>
             <div className='paymentMethodPageContainer'>
                 <form className='paymentMethodBox'onSubmit={onPaymentSubmit}>
                     <div>
