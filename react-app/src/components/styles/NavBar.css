@@ -34,7 +34,7 @@
     width:100%;
     height:auto;
     background-color: whitesmoke;
-    position: absolute;
+    position: fixed;
     top: 0;
     padding:-3px;
     /* margin-bottom:1vh; */

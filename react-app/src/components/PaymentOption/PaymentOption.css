@@ -3,6 +3,14 @@
     border-radius: 4px;
     width: 100%;
 }
+.paymentTable-container{
+    width: 50%;
+    height: 50%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 5%;
+    background-color: rgb(179, 177, 177);
+}
 
 .payment__td {
     padding: 1%;

@@ -9,10 +9,15 @@
 }
 
 .paymentmethodlink {
+    display:flex;
     color: #0074de;
     text-decoration: none;
     font-weight: 500;
     font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif;
+    position:absolute;
+    margin-left: 5px;
+    width: 100%;
+    justify-self: center;
 }
 
 .paymentmethodlink:hover {
