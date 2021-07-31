@@ -32,8 +32,13 @@ const TransactionForm = (props) => {
                 }
         }
 
-        if(!transactionHistoryData.errors){
+        if(!transactionHistoryData.errors && !request){
             history.push("/transactions")
+            history.go(0)
+        }
+
+        if(!transactionHistoryData.errors && request){
+            history.push("/requests")
             history.go(0)
         }
     }

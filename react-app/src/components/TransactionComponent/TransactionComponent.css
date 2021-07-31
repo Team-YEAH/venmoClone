@@ -9,6 +9,7 @@
     "desc cost"
     "date cost";
     grid-template-columns: 80% 20%;
+    margin-bottom:5px;
 }
 
 .TransactionCompRequest{
@@ -22,6 +23,7 @@
     "desc cost"
     "date reqButton";
     grid-template-columns: 80% 20%;
+    padding:5px;
 }
 
 .RequestButtons{
@@ -32,7 +34,7 @@
 }
 .TransactionComp:hover {
     display: grid;
-    border: 2px solid black;
+    background-color: rgb(189, 187, 187);
     width: 100;
     height: 100px;
     grid-template-areas:
@@ -40,9 +42,27 @@
     "desc cost"
     "date cost";
     grid-template-columns: 80% 20%;
+    border-radius:5px;
 }
 
+.TransactionCompReq{
+    display: grid;
+    border-bottom: 1px solid darkgray;
+    /* border-top: 1px solid black; */
+    /* width: 400px; */
+    height: 100px;
+    grid-template-areas:
+    "payer cost"
+    "desc cost"
+    "date cost";
+    grid-template-columns: 80% 20%;
+    margin-bottom:5px;
+}
+
+
 .Sender_Receiver{
+    margin-left: 5px;
+    margin-top: 5px;
     grid-area: payer;
     font-size: 20px;
     display: flex;
@@ -60,6 +80,8 @@
 }
 
 .date{
+    margin-left: 5px;
+    margin-bottom: 5px;
     grid-area: date;
     display: flex;
     flex-direction: column;

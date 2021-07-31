@@ -2,16 +2,23 @@
     display: flex;
     justify-content: center;
     border: 1px solid #ededed;
-    width: 50%;
+    width: 35%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 75px;
     height: auto;
     border-radius: 5px;
     background: #f7f7f7;
     box-sizing:border-box;
     padding: 20px;
-    position: relative;
-    padding-bottom: 5rem;
+    position:relative;
+    margin-bottom: 5rem;
+}
+
+.signUp-header-container{
+    display: flex;
+    justify-content:center;
+    margin-top: -3rem;
+
 }
 
 .SignUpFormBox {
@@ -22,7 +29,7 @@
 
 .SignUpFormInput {
     font-size: 12px;
-    line-height: 16px;
+    line-height: 1vh;
     font-weight: 600;
     color: #7f7f7f;
     text-transform: uppercase;

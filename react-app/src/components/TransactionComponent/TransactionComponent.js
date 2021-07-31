@@ -63,7 +63,7 @@ export default function TransactionComponent(props){
             </div>
         } else {
             transComp=
-            <div className="TransactionComp">
+            <div className="TransactionCompReq">
                 <div className="Sender_Receiver">
                     You requested &nbsp;<b>{props.entry[1].requester_username}</b>&nbsp;for&nbsp;<b>${props.entry[1].cost}</b>
                 </div>

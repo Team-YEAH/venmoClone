@@ -47,6 +47,9 @@ const LoginForm = () => {
           ))}
         </div>
         <div>
+          <div className="headerDiv">
+            <h1 >Login</h1>
+          </div>
           <label className="loginFormInput" htmlFor="auth">Email or Username</label>
           <input
             className="loginFormBoxes"

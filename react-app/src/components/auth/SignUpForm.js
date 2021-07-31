@@ -75,6 +75,9 @@ const SignUpForm = () => {
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <div>
+          <div className="signUp-header-container">
+            <h1>Sign-Up</h1>
+          </div>
           <label className="SignUpFormInput">Full Name</label>
           <input
             className="SignUpFormBoxes"

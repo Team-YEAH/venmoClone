@@ -1,8 +1,11 @@
 .navItems{
-    display: grid;
-    grid-template-columns: 50% 10% 10% 10% 10% 5%;
+    display: flex;
+    /* grid-template-columns: 50% 10% 10% 10% 10% 5%; */
+    justify-content: space-evenly;
+    align-items: center;
     /* grid-template-rows: 10%; */
     list-style-type: none;
+    margin:0;
 }
 
 .navItems2 {
@@ -23,15 +26,18 @@
 
 
 .sideButtons{
-    margin-top: 20px;
     font-size: 20px;
     margin-right: 20px;
 }
 
 .navContainer{
-    height: 85px;
+    width:100%;
+    height:auto;
     background-color: whitesmoke;
-    margin-top: -15px;
+    position: absolute;
+    top: 0;
+    padding:-3px;
+    /* margin-bottom:1vh; */
 }
 
 .button{
@@ -42,7 +48,7 @@
     padding-left: 5px;
     border-radius: 4px;
     text-decoration: none;
-    box-shadow: 10px 5px 5px lightslategrey;
+    /* box-shadow: 5px 1px 5px lightslategrey; */
     color: white;
     font-weight: 600px;
     cursor: pointer;
@@ -57,7 +63,7 @@
     padding-left: 5px;
     border-radius: 4px;
     text-decoration: none;
-    box-shadow: 10px 5px 5px lightslategrey;
+    /* box-shadow: 5px 1px 5px lightslategrey; */
     color: white;
     font-weight: 600px;
     cursor: pointer;
