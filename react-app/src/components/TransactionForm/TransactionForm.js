@@ -47,11 +47,11 @@ const TransactionForm = (props) => {
         <>
             {request &&
                 <>
-                    <div className='titleText'>
-                        REQUEST MONEY
-                    </div>
-                    <div className='sendreqFormContainer'>
-                    <form className='sendreqForm' onSubmit={onSend} className="">
+                <div className='titleText'>
+                    REQUEST MONEY
+                </div>
+                {/* <div className='sendreqFormContainer'> */}
+                    <form className='sendreqForm' onSubmit={onSend} >
                         <div>
                         {errors.map((error) => (
                             <div>{error}</div>
@@ -61,25 +61,27 @@ const TransactionForm = (props) => {
                         ))}
                         </div>
 
-                        <div className='amountReqContainer'>
-                            <label className='sendreqLabels'>Amount:</label>
-                            <div>
-                                $
-                                <input
-                                    className='amountInput'
-                                    name="amount"
-                                    type="number"
-                                    placeholder="00.00"
-                                    value={amount}
-                                    step='.01'
-                                    onChange={(e)=>setAmount(e.target.value)}
-                                />
+                        <div className="top-card">
+                            <div className='amountReqContainer'>
+                                <label className='sendreqLabels'>Amount:</label>
+                                <div className="input-cont">
+                                    <div className="dollar">
+                                        $
+                                    </div>
+                                    <input
+                                        className='amountInput'
+                                        name="amount"
+                                        type="number"
+                                        placeholder="00.00"
+                                        value={amount}
+                                        step='.01'
+                                        onChange={(e)=>setAmount(e.target.value)}
+                                    />
+                                </div>
                             </div>
-                        </div>
 
-                        <div className='userReqContainer'>
-                            <label className='sendreqLabels'>User To Request:</label>
-                            <div className>
+                            <div className='userReqContainer'>
+                                <label className='sendreqLabels'>User To Send:</label>
                                 <input
                                     className='usernameInput'
                                     name="username"
@@ -90,23 +92,29 @@ const TransactionForm = (props) => {
                                 />
                             </div>
                         </div>
-                        <div className='transactionContainer'>
-                            <label className='sendreqLabels'>Description:</label>
-                            <textarea
-                                className='textAreaInput'
-                                rows="5"
-                                cols="18"
-                                name="description"
-                                type="text"
-                                placeholder="Describe your transaction"
-                                value={description}
-                                onChange={(e)=>setDescription(e.target.value)}
-                            />
+
+                        <div className="middle-card">
+                            <div className='transactionContainer'>
+                                <label className='sendreqLabelsDesc'>Description:</label>
+                                <textarea
+                                    className='textAreaInput'
+                                    rows="5"
+                                    cols="18"
+                                    name="description"
+                                    type="text"
+                                    placeholder="Describe your transaction"
+                                    value={description}
+                                    onChange={(e)=>setDescription(e.target.value)}
+                                />
+                            </div>
                         </div>
-                        <button className='sendreqBtn' type="submit">Request</button>
+                        <div className="button-cont">
+                            <button className='sendreqBtn-request' type="submit">Request</button>
+                        </div>
+
                     </form>
-                    </div>
-                </>
+                {/* </div> */}
+            </>
             }
 
             {!request &&
@@ -114,62 +122,70 @@ const TransactionForm = (props) => {
                     <div className='titleText'>
                         SEND MONEY
                     </div>
-                    <div className='sendreqFormContainer'>
-                    <form className='sendreqForm' onSubmit={onSend} className="">
-                        <div>
-                        {errors.map((error) => (
-                            <div>{error}</div>
-                        ))}
-                        {transactionErrors.map((error) => (
-                            <div>{error}</div>
-                        ))}
-                        </div>
-
-                        <div className='amountReqContainer'>
-                            <label className='sendreqLabels'>Amount:</label>
+                    {/* <div className='sendreqFormContainer'> */}
+                        <form className='sendreqForm' onSubmit={onSend} >
                             <div>
-                                $
-                                <input
-                                    className='amountInput'
-                                    name="amount"
-                                    type="number"
-                                    placeholder="00.00"
-                                    value={amount}
-                                    step='.01'
-                                    onChange={(e)=>setAmount(e.target.value)}
-                                />
+                            {errors.map((error) => (
+                                <div>{error}</div>
+                            ))}
+                            {transactionErrors.map((error) => (
+                                <div>{error}</div>
+                            ))}
                             </div>
-                        </div>
 
-                        <div className='userReqContainer'>
-                            <label className='sendreqLabels'>User To Send:</label>
-                            <div className>
-                                <input
-                                    className='usernameInput'
-                                    name="username"
-                                    type="text"
-                                    placeholder="Enter Username"
-                                    value={userName}
-                                    onChange={(e)=>setUserName(e.target.value)}
-                                />
+                            <div className="top-card">
+                                <div className='amountReqContainer'>
+                                    <label className='sendreqLabels'>Amount:</label>
+                                    <div className="input-cont">
+                                        <div className="dollar">
+                                            $
+                                        </div>
+                                        <input
+                                            className='amountInput'
+                                            name="amount"
+                                            type="number"
+                                            placeholder="00.00"
+                                            value={amount}
+                                            step='.01'
+                                            onChange={(e)=>setAmount(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className='userReqContainer'>
+                                    <label className='sendreqLabels'>User To Send:</label>
+                                    <input
+                                        className='usernameInput'
+                                        name="username"
+                                        type="text"
+                                        placeholder="Enter Username"
+                                        value={userName}
+                                        onChange={(e)=>setUserName(e.target.value)}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div className='transactionContainer'>
-                            <label className='sendreqLabels'>Description:</label>
-                            <textarea
-                                className='textAreaInput'
-                                rows="5"
-                                cols="18"
-                                name="description"
-                                type="text"
-                                placeholder="Describe your transaction"
-                                value={description}
-                                onChange={(e)=>setDescription(e.target.value)}
-                            />
-                        </div>
-                        <button className='sendreqBtn' type="submit">Send</button>
-                    </form>
-                    </div>
+
+                            <div className="middle-card">
+                                <div className='transactionContainer'>
+                                    <label className='sendreqLabelsDesc'>Description:</label>
+                                    <textarea
+                                        className='textAreaInput'
+                                        rows="5"
+                                        cols="18"
+                                        name="description"
+                                        type="text"
+                                        placeholder="Describe your transaction"
+                                        value={description}
+                                        onChange={(e)=>setDescription(e.target.value)}
+                                    />
+                                </div>
+                            </div>
+                            <div className="button-cont">
+                                <button className='sendreqBtn' type="submit">Send</button>
+                            </div>
+
+                        </form>
+                    {/* </div> */}
                 </>
             }
         </>

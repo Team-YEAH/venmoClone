@@ -2,15 +2,20 @@
     display: flex;
     justify-content: center;
     border: 1px solid #ededed;
-    width: 50%;
+    width: 30%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 2%;
     height: auto;
     border-radius: 5px;
     background: #f7f7f7;
     box-sizing:border-box;
     padding: 20px;
     margin-bottom: 30px;
+}
+
+.edit-profile-title{
+    display: flex;
+    justify-content: center;
 }
 
 .ProfileSettingsBox {

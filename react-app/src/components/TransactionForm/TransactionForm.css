@@ -1,4 +1,4 @@
-.sendreqFormContainer {
+/* .sendreqFormContainer {
     display: flex;
     justify-content: center;
     width: 600px;
@@ -8,85 +8,144 @@
     padding: 5%;
     border-radius: 5px;
     height: 500px;
-}
+} */
 
-.sendreqFormContainer > form > div > div > input{
+/* .sendreqFormContainer > form > div > div > input{
     background: #f7f7f7;
     border: none;
     width: 100px;
     text-align: center;
+} */
+
+.sendreqForm{
+    width: 40vw;
+    height: 50vh;
+    margin-top: 3%;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f7f7f7;
+    border: 1px dashed gray;
 }
 
 .titleText{
-    padding-top: 30px;
+    margin-top: 3%;
     display: flex;
     justify-content: center;
-    font-size: 50px;
+    font-size: 3vw;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .amountReqContainer{
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid rgb(2, 90, 161);
     border-radius: 5px;
     align-items: center;
-    width: 100%;
-    justify-content: center;
-    position: relative;
+    width: 30%;
+    height: 50%;
+    overflow: hidden;
+    /* justify-content: center; */
 }
 
 .amountInput{
     outline: none;
+    background: #f7f7f7;
+    border: none;
+    width: 50%;
+    height: 85%;
+    font-size: 1.6vw;
+    margin-left: 3%;
+}
+
+.input-cont{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.dollar{
+    font-size: 1.6vw;
+    font-weight: 600;
+    margin-left: 12%;
 }
 
 .userReqContainer{
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid rgb(2, 90, 161);
     border-radius: 5px;
     align-items: center;
-    width: 100%;
-    justify-content: center;
-    position: relative;
-    /* right: 255px; */
-    margin-top: 75px;
+    width: 30%;
+    height: 50%;
+    overflow: hidden;
 }
 
 .transactionContainer{
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid rgb(2, 90, 161);
     border-radius: 5px;
     align-items: center;
-    width: 400%;
-    height: 40%;
-    justify-content: center;
-    position: relative;
-    margin-top: 100px;
-    right: 230px;
+    width: 100%;
+    height: 80%;
 }
 
 .sendreqLabels {
-    font-size: 12px;
-    line-height: 16px;
+    margin-top: 2%;
+    font-size: .8vw;
     font-weight: 600;
     color: black;
     text-transform: uppercase;
     display: block;
-    padding-left: 4px;
+}
+
+.sendreqLabelsDesc{
+    margin-top: 2%;
+    font-size: 1.2vw;
+    font-weight: 600;
+    color: black;
+    text-transform: uppercase;
+    display: block;
+}
+
+.top-card{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 25%;
+    /* border: 1px solid black; */
+}
+
+.middle-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    height: 65%;
 }
 
 .usernameInput{
     outline: none;
+    background: #f7f7f7;
+    border: none;
+    width: 100%;
+    height:85%;
+    text-align: center;
+    font-size: 1.2vw;
 }
 
 .textAreaInput{
     background: #f7f7f7;
     border: none;
-    width: 95%;
+    width: 98%;
+    height: 80%;
     text-align: center;
     overflow: auto;
     outline: none;
+    font-size: 1.2vw;
 
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -99,8 +158,16 @@
     border: none;
 } */
 
+.button-cont{
+    display: flex;
+    justify-content: flex-end;
+    /* padding-right: 5%; */
+    height: 6%;
+    width: 80%;
+    margin: auto;
+}
+
 .sendreqBtn {
-    margin-top: 10%;
     background: #3d95ce;
     margin-left: 20%;
     color: white;
@@ -108,12 +175,26 @@
     box-sizing: border-box;
     cursor: pointer;
     border: none;
-    padding-top: 6px;
+    width: 15%;
+    height: 100%;
+    /* padding-top: 6px;
     padding-right: 10px;
     padding-bottom: 6px;
-    padding-left: 10px;
+    padding-left: 10px; */
+    font-size: .8vw;
 }
-
+.sendreqBtn-request{
+    background: #3d95ce;
+    margin-left: 20%;
+    color: white;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+    width: 15%;
+    height: 100%;
+    font-size: .8vw;
+}
 .sendreqBtn:hover {
     background: #c00a0a;
 }
