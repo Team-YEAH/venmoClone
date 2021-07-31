@@ -6,3 +6,12 @@ body, html{
 div {
     font-family: "Scto Grotesk A","Helvetica Neue",Helvetica,Arial,sans-serif  !important;
 }
+
+.errors{
+    display: flex;
+    position: absolute;
+    right: 44%;
+    color: red;
+    font-size: 1vw;
+    flex-direction: column;
+}

@@ -19,8 +19,29 @@ const TransactionForm = (props) => {
 
     const onSend = async (e) => {
         e.preventDefault();
+        setTransactionErrors([])
+        let transactionHistoryData;
+        const newErrors = []
 
-        const transactionHistoryData = await dispatch(setNewTransactionRecord(amount, request, user.id, userName, userName, amount, description))
+        if(!amount.length){
+            newErrors.push('Please provide an amount.')
+        }
+
+        if(!userName.length){
+            newErrors.push('Please provide a username.')
+        }
+
+        if(!description.length){
+            newErrors.push('Please provide a description')
+        }
+
+        if(!newErrors.length){
+            transactionHistoryData = await dispatch(setNewTransactionRecord(amount, request, user.id, userName, userName, amount, description))
+        } else {
+            setTransactionErrors(newErrors)
+            return
+        }
+
         if (transactionHistoryData.errors) {
             setTransactionErrors(transactionHistoryData.errors);
             }
@@ -52,9 +73,9 @@ const TransactionForm = (props) => {
                 </div>
                 {/* <div className='sendreqFormContainer'> */}
                     <form className='sendreqForm' onSubmit={onSend} >
-                        <div>
-                        {transactionErrors.map((error) => (
-                            <div>{error}</div>
+                        <div className='errors'>
+                        {transactionErrors.map((error, index) => (
+                            <div key={index}>{error}</div>
                         ))}
                         </div>
 
@@ -121,9 +142,9 @@ const TransactionForm = (props) => {
                     </div>
                     {/* <div className='sendreqFormContainer'> */}
                         <form className='sendreqForm' onSubmit={onSend} >
-                            <div>
-                            {transactionErrors.map((error) => (
-                                <div>{error}</div>
+                            <div className='errors'>
+                            {transactionErrors.map((error, index) => (
+                                <div key={index}>{error}</div>
                             ))}
                             </div>
 
