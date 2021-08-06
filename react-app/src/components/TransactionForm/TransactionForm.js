@@ -99,7 +99,7 @@ const TransactionForm = (props) => {
                             </div>
 
                             <div className='userReqContainer'>
-                                <label className='sendreqLabels'>User To Send:</label>
+                                <label className='sendreqLabels'>User To Request:</label>
                                 <input
                                     className='usernameInput'
                                     name="username"

@@ -52,6 +52,8 @@ def send_money():
     form['csrf_token'].data=request.cookies['csrf_token']
     if form.validate_on_submit():
         user=User.query.filter_by(username=form.userName.data).first()
+        if  user is None:
+            return {'errors': ["User Not Found"]}
         me=current_user.id
         currentuser = User.query.filter_by(id=me).first()
         currentuser_balance=float(currentuser.balance) - float(form.amount.data)
@@ -90,7 +92,9 @@ def make_record():
     form['csrf_token'].data=request.cookies['csrf_token']
     if form.validate_on_submit():
         data = request.get_json()
-        receiver_info=User.query.filter_by(username=form.userName.data).first()
+        receiver_info = User.query.filter_by(username=form.userName.data).first()
+        if receiver_info is None:
+            return {'errors': ["User Not Found"]}
         form_cost = form.amount.data
         form_request = data['request']
         sender_info = User.query.filter_by(username=current_user.username).first()
