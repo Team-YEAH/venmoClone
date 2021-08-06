@@ -21,7 +21,9 @@
     width: 58.5%;
     justify-self: center;
     right: 0px;
-    padding: 10px;
+    /* padding: 10px; */
+    padding-bottom: 30px;
+    margin-top: 25px;
 }
 
 .paymentmethodlink:hover {

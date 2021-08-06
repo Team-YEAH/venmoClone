@@ -2,6 +2,7 @@ import React, { useState }  from 'react'
 import { useDispatch } from 'react-redux'
 import { removePaymentDetail } from "../../store/session"
 import "./PaymentOption.css"
+import { FaCreditCard, FaCcMastercard, FaCcVisa } from "react-icons/fa";
 
 const PaymentOption = ({user, paymentdetails}) => {
     const dispatch = useDispatch()
@@ -20,6 +21,7 @@ const PaymentOption = ({user, paymentdetails}) => {
                 {
                 !deleteTrigger && <tbody className='div__payment__container'>
                     <tr className='tablePaymentMethods'>
+                        <h3 className='creditcard'><FaCreditCard/><FaCcMastercard/></h3>
                         <td className='payment__td'>
                             Card #: {paymentdetails.debit_card}
                         </td>

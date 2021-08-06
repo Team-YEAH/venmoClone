@@ -9,14 +9,24 @@
     margin-left:auto;
     margin-right:auto;
     margin-top: 5%;
+    border-bottom: 3px solid #3d95ce;
+}
+
+.paymentTable-container:hover {
+    width: 50%;
+    height: 50%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 5%;
+    border-bottom: 3px solid #c00a0a;
 }
 
 .payment__td {
+    /* background: white; */
     padding: 1%;
-    background: white;
-    width: 150px;
-    border-radius: 2px;
-    border: 1px solid black;
+    width: 250px;
+    height: 30px;
+    margin-left: 1px;
 }
 
 .payment__deleteBtn {
@@ -49,4 +59,9 @@
 
 .tablePaymentMethods{
     font-size: 1vw;
+}
+
+.creditcard {
+    margin-right: 10px;
+    font-size: 20px;
 }
