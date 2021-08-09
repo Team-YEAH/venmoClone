@@ -11,6 +11,7 @@
 
 ## DoughMo at a Glance
 ### A Venmo clone and social payment app that allows users to safely send and recieve payments.
+![image](https://user-images.githubusercontent.com/77173456/128752952-fc05e7cc-5655-408a-9c52-df69eee6735d.png)
 
 
 ##### Users can login and signup
