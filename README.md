@@ -1,98 +1,50 @@
-# Flask React Project
+## Welcome to the doughmo wiki!
+## Live link: [DoughMo](https://doughmo.herokuapp.com/)
 
-This is the backend for the Flask React project.
+##### Table of Contents
+* [Doughmo at a Glance](#glance)
+* [Technologies Used](#technologies)
+* [Code Snippets](#code_snippets)
+* [Wiki](#wiki)
 
-## Getting started
+<a name="glance"/>
 
-1. Clone this repository (only this branch)
+## DoughMo at a Glance
+### A Venmo clone and social payment app that allows users to safely send and recieve payments.
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
 
-2. Install dependencies
+##### Users can login and signup
+![image](https://user-images.githubusercontent.com/77173456/128752118-544df0a5-13b7-4369-b00b-ecf2d2793416.png)
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+##### Users home page with transactions history. They can edit their profile and payment details
+![image](https://user-images.githubusercontent.com/77173456/128751994-4b7d0edf-c7bf-4de5-ae88-2f7200ccb8fb.png)
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+##### Users have a requests page that show details and comments on the requests.
+![image](https://user-images.githubusercontent.com/77173456/128752277-0c2b2e10-9d54-47f4-bf95-5dd7ec13032e.png)
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+##### Users have a send money and request money page.
+![image](https://user-images.githubusercontent.com/77173456/128752384-867ed5f7-cf79-41fa-aa4a-7b8ccdc3e9b9.png)
 
-   ```bash
-   pipenv shell
-   ```
+##### Users have a friend system, they can search for users to send friend requests too, accept requets and view pending requests.
+![image](https://user-images.githubusercontent.com/77173456/128752537-59c2f8ce-8d48-44db-b9ce-c835c6ff846d.png)
 
-   ```bash
-   flask db upgrade
-   ```
+<a name="technologies"/>
 
-   ```bash
-   flask seed all
-   ```
+### Technologies Used
 
-   ```bash
-   flask run
-   ```
+<!-- For more icons please follow  https://github.com/MikeCodesDotNET/ColoredBadges -->
+<img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" alt="javaScript" width="50" height="50">
+<img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" alt="html" width="50" height="50">
+<img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg" alt="css" width="50" height="50">
+<img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg" alt="git" width="50" height="50">
+<img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" alt="react" width="50" height="50">
+<img src="https://github.com/devicons/devicon/blob/master/icons/redux/redux-original.svg" alt="redux" width="50" height="50">
+<img src="https://github.com/devicons/devicon/blob/master/icons/npm/npm-original-wordmark.svg" alt="redux" width="50" height="50">
+<img src="https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-plain.svg" alt="psql" width="50" height="50">
+<img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" alt="python" width="50" height="50">
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+<a name="wiki"/>
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
+### [Wiki](https://github.com/Team-YEAH/venmoClone/wiki)
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
 
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
-
-## Deploy to Heroku
-
-1. Create a new project on Heroku
-2. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-4. Run
-
-   ```bash
-   heroku login
-   ```
-
-5. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-6. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-7. Push your docker container to heroku from the root directory of your project.
-   This will build the dockerfile and push the image to your heroku container registry
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-8. Release your docker container to heroku
-
-   ```bash
-   heroku container:release web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. set up your database:
-
-   ```bash
-   heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-   heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-   ```
-
-10. Under Settings find "Config Vars" and add any additional/secret .env variables.
-
-11. profit
