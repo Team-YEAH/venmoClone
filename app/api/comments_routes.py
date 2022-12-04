@@ -7,7 +7,7 @@ from flask_login import current_user, login_required
 import re
 
 
-comments_routes=Blueprint('comments', __name__)
+comments_routes = Blueprint('comments', __name__)
 
 
 def validation_errors_to_error_messages(validation_errors):
@@ -20,29 +20,32 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f"{field} : {error}")
     return errorMessages
 
+
 @comments_routes.route('/<int:id>')
 def get_comments(id):
     transaction = Transaction.query.filter_by(id=id).first()
-    #if transaction does not exist, return to reducer nothing for comments 
+    # if transaction does not exist, return to reducer nothing for comments
     if transaction == None:
         return {"comments": ""}
-    comments=Comment.query.filter(Comment.transactions_id == transaction.id).all()
-    return {"comments":[comment.to_dict() for comment in comments]}
+    comments = Comment.query.filter(
+        Comment.transactions_id == transaction.id).all()
+    return {"comments": [comment.to_dict() for comment in comments]}
+
 
 @comments_routes.route('/<int:id>', methods=['POST'])
 @login_required
 def post_comment(id):
-    form=CommentForm()
-    form['csrf_token'].data=request.cookies['csrf_token']
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = current_user.id
         form_comment = form.comment.data
         # form_transactions_id = Transaction.query.filter_by(id=id).first()
         # print(form_transactions_id, 'HEYYY form transactions id')
         newComment = Comment(
-        comment=form_comment,
-        user_id=user,
-        transactions_id=id
+            comment=form_comment,
+            user_id=user,
+            transactions_id=id
         )
         db.session.add(newComment)
         db.session.commit()

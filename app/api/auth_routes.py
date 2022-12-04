@@ -1,11 +1,11 @@
-import os # Local packages
+import os  # Local packages
 from werkzeug.utils import secure_filename
 
-from flask import Blueprint, jsonify, session, request # External files
+from flask import Blueprint, jsonify, session, request  # External files
 from sqlalchemy import or_
 from flask_login import current_user, login_user, logout_user, login_required
 
-from app.models import User, db # Local files
+from app.models import User, db  # Local files
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from .validation_errors import validation_errors_to_error_messages
@@ -15,6 +15,7 @@ auth_routes = Blueprint('auth', __name__)
 
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -43,16 +44,19 @@ def login():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         # Add the user to the session, we are logged in!
-        user = User.query.filter(or_(User.email == form.data['auth'], User.username == form.data['auth'])).first()
+        user = User.query.filter(
+            or_(User.email == form.data['auth'], User.username == form.data['auth'])).first()
         login_user(user)
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 
 @auth_routes.route('/login/demo', methods=['POST'])
 def demo_login():
     user = User.query.filter(User.username == 'demo').first()
     login_user(user)
     return user.to_dict()
+
 
 @auth_routes.route('/logout')
 def logout():
@@ -75,14 +79,18 @@ def sign_up():
     user_info = form.data['username']  # adds to file name to get user
 
     try:
-        file = request.files['image'] # checks to see if files has a key 'image' and places in file
+        # checks to see if files has a key 'image' and places in file
+        file = request.files['image']
     except:
         file = None
 
-    if file and allowed_file(file.filename): # if the file exists, check the file type with our function
-        file.filename = secure_filename(file.filename)   # checks if file name is secure
+    # if the file exists, check the file type with our function
+    if file and allowed_file(file.filename):
+        # checks if file name is secure
+        file.filename = secure_filename(file.filename)
         # output = upload_file_to_s3(file, app.config["S3_BUCKET"])
-        output = upload_file_to_s3(file, os.environ.get("S3_BUCKET"), user_info) #
+        output = upload_file_to_s3(
+            file, os.environ.get("S3_BUCKET"), user_info)
 
     if form.validate_on_submit():
         user = User(

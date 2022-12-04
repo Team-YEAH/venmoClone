@@ -5,7 +5,8 @@ from .validation_errors import validation_errors_to_error_messages
 from flask_login import login_required
 from sqlalchemy import and_, or_
 
-friends_routes=Blueprint('friend',__name__)
+friends_routes = Blueprint('friend', __name__)
+
 
 @friends_routes.route('', methods=['GET', 'POST', 'PATCH', 'DELETE'])
 @login_required
@@ -26,20 +27,22 @@ def friend():
             accepted = data['accepted']
         user_exist = User.query.filter(User.id == accepter_id).first()
         ret_obj = {
-            'accepted' : False,
-            'requester_id' : requester_id,
-            'accepter_id' : accepter_id,
-            'accepter_username' : user_exist.username,
-            'accepter_profileImage' : user_exist.profileImage
+            'accepted': False,
+            'requester_id': requester_id,
+            'accepter_id': accepter_id,
+            'accepter_username': user_exist.username,
+            'accepter_profileImage': user_exist.profileImage
         }
 
     if request.method == 'POST':
         try:
             fr_exist = db.session.query(friends).filter(
-                                    or_(
-                                    and_(friends.c.requester_id == requester_id,friends.c.accepter_id== accepter_id),
-                                    and_(friends.c.requester_id == accepter_id,friends.c.accepter_id== requester_id)
-                                    )).one()
+                or_(
+                    and_(friends.c.requester_id == requester_id,
+                         friends.c.accepter_id == accepter_id),
+                    and_(friends.c.requester_id == accepter_id,
+                         friends.c.accepter_id == requester_id)
+                )).one()
             if fr_exist.accepted == True:
                 return {'errors': ['Already friends']}
             else:
@@ -47,22 +50,22 @@ def friend():
         except:
             if user_exist:
                 friend_request = friends.insert().values(
-                                                        requester_id=requester_id,
-                                                        accepter_id=accepter_id
-                                                        )
+                    requester_id=requester_id,
+                    accepter_id=accepter_id
+                )
 
                 db.session.execute(friend_request)
                 db.session.commit()
                 return ret_obj
-            return {'errors' : ['User does not exist']}
+            return {'errors': ['User does not exist']}
 
     elif request.method == 'PATCH':
         accept_friend = friends.update(). \
-                                where(and_(friends.c.requester_id == requester_id,
-                                        friends.c.accepter_id== accepter_id)). \
-                                values(
-                                        accepted = True
-                                    )
+            where(and_(friends.c.requester_id == requester_id,
+                       friends.c.accepter_id == accepter_id)). \
+            values(
+            accepted=True
+        )
         requester = User.query.filter(User.id == requester_id).first()
         db.session.execute(accept_friend)
         db.session.commit()
@@ -72,8 +75,8 @@ def friend():
         return ret_obj
     elif request.method == 'DELETE':
         delete_friend = friends.delete(). \
-                                where(and_(friends.c.requester_id == requester_id,
-                                        friends.c.accepter_id== accepter_id))
+            where(and_(friends.c.requester_id == requester_id,
+                       friends.c.accepter_id == accepter_id))
         db.session.execute(delete_friend)
         db.session.commit()
         return ret_obj

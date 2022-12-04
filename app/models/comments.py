@@ -10,10 +10,13 @@ class Comment(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.Text, nullable=False)
-    user_id = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
-    transactions_id = db.Column(db.Integer, ForeignKey(
-        'transactions.id'), nullable=False)
-
+    # user_id = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(
+      add_prefix_for_prod('users.id'), nullable=False))
+    # transactions_id = db.Column(db.Integer, ForeignKey(
+    #     'transactions.id'), nullable=False)
+    transactions_id = db.Column(db.Integer, db.ForeignKey(
+      add_prefix_for_prod('transactions.id'), nullable=False))
     user = db.relationship('User')
 
     def to_dict(self):

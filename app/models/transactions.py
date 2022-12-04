@@ -13,8 +13,10 @@ class Transaction(db.Model):
     cost = db.Column(
         db.Float(precision=10, decimal_return_scale=2, asdecimal=True), nullable=False)
     request = db.Column(db.Boolean, default=False)
-    sender = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
-    receiver = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
+    # sender = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
+    sender = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
+    # receiver = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
+    receiver = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     description = db.Column(db.String(255))
     requester_username = db.Column(db.String(50), nullable=False)

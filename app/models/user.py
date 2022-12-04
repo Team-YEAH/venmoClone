@@ -4,8 +4,8 @@ from flask_login import UserMixin
 
 friends = db.Table(
     "friends",
-    db.Column('requester_id', db.Integer, db.ForeignKey("users.id")),
-    db.Column('accepter_id', db.Integer, db.ForeignKey("users.id")),
+    db.Column('requester_id', db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
+    db.Column('accepter_id', db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
     db.Column('accepted', db.Boolean, default=False)
 
 )
