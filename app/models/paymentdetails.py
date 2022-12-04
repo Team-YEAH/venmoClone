@@ -15,7 +15,7 @@ class PaymentDetail(db.Model):
     billing_address = db.Column(db.String(100))
     # user_id = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(
-      add_prefix_for_prod('users.id'), nullable=False))
+      add_prefix_for_prod('users.id')), nullable=False)
     default_payment = db.Column(db.Boolean, default=False, nullable=False)
 
     def to_dict(self):
